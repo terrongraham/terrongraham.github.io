@@ -78,7 +78,7 @@
       </div>
 
       <div class="project" onclick="toggleProject(this)">
-        <div><strong>Improving Microsoft's employee survey methodology</strong></div>
+        <div><strong>Streamlining Microsoft's employee survey methodology</strong></div>
         <div class="project-content">
             <p>
                 In my role at Microsoft, I played a pivotal role in transforming our departmental survey methodology. I led the charge in shifting our approach from a product-centric mindset to a more experience-centric one. This change was not just about what our products were doing, but how they were impacting the overall user experience. We recognized that understanding the user journey and their interactions with our products was crucial to delivering excellence.</p>
@@ -104,7 +104,7 @@
     </div>
 
     <div class="project" onclick="toggleProject(this)">
-        <div><strong>Performing academic research on emerging technologies that affect women's safety at UPenn </strong></div>
+        <div><strong>Research emerging technologies that affect women's safety at UPenn </strong></div>
         <div class="project-content">
             <p>
                 In the context of our research on the implications of new technologies for women's safety, my role was multifaceted and instrumental in understanding and analyzing the dataset. I began by comprehending the dataset's profile, which laid the foundation for our study. Understanding the nature and composition of the data provided essential context for our subsequent analysis, ensuring a more focused exploration. </p>
@@ -136,26 +136,40 @@
       <div class="project" onclick="toggleProject(this)">
           <div><strong>Creating a data pipeline to analyze Microsoft's survey data </strong></div>
         <div class="project-content">
-            <p>Analyzed Microsoft survey results, implemented Zero-Shot Model</p>
+            <p>
+              During my time at Microsoft, I pioneered the development of a groundbreaking Zero Shot language model that revolutionized our approach to handling internal employee feedback. We were faced with the challenge of deciphering thousands of open-ended responses across various topics from our employees. This innovative language model enabled us to not only create meaningful and actionable insights from this data but also introduced an objective and quantitative tracking system that was previously unattainable. It effectively eliminated the need for extensive manual analysis and interpretation, saving valuable time and resources. </p>
+            <p>
+              As part of the evolution of this system, we further automated the process, ensuring that every week, incoming responses were seamlessly processed and analyzed in real-time. This automation allowed us to track and compare trends in employee comments over time, providing invaluable insights into the evolving sentiments and needs of our workforce. By implementing this cutting-edge technology, we significantly enhanced our ability to understand employee feedback, ultimately contributing to a more responsive and employee-centric approach within Microsoft.</p>
         </div>
     </div>
 
     <div class="project" onclick="toggleProject(this)">
         <div><strong>Engineering a data lake for digital acquisitions at Chase</strong></div>
         <div class="project-content">
-            <p>Build JPMC digital acquisition process.</p>
+            <p>
+              During my tenure at JPMC, I undertook a transformative project by constructing a comprehensive data lake from behavioral clickstream data related to the acquisition process. My work involved extensive research into the user journey, meticulously tracking all links and pages that led to customer applications. By meticulously reverse-engineering the path users took, I was able to develop a Teradata script that efficiently organized this wealth of data into a structured table.</p>
+            <p>
+              This data table was a game-changer, allowing us to filter and analyze crucial fields such as product type, customer demographics, link types (advertisements vs. static links), and more. For the first time, we gained the ability to attribute acquisition volume to specific links and pages, providing invaluable insights into our digital acquisition strategies. Furthermore, it allowed us to gain a holistic view of acquisition volumes and revenue generated from these efforts.</p>
+            <p>
+              The impact of this project was profound. It empowered the consumer bank to conduct data-driven tests on ad effectiveness for different products and determine which links resonated best with specific customer segments. Additionally, it enabled us to optimize user experience elements to maximize performance metrics. In essence, this initiative not only elevated our data analytics capabilities but also empowered us to make more informed decisions and fine-tune our digital acquisition strategies, ultimately contributing to the bank's overall success.</p>
         </div>
     </div>
 
     <div class="project" onclick="toggleProject(this)">
         <div><strong>Developing a customer segmentation approach to drive marketing</strong></div>
-        <div class="project-content">
-            <p>IBC Segmentation marketing to who using list.</p>
+          <div class="project-content">
+            <p>
+              During my tenure at Independence Blue Cross, my role as a data scientist involved spearheading a crucial project that had a profound impact on how we approached prospective customers for health insurance. Drawing from the principles discussed in the article on customer segmentation, I led the effort to create a segmentation model tailored specifically for our target audience. This model was designed to identify shared traits among prospective customers, allowing us to reach out to them with a more personalized approach.</p>
+            <p>
+              The results of this project were remarkable. Instead of casting a wide net and contacting numerous potential customers, we strategically reached out to a smaller, but highly targeted group. By leveraging data-driven insights and utilizing segmentation techniques like Recency, Frequency, and Monetary Value (RFM), we were able to pinpoint those individuals who were most likely to respond positively to our offerings. As a result, not only did the likelihood of response increase significantly, but the revenue generated per outreach also saw a substantial boost. This shift in our approach demonstrated the power of data-driven decision-making and the effectiveness of customer segmentation in optimizing our outreach efforts.</p>
+            <p>
+              In essence, this project underscored the importance of understanding our customers on a granular level and tailoring our marketing strategies accordingly. By applying the principles outlined in the article, we transformed our customer outreach from a broad and indiscriminate effort into a targeted and highly efficient process, ultimately achieving a significant improvement in both response rates and revenue per outreach.</p>
         </div>
     </div>
 
     <script>
         function toggleProject(element) {
+
             element.classList.toggle('active');
         }
     </script>
@@ -195,7 +209,16 @@
 
     <script>
         function toggleProject(element) {
-            element.classList.toggle('active');
+            // Get all project elements
+        const projectElements = document.querySelectorAll('.project');
+
+        // Remove the 'active' class from all project elements
+        projectElements.forEach(function (project) {
+            project.classList.remove('active');
+        });
+
+        // Add the 'active' class to the clicked project element
+        element.classList.add('active');
         }
     </script>
 
@@ -263,8 +286,8 @@
             </div>
             <div class="col-lg-6">
               <ul>
-                <li><i class="bi bi-chevron-right"></i> <strong>Undergrad:</strong> <span>PSU</span></li>
-                <li><i class="bi bi-chevron-right"></i> <strong>Grad:</strong> <span>UPenn</span></li>
+                <li><i class="bi bi-chevron-right"></i> <strong>Undergrad:</strong> <span>Pennsylvania State University</span></li>
+                <li><i class="bi bi-chevron-right"></i> <strong>Grad:</strong> <span>University of Pennsylvania</span></li>
               </ul>
             </div>
           </div>
