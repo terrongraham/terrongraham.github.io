@@ -45,7 +45,35 @@
 </head>
 
 <body>
+    <!-- ======= Open&Close Function ======= -->
+    <script>
+        function toggleProject(element) {
+            // Get all project elements
+            const projectElements = document.querySelectorAll('.project');
 
+            // Hide images of all project elements
+            projectElements.forEach(function (project) {
+                const projectImage = project.querySelector('img');
+                if (projectImage) {
+                    projectImage.style.display = 'none';
+                }
+            });
+
+            // Remove the 'active' class from all project elements
+            projectElements.forEach(function (project) {
+                project.classList.remove('active');
+            });
+
+            // Add the 'active' class to the clicked project element
+            element.classList.add('active');
+
+            // Show the image of the clicked project
+            const projectImage = element.querySelector('img');
+            if (projectImage) {
+                projectImage.style.display = 'block';
+            }
+        }
+    </script>
     <!-- ======= Header ======= -->
     <header id="header">
         <div class="container">
@@ -120,6 +148,10 @@
                             </p>
                         </div>
                     </div>
+                    <div class="col-md-5">
+                        <!-- Add an image element for this project -->
+                        <img src="assets/img/testimonials/testimonials-2.jpg" alt="Project Image 2" style="display: none;">
+                    </div>
                 </div>
             </div>
 
@@ -140,23 +172,14 @@
                             </p>
                         </div>
                     </div>
+                    <div class="col-md-5">
+                        <!-- Add an image element for this project -->
+                        <img src="assets/img/testimonials/testimonials-3.jpg" alt="Project Image 3" style="display: none;">
+                    </div>
                 </div>
             </div>
 
-            <script>
-                function toggleProject(element) {
-                    // Get all project elements
-                    const projectElements = document.querySelectorAll('.project');
 
-                    // Remove the 'active' class from all project elements
-                    projectElements.forEach(function (project) {
-                        project.classList.remove('active');
-                    });
-
-                    // Add the 'active' class to the clicked project element
-                    element.classList.add('active');
-                }
-            </script>
 
         </div>
     </section><!-- End User Research Section -->
@@ -182,6 +205,10 @@
                             </p>
                         </div>
                     </div>
+                    <div class="col-md-5">
+                        <!-- Add an image element for this project -->
+                        <img src="assets/img/testimonials/testimonials-1.jpg" alt="Project Image 1" style="display: none;">
+                    </div>
                 </div>
             </div>
 
@@ -202,6 +229,10 @@
                             </p>
                         </div>
                     </div>
+                    <div class="col-md-5">
+                        <!-- Add an image element for this project -->
+                        <img src="assets/img/testimonials/testimonials-1.jpg" alt="Project Image 1" style="display: none;">
+                    </div>
                 </div>
             </div>
 
@@ -221,6 +252,10 @@
                                 In essence, this project underscored the importance of understanding our customers on a granular level and tailoring our marketing strategies accordingly. By applying the principles outlined in the article, we transformed our customer outreach from a broad and indiscriminate effort into a targeted and highly efficient process, ultimately achieving a significant improvement in both response rates and revenue per outreach.
                             </p>
                         </div>
+                    </div>
+                    <div class="col-md-5">
+                        <!-- Add an image element for this project -->
+                        <img src="assets/img/testimonials/testimonials-1.jpg" alt="Project Image 1" style="display: none;">
                     </div>
                 </div>
             </div>
@@ -253,6 +288,10 @@
                             </p>
                         </div>
                     </div>
+                    <div class="col-md-5">
+                        <!-- Add an image element for this project -->
+                        <img src="assets/img/testimonials/testimonials-1.jpg" alt="Project Image 1" style="display: none;">
+                    </div>
                 </div>
             </div>
 
@@ -273,6 +312,10 @@
                                 The impact of this project was profound in terms of streamlining operations and fostering collaboration across the product groups. Now equipped with a standardized script and a shared data repository, each group could readily compare their performance metrics and share insights. This newfound ability to engage in conversations about performance using a common script, instead of relying on disparate and delayed data sources, significantly improved our agility and decision-making capabilities. In essence, this organizational overhaul not only enhanced our data analytics capabilities but also facilitated more informed and collaborative decision-making, ultimately contributing to the bank's overall success.
                             </p>
                         </div>
+                    </div>
+                    <div class="col-md-5">
+                        <!-- Add an image element for this project -->
+                        <img src="assets/img/testimonials/testimonials-1.jpg" alt="Project Image 1" style="display: none;">
                     </div>
                 </div>
             </div>
@@ -306,6 +349,10 @@
                             </p>
                         </div>
                     </div>
+                    <div class="col-md-5">
+                        <!-- Add an image element for this project -->
+                        <img src="assets/img/testimonials/testimonials-1.jpg" alt="Project Image 1" style="display: none;">
+                    </div>
                 </div>
             </div>
 
@@ -326,6 +373,10 @@
                                 The benefits of this initiative were multifaceted. Not only did team members gain a new skill set that made them more self-reliant in data-related tasks, but it also led to a significant improvement in our team's overall productivity. With the ability to process and analyze data independently, our research projects became more streamlined and efficient. This, in turn, allowed us to provide more timely and data-driven insights to inform product development decisions. Ultimately, by equipping our qualitative UX research team with scripting and coding skills, we not only improved our individual capabilities but also contributed to a more data-savvy and impactful team within Microsoft.
                             </p>
                         </div>
+                    </div>
+                    <div class="col-md-5">
+                        <!-- Add an image element for this project -->
+                        <img src="assets/img/testimonials/testimonials-1.jpg" alt="Project Image 1" style="display: none;">
                     </div>
                 </div>
             </div>
