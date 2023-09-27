@@ -118,7 +118,16 @@
 
     <script>
         function toggleProject(element) {
-            element.classList.toggle('active');
+            // Get all project elements
+        const projectElements = document.querySelectorAll('.project');
+
+        // Remove the 'active' class from all project elements
+        projectElements.forEach(function (project) {
+            project.classList.remove('active');
+        });
+
+        // Add the 'active' class to the clicked project element
+        element.classList.add('active');
         }
     </script>
 
@@ -169,8 +178,16 @@
 
     <script>
         function toggleProject(element) {
+            // Get all project elements
+        const projectElements = document.querySelectorAll('.project');
 
-            element.classList.toggle('active');
+        // Remove the 'active' class from all project elements
+        projectElements.forEach(function (project) {
+            project.classList.remove('active');
+        });
+
+        // Add the 'active' class to the clicked project element
+        element.classList.add('active');
         }
     </script>
 
@@ -262,7 +279,16 @@
 
     <script>
         function toggleProject(element) {
-            element.classList.toggle('active');
+            // Get all project elements
+        const projectElements = document.querySelectorAll('.project');
+
+        // Remove the 'active' class from all project elements
+        projectElements.forEach(function (project) {
+            project.classList.remove('active');
+        });
+
+        // Add the 'active' class to the clicked project element
+        element.classList.add('active');
         }
     </script>
     </div>
