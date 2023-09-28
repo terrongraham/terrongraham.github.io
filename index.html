@@ -48,29 +48,19 @@
     <!-- ======= Open&Close Function ======= -->
     <script>
         function toggleProject(element) {
-            // Get all project elements
-            const projectElements = document.querySelectorAll('.project');
+            // Find the project content within the clicked project element
+            var projectContent = element.querySelector('.project-content');
 
-            // Hide images of all project elements
-            projectElements.forEach(function (project) {
-                const projectImage = project.querySelector('img');
-                if (projectImage) {
-                    projectImage.style.display = 'none';
-                }
-            });
+            // Find the associated image or PDF within the clicked project element
+            var mediaElement = element.querySelector('img, embed');
 
-            // Remove the 'active' class from all project elements
-            projectElements.forEach(function (project) {
-                project.classList.remove('active');
-            });
-
-            // Add the 'active' class to the clicked project element
-            element.classList.add('active');
-
-            // Show the image of the clicked project
-            const projectImage = element.querySelector('img');
-            if (projectImage) {
-                projectImage.style.display = 'block';
+            // Toggle the visibility of the project content
+            if (projectContent.style.display === 'none' || projectContent.style.display === '') {
+                projectContent.style.display = 'block';
+                mediaElement.style.display = 'block'; // Show the associated media
+            } else {
+                projectContent.style.display = 'none';
+                mediaElement.style.display = 'none'; // Hide the associated media
             }
         }
     </script>
@@ -107,81 +97,50 @@
             </div>
 
             <div class="project" onclick="toggleProject(this)">
-
                 <div class="row">
                     <div class="col-md-7">
 
-                        <div><strong>Streamlining Microsoft's employee survey methodology</strong></div>
+                        <div><h4>Streamlining Microsoft's employee survey methodology </h4></div>
                         <div class="project-content">
                             <p>
-                                Microsoft has a strong methodological process involving internal surveys used to test products and methods. My role was to support the Hybrid workstream which focused on improving employees' experience in a new working environment. The group was gaining great data on an incredibly relevant topic but was constantly coming up against the same problem, utilizing it effectively. With 2000+ responses each month, the amount and variety of data meant that just processing open-ended responses and updating mailers took up most of my time. If we were going to utilize this wealth of data effectively, we required a new approach. 
+                                Microsoft has a strong methodological process involving internal surveys used to test products and methods. My role was to support the Hybrid workstream which focused on improving employees' experience in a new working environment. The results of this workstream frequently fed into publicly available output, like shown on the right, as well as internal reporting to the units that manage portions of the experience. <strong>Our group was gaining great data on an important topic but was constantly coming up against the same problem; utilizing it effectively. </strong> With 2000+ responses each month, the amount and variety of data meant that just processing open-ended responses and updating newsletters took up most of my time. If we were going to utilize this wealth of data effectively, we required a new approach.
                             </p>
                             <p>
 
-                                To address the challenge of efficiently utilizing the wealth of data collected through our internal surveys, I proposed a significant overhaul of the survey methodology. One of the key changes was to make the survey modular, breaking it down into smaller, targeted sections that could be customized for different respondent groups. This modular approach allowed us to serve different respondents different questions, tailoring the survey to their specific needs and interests. By doing so, we not only gained wider coverage across various aspects of the employee experience but also increased response rates, as respondents were more likely to engage with a survey that felt relevant to them.
+                                To address the challenge of efficiently utilizing the wealth of data collected through our internal surveys, <strong>I proposed a significant overhaul of the survey methodology</strong>. One of the key changes was to make the survey modular, breaking it down into smaller sections, each of which was bite sized and focused on a specific topic. This modular approach allowed us to serve different respondents different questions, gaining the same depth of information while reducing the number of items respondents see from dozens to fewer than a dozen and saving everyone time. By doing so, we not only gained wider coverage across various aspects of the employee experience but also increased response rates, as respondents were more likely to complete this shortened survey.
                             </p>
                             <p>
-                                Another important modification was the shift from open-ended questions to closed-ended ones, designed to be more easily actionable. While open-ended questions provide valuable insights, they can be time-consuming to analyze and can result in a loss of structured data. By providing respondents with a set of predefined options in closed-ended questions, we ensured that we captured specific, quantifiable responses. However, we also recognized the importance of not losing valuable information that might not fit within the predefined options. To address this concern, we included an "Other" or "Not Applicable" option in each closed-ended question, allowing respondents to provide additional context or input when necessary. This approach struck a balance between structured data collection and the flexibility to capture unexpected insights. With these changes, we not only streamlined the survey process but also improved our ability to extract actionable insights from the data.
+                                Another important modification was the shift from open-ended questions to closed-ended ones, designed to be more easily actionable. While open-ended questions provide valuable insights, they can be time-consuming to analyze and can result in a loss of structured data. By providing respondents with a set of predefined options in closed-ended questions, we ensured that we captured specific, quantifiable responses. However, we also recognized the importance of not losing valuable information that may be emergent. To address this concern, we included an "Other" option in each closed-ended question, allowing respondents to provide additional context or input when necessary. <strong>This approach struck a balance between structured data collection and the flexibility to capture unexpected insights. With these changes, I not only streamlined the survey process but also improved our ability to extract actionable insights from the data.</strong>
                             </p>
                         </div>
                     </div>
                     <div class="col-md-5">
-                        <!-- Add an image element for this project -->
-                        <img src="assets/img/testimonials/testimonials-1.jpg" alt="Project Image 1" style="display: none;">
+                        <embed src="assets/img/WorkReference/MicrosoftWorkLab_MakeIn-personTimeCount.pdf" alt="Project Content 1" style="display: none;" width="100%" height="750px">
                     </div>
                 </div>
             </div>
 
             <div class="project" onclick="toggleProject(this)">
-
                 <div class="row">
                     <div class="col-md-7">
-                        <div><strong>AB-Testing Chase's acquisition pipelines </strong></div>
+                        <div><h4>A/B Testing Chase's acquisition pipelines to increase monthly revenue by $20M </h4></div>
                         <div class="project-content">
                             <p>
-                                During my tenure at JP Morgan Chase, I spearheaded a series of impactful initiatives aimed at enhancing the digital user experience and boosting digital account acquisition across all our products and lines of business. I was responsible for implementing significant changes across both public and private digital portals, with a strong focus on data-driven decision-making. Through rigorous A/B testing, we meticulously fine-tuned our strategies to ensure their success.
+                                During my tenure at JP Morgan Chase, I supported a series of initiatives aimed at enhancing the digital user experience and boosting digital account acquisition through owned advertisements and links. I was responsible for implementing significant changes across both public and private digital portals, with a strong focus on data-driven decision-making. <strong>Through rigorous A/B testing, we meticulously fine-tuned our strategies to ensure their success</strong>.
                             </p>
                             <p>
                                 One of the key achievements during this period was the successful implementation of personalized product recommendations for customers based on their existing holdings. By tailoring product offerings to individual customer profiles, we not only improved user satisfaction but also significantly increased digital account acquisition. Additionally, we revamped enrollment flows for various products to make them more user-friendly and intuitive, thereby removing barriers to entry and encouraging more customers to engage with our services.
                             </p>
                             <p>
-                                As a result of these strategic changes, we witnessed a remarkable 7% increase in total volume, translating to approximately $20 million in marginal value each month. This not only demonstrated the effectiveness of our efforts but also underscored the importance of a user-centric approach in driving business growth and enhancing customer satisfaction at JP Morgan Chase.
+                                <strong>As a result of these strategic changes, we witnessed a 7% increase in total account volume</strong>, primarily driven by an increase in deposit accounts, translating to approximately $20 million in marginal value each month. This not only demonstrated the effectiveness of our efforts but also underscored the importance of a user-centric approach in driving business growth and enhancing customer satisfaction at JP Morgan Chase.
                             </p>
                         </div>
                     </div>
                     <div class="col-md-5">
-                        <!-- Add an image element for this project -->
-                        <img src="assets/img/testimonials/testimonials-2.jpg" alt="Project Image 2" style="display: none;">
+                        <img src="assets/img/WorkReference/EnrollmentGraphic.png" alt="Project Image 1" style="display: none;" width="100%">
                     </div>
                 </div>
             </div>
-
-            <div class="project" onclick="toggleProject(this)">
-
-                <div class="row">
-                    <div class="col-md-7">
-                        <div><strong>Research emerging technologies that affect women's safety at UPenn </strong></div>
-                        <div class="project-content">
-                            <p>
-                                In the context of our research on the implications of new technologies for women's safety, my role was multifaceted and instrumental in understanding and analyzing the dataset. I began by comprehending the dataset's profile, which laid the foundation for our study. Understanding the nature and composition of the data provided essential context for our subsequent analysis, ensuring a more focused exploration.
-                            </p>
-                            <p>
-                                My expertise in performing exploratory analysis was pivotal. I quantified the accessibility and spread of information related to women's safety technologies, offering valuable insights into the prevalence of this issue and how information and technologies were being disseminated and accessed. Additionally, my evaluation of usability brought a user-centered perspective to our research, ensuring we thoroughly examined the practicality and effectiveness of these technologies in real-world scenarios.
-                            </p>
-                            <p>
-                                One of the standout contributions of my role was conducting interviews for a meta-analysis focused on apps designed to prevent sexual violence against college-aged women. These qualitative interviews added a human dimension to our research, providing deeper insights into user experiences and perceptions surrounding these apps. My comprehensive approach, encompassing both quantitative and qualitative analysis, significantly enriched our research, contributing to a more holistic understanding of the implications of technology on women's safety.
-                            </p>
-                        </div>
-                    </div>
-                    <div class="col-md-5">
-                        <!-- Add an image element for this project -->
-                        <img src="assets/img/testimonials/testimonials-3.jpg" alt="Project Image 3" style="display: none;">
-                    </div>
-                </div>
-            </div>
-
-
-
         </div>
     </section><!-- End User Research Section -->
     <!-- ======= Data Section ======= -->
@@ -196,19 +155,20 @@
 
                 <div class="row">
                     <div class="col-md-7">
-                        <div><strong>Creating a data pipeline to analyze Microsoft's survey data </strong></div>
+                        <div><h4>Creating a data pipeline to analyze Microsoft's survey data </h4></div>
                         <div class="project-content">
                             <p>
-                                During my time at Microsoft, I pioneered the development of a groundbreaking Zero Shot language model that revolutionized our approach to handling internal employee feedback. We were faced with the challenge of deciphering thousands of open-ended responses across various topics from our employees. This innovative language model enabled us to not only create meaningful and actionable insights from this data but also introduced an objective and quantitative tracking system that was previously unattainable. It effectively eliminated the need for extensive manual analysis and interpretation, saving valuable time and resources.
+                                During my early days at Microsoft, my primary focus was analyzing respondent data and adjusting mailers to inform stakeholders. It quickly became apparent that more time to research would allow me to uncover novel insights, which was a more valuable use of time. To address the analysis hurdle, I developed a series of scripts designed to automate various aspects of data management. These scripts streamlined the organization of respondent data, validated survey rating confidence intervals, populated mailer files and finally created a language model for handling open-ended responses. This innovation not only streamlined our data analysis but also introduced an objective tracking system, eliminating the need for extensive manual work and allowing greater consistency as we no longer relied on human ratings. 
                             </p>
                             <p>
+                                
                                 As part of the evolution of this system, we further automated the process, ensuring that every week, incoming responses were seamlessly processed and analyzed in real-time. This automation allowed us to track and compare trends in employee comments over time, providing invaluable insights into the evolving sentiments and needs of our workforce. By implementing this cutting-edge technology, we significantly enhanced our ability to understand employee feedback, ultimately contributing to a more responsive and employee-centric approach within Microsoft.
                             </p>
                         </div>
                     </div>
                     <div class="col-md-5">
                         <!-- Add an image element for this project -->
-                        <img src="assets/img/testimonials/testimonials-1.jpg" alt="Project Image 1" style="display: none;">
+                        <object src="assets/img/testimonials/testimonials-1.jpg" alt="Project Image 1" style="display: none;"></object>
                     </div>
                 </div>
             </div>
@@ -217,7 +177,7 @@
 
                 <div class="row">
                     <div class="col-md-7">
-                        <div><strong>Engineering a data lake for digital acquisitions at Chase</strong></div>
+                        <div><h4>Engineering a data lake for digital acquisitions at Chase</h4></div>
                         <div class="project-content">
                             <p>
                                 During my tenure at JPMC, I spearheaded a transformative technical project centered around the construction of a comprehensive data lake using behavioral clickstream data related to the acquisition process. My role involved delving deep into the user journey, meticulously tracing and recording all links and pages that led to customer applications. Through reverse-engineering this intricate path, I developed a highly efficient Teradata script that skillfully organized this vast dataset into a structured table.
@@ -241,7 +201,7 @@
 
                 <div class="row">
                     <div class="col-md-7">
-                        <div><strong>Developing a customer segmentation approach to drive marketing</strong></div>
+                        <div><h4>Developing a customer segmentation approach to drive marketing</h4></div>
                         <div class="project-content">
                             <p>
                                 During my tenure at Independence Blue Cross, my role as a data scientist involved spearheading a crucial project that had a profound impact on how we approached prospective customers for health insurance. Drawing from the principles discussed in the article on customer segmentation, I led the effort to create a segmentation model tailored specifically for our target audience. This model was designed to identify shared traits among prospective customers, allowing us to reach out to them with a more personalized approach.
@@ -304,19 +264,19 @@
                         <div><strong>Unifying Chase's digital acquisition approach </strong></div>
                         <div class="project-content">
                             <p>
-                                During my tenure at JPMC, I spearheaded a transformative organizational project focused on consolidating data management processes across seven distinct product groups. Each of these groups utilized different methods, tools, and metrics to conduct their work, creating a significant challenge in terms of performance analysis and reporting. To address this issue, I led an effort to establish a unified data management framework that would enable us to compare and assess performance consistently across these diverse units.
+                                For any consumer business there is a great deal of effort put into bringing in new customers and getting existing customers onboarded to new products. Oftentimes though, when the list of products is as diverse as it currently is for JP Morgan Chase's consumer bank there is a great deal of difficulty in building a common language and tracking performance in comparable ways. When I arrived at Chase there was an expectation that each product group (Checking, Savings, Credit Cards, Personal Loans, Mortgages, Auto Leases and Auto Loans) perform their own analysis, reporting and communication. In addition, because each group was working independently these groups often competed for resources to eachothers' detriment. As a result, the analysis product groups' performed was not comparable to eachother and bankwide success was not able to be the priority.
                             </p>
                             <p>
-                                The cornerstone of this initiative was the creation of a comprehensive data lake utilizing behavioral clickstream data related to the acquisition process. This endeavor required meticulous research into the user journey, involving the tracking and documentation of all links and pages leading to customer applications. By reverse-engineering this complex path, I developed a Teradata script that efficiently organized this extensive dataset into a structured table, providing a common framework for data analysis.
+                                To tackle this challenge, I took the lead in developing a cohesive data management framework designed to facilitate consistent performance evaluation across various units. At the core of this endeavor was the overhaul and standardization of transactional enrollment data, as well as behavioral clickstream data associated with the acquisition process. This undertaking involved in-depth research into the user journey, including meticulous tracking and documentation of all links and pages leading to customer applications. By tracing these paths, we constructed a comprehensive taxonomy and subsequently created a Teradata script. This script efficiently organized the vast Adobe dataset, containing billions of rows, into a structured acquisition table of thousands of rows. This achievement established a common framework for analysis, streamlining the process and enhancing our ability to assess performance consistently across diverse products.
                             </p>
                             <p>
-                                The impact of this project was profound in terms of streamlining operations and fostering collaboration across the product groups. Now equipped with a standardized script and a shared data repository, each group could readily compare their performance metrics and share insights. This newfound ability to engage in conversations about performance using a common script, instead of relying on disparate and delayed data sources, significantly improved our agility and decision-making capabilities. In essence, this organizational overhaul not only enhanced our data analytics capabilities but also facilitated more informed and collaborative decision-making, ultimately contributing to the bank's overall success.
+                                The impact of this project had a profound effect on our understanding of our business. With the implementation of a standardized script and the establishment of a universal data repository, we gained the ability to easily compare each group's performance metrics. This newfound capability to engage in performance discussions using a common script, rather than relying on separate and delayed data sources, significantly enhanced our agility and decision-making abilities. It also provided us with a holistic "All Chase" view of our products, enabling us to prioritize products at a high level instead of locally. In essence, this organizational overhaul not only bolstered our data analytics capabilities but also facilitated more informed decision-making.
                             </p>
                         </div>
                     </div>
                     <div class="col-md-5">
                         <!-- Add an image element for this project -->
-                        <img src="assets/img/testimonials/testimonials-1.jpg" alt="Project Image 1" style="display: none;">
+                        <embed src="assets/img/WorkReference/ChaseHomepage.pdf" width="100%" height="550px" alt="Project Image 2" style="display: none;">
                     </div>
                 </div>
             </div>
