@@ -2,496 +2,467 @@
 <html lang="en">
 
 <head>
-    <meta charset="utf-8">
-    <meta content="width=device-width, initial-scale=1.0" name="viewport">
+  <meta charset="utf-8">
+  <meta content="width=device-width, initial-scale=1.0" name="viewport">
 
-    <title>Terron Graham's Portfolio</title>
-    <meta content="" name="description">
-    <meta content="" name="keywords">
+  <title>Terron Graham's Portfolio</title>
+  <meta content="" name="description">
+  <meta content="" name="keywords">
 
-    <!-- Favicons -->
-    <link href="assets/img/icon.png" rel="icon">
-    <link href="assets/img/icon.png" rel="apple-touch-icon">
+  <!-- Favicons -->
+  <link href="assets/img/icon.png" rel="icon">
+  <link href="assets/img/icon.png" rel="apple-touch-icon">
 
-    <!-- Google Fonts -->
-    <link href="https://fonts.googleapis.com/css?family=Open+Sans:300,300i,400,400i,600,600i,700,700i|Raleway:300,300i,400,400i,500,500i,600,600i,700,700i|Poppins:300,300i,400,400i,500,500i,600,600i,700,700i" rel="stylesheet">
+  <!-- Google Fonts -->
+  <link href="https://fonts.googleapis.com/css?family=Open+Sans:300,300i,400,400i,600,600i,700,700i|Raleway:300,300i,400,400i,500,500i,600,600i,700,700i|Poppins:300,300i,400,400i,500,500i,600,600i,700,700i" rel="stylesheet">
 
-    <!-- Vendor CSS Files -->
-    <link href="assets/vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
-    <link href="assets/vendor/bootstrap-icons/bootstrap-icons.css" rel="stylesheet">
-    <link href="assets/vendor/boxicons/css/boxicons.min.css" rel="stylesheet">
-    <link href="assets/vendor/glightbox/css/glightbox.min.css" rel="stylesheet">
-    <link href="assets/vendor/remixicon/remixicon.css" rel="stylesheet">
-    <link href="assets/vendor/swiper/swiper-bundle.min.css" rel="stylesheet">
+  <!-- Vendor CSS Files -->
+  <link href="assets/vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
+  <link href="assets/vendor/bootstrap-icons/bootstrap-icons.css" rel="stylesheet">
+  <link href="assets/vendor/boxicons/css/boxicons.min.css" rel="stylesheet">
+  <link href="assets/vendor/glightbox/css/glightbox.min.css" rel="stylesheet">
+  <link href="assets/vendor/remixicon/remixicon.css" rel="stylesheet">
+  <link href="assets/vendor/swiper/swiper-bundle.min.css" rel="stylesheet">
 
-    <!-- Template Main CSS File -->
-    <link href="assets/css/style.css" rel="stylesheet">
+  <!-- Template Main CSS File -->
+  <link href="assets/css/style.css" rel="stylesheet">
 
-    <style>
-        .project {
-            cursor: pointer;
-            margin-bottom: 10px;
-        }
+  <style>
+    .project {
+      cursor: pointer;
+      margin-bottom: 10px;
+    }
 
-        .project-content {
-            display: none;
-        }
+    .project-content {
+      display: none;
+    }
 
-        .project.active .project-content {
-            display: block;
-        }
-    </style>
+    .project.active .project-content {
+      display: block;
+    }
+  </style>
 
 </head>
 
 <body>
-    <!-- ======= Open&Close Function ======= -->
-    <script>
-        function toggleProject(element) {
+<!-- ======= Open&Close Function ======= -->
+  <script>
+    function toggleProject(element) {
             // Find the project content within the clicked project element
-            var projectContent = element.querySelector('.project-content');
+      var projectContent = element.querySelector('.project-content');
 
             // Find the associated image or PDF within the clicked project element
-            var mediaElement = element.querySelector('img, embed');
+      var mediaElement = element.querySelector('img, embed');
 
             // Toggle the visibility of the project content
-            if (projectContent.style.display === 'none' || projectContent.style.display === '') {
-                projectContent.style.display = 'block';
+      if (projectContent.style.display === 'none' || projectContent.style.display === '') {
+        projectContent.style.display = 'block';
                 mediaElement.style.display = 'block'; // Show the associated media
-            } else {
+              } else {
                 projectContent.style.display = 'none';
                 mediaElement.style.display = 'none'; // Hide the associated media
+              }
             }
-        }
-    </script>
-    <!-- ======= Header ======= -->
-    <header id="header">
-        <div class="container">
+  </script>
+<!-- ======= Header ======= -->
+  <header id="header">
+    <div class="container">
+      <h1>Terron Graham</h1>
+      <h2>
+        A presentation of my experience and abilities.<br>
+        Reach out for more information at TerronGraham@Gmail.com.
+      </h2>
 
-            <h1>Terron Graham</h1>
-            <h2>
-                A presentation of my experience and abilities.<br>
-                Reach out for more information at TerronGraham@Gmail.com.
-            </h2>
+      <nav id="navbar" class="navbar">
+        <ul>
+          <li><a class="nav-link active" href="#header">Home</a></li>
+          <li><a class="nav-link" href="#UX">User Research</a></li>
+          <li><a class="nav-link" href="#Data">Data Science</a></li>
+          <li><a class="nav-link" href="#Strategy">Strategy</a></li>
+          <li><a class="nav-link" href="#leadership">Leadership</a></li>
+          <li><a class="nav-link" href="#Resume">Resume</a></li>
+        </ul>
+        <i class="bi bi-list mobile-nav-toggle"></i>
+      </nav><!-- .navbar -->
 
-            <nav id="navbar" class="navbar">
-                <ul>
-                    <li><a class="nav-link active" href="#header">Home</a></li>
-                    <li><a class="nav-link" href="#UX">User Research</a></li>
-                    <li><a class="nav-link" href="#Data">Data Science</a></li>
-                    <li><a class="nav-link" href="#Strategy">Strategy</a></li>
-                    <li><a class="nav-link" href="#leadership">Leadership</a></li>
-                    <li><a class="nav-link" href="#Resume">Resume</a></li>
-                </ul>
-                <i class="bi bi-list mobile-nav-toggle"></i>
-            </nav><!-- .navbar -->
+    </div>
+  </header><!-- End Header -->
 
-        </div>
-    </header><!-- End Header -->
-    <!-- ======= User Research Section ======= -->
-    <section id="UX" class="UX">
-        <div class="container">
+<!-- ======= User Research Section ======= -->
+  <section id="UX" class="UX">
+    <div class="container">
 
-            <div class="section-title">
-                <h2>Projects</h2>
+      <div class="section-title">
+        <h2>Projects</h2>
+      </div>
+
+      <div class="project" onclick="toggleProject(this)">
+        <div class="row">
+          <div><h4 class="hover-underline">Making Microsoft's employee survey approach more actionable </h4></div>
+          <div class="col-md-7">
+            <div class="project-content">
+              <p>
+                Microsoft has a strong methodological process involving internal surveys used to test products and methods. My role was to support the Hybrid workstream which focused on improving employees' experience in a new working environment. The results of this workstream frequently fed into publicly available output, like shown on the right, as well as internal reporting to the units that manage portions of the experience. <strong>Our group was gaining great data on an important topic but was constantly coming up against the same problem; utilizing it effectively. </strong> With 2000+ responses each month, the amount and variety of data meant that just processing open-ended responses and updating newsletters took up most of my time. If we were going to utilize this wealth of data effectively, we required a new approach.
+              </p>
+              <p>
+
+                To address the challenge of efficiently utilizing the wealth of data collected through our internal surveys, <strong>I proposed a significant overhaul of the survey methodology</strong>. One of the key changes was to make the survey modular, breaking it down into smaller sections, each of which was bite sized and focused on a specific topic. This modular approach allowed us to serve different respondents different questions, gaining the same depth of information while reducing the number of items respondents see from dozens to fewer than a dozen and saving everyone time. By doing so, we not only gained wider coverage across various aspects of the employee experience but also increased response rates, as respondents were more likely to complete this shortened survey.
+              </p>
+              <p>
+                Another important modification was the shift from open-ended questions to closed-ended ones, designed to be more easily actionable. While open-ended questions provide valuable insights, they can be time-consuming to analyze and can result in a loss of structured data. By providing respondents with a set of predefined options in closed-ended questions, we ensured that we captured specific, quantifiable responses. However, we also recognized the importance of not losing valuable information that may be emergent. To address this concern, we included an "Other" option in each closed-ended question, allowing respondents to provide additional context or input when necessary. <strong>This approach struck a balance between structured data collection and the flexibility to capture unexpected insights. With these changes, I not only streamlined the survey process but also improved our ability to extract actionable insights from the data.</strong>
+              </p>
             </div>
-
-            <div class="project" onclick="toggleProject(this)">
-                <div class="row">
-                    <div class="col-md-7">
-
-                        <div><h4>Streamlining Microsoft's employee survey methodology </h4></div>
-                        <div class="project-content">
-                            <p>
-                                Microsoft has a strong methodological process involving internal surveys used to test products and methods. My role was to support the Hybrid workstream which focused on improving employees' experience in a new working environment. The results of this workstream frequently fed into publicly available output, like shown on the right, as well as internal reporting to the units that manage portions of the experience. <strong>Our group was gaining great data on an important topic but was constantly coming up against the same problem; utilizing it effectively. </strong> With 2000+ responses each month, the amount and variety of data meant that just processing open-ended responses and updating newsletters took up most of my time. If we were going to utilize this wealth of data effectively, we required a new approach.
-                            </p>
-                            <p>
-
-                                To address the challenge of efficiently utilizing the wealth of data collected through our internal surveys, <strong>I proposed a significant overhaul of the survey methodology</strong>. One of the key changes was to make the survey modular, breaking it down into smaller sections, each of which was bite sized and focused on a specific topic. This modular approach allowed us to serve different respondents different questions, gaining the same depth of information while reducing the number of items respondents see from dozens to fewer than a dozen and saving everyone time. By doing so, we not only gained wider coverage across various aspects of the employee experience but also increased response rates, as respondents were more likely to complete this shortened survey.
-                            </p>
-                            <p>
-                                Another important modification was the shift from open-ended questions to closed-ended ones, designed to be more easily actionable. While open-ended questions provide valuable insights, they can be time-consuming to analyze and can result in a loss of structured data. By providing respondents with a set of predefined options in closed-ended questions, we ensured that we captured specific, quantifiable responses. However, we also recognized the importance of not losing valuable information that may be emergent. To address this concern, we included an "Other" option in each closed-ended question, allowing respondents to provide additional context or input when necessary. <strong>This approach struck a balance between structured data collection and the flexibility to capture unexpected insights. With these changes, I not only streamlined the survey process but also improved our ability to extract actionable insights from the data.</strong>
-                            </p>
-                        </div>
-                    </div>
-                    <div class="col-md-5">
-                        <embed src="assets/img/WorkReference/MicrosoftWorkLab_MakeIn-personTimeCount.pdf" alt="Project Content 1" style="display: none;" width="100%" height="750px">
-                    </div>
-                </div>
+          </div>
+          <div class="col-md-5">
+            <embed src="assets/img/WorkReference/MicrosoftWorkLab_MakeIn-personTimeCount.pdf" alt="Project Content 1" style="display: none;" width="100%" height="750px">
             </div>
-
-            <div class="project" onclick="toggleProject(this)">
-                <div class="row">
-                    <div class="col-md-7">
-                        <div><h4>A/B Testing Chase's acquisition pipelines to increase monthly revenue by $20M </h4></div>
-                        <div class="project-content">
-                            <p>
-                                During my tenure at JP Morgan Chase, I supported a series of initiatives aimed at enhancing the digital user experience and boosting digital account acquisition through owned advertisements and links. I was responsible for implementing significant changes across both public and private digital portals, with a strong focus on data-driven decision-making. <strong>Through rigorous A/B testing, we meticulously fine-tuned our strategies to ensure their success</strong>.
-                            </p>
-                            <p>
-                                One of the key achievements during this period was the successful implementation of personalized product recommendations for customers based on their existing holdings. By tailoring product offerings to individual customer profiles, we not only improved user satisfaction but also significantly increased digital account acquisition. Additionally, we revamped enrollment flows for various products to make them more user-friendly and intuitive, thereby removing barriers to entry and encouraging more customers to engage with our services.
-                            </p>
-                            <p>
-                                <strong>As a result of these strategic changes, we witnessed a 7% increase in total account volume, primarily driven by an increase in deposit accounts, translating to approximately $20 million in marginal value each month.</strong> 
-                            </p>
-                        </div>
-                    </div>
-                    <div class="col-md-5">
-                        <img src="assets/img/WorkReference/EnrollmentGraphic.png" alt="Project Image 1" style="display: none;" width="100%">
-                    </div>
-                </div>
-            </div>
-        </div>
-    </section><!-- End User Research Section -->
-    <!-- ======= Data Section ======= -->
-    <section id="Data" class="Data">
-        <div class="container">
-
-            <div class="section-title">
-                <h2>Projects</h2>
-            </div>
-
-            <div class="project" onclick="toggleProject(this)">
-
-                <div class="row">
-                    <div class="col-md-7">
-                        <div><h4>Creating a data pipeline to analyze Microsoft's survey data </h4></div>
-                        <div class="project-content">
-                            <p>
-                                During my early days at Microsoft, my primary focus was analyzing respondent data and adjusting mailers to inform stakeholders. <strong>It quickly became apparent that more time to research would allow me to uncover novel insights, which was a more valuable use of time.</strong> To address the analysis hurdle, I developed a series of scripts designed to automate various aspects of data management. These scripts streamlined the organization of respondent data, validated survey rating confidence intervals, populated mailer files and finally created a language model for handling open-ended responses. This innovation not only streamlined our data analysis but also introduced an objective tracking system, eliminating the need for extensive manual work and allowing greater consistency as we no longer relied on human ratings.</p>
-                            <p> 
-                                As part of the evolution of this system, I further automated the process, ensuring that every week, incoming responses were seamlessly processed and analyzed in real-time. This automation allowed us to track and compare trends in employee comments over time, providing invaluable insights into the evolving sentiments and needs of our workforce. <strong>By implementing this workflow, we significantly enhanced our ability to understand employee feedback, ultimately contributing to a more responsive and employee-centric approach within Microsoft.</strong></p>
-                        </div>
-                    </div>
-                    <div class="col-md-5">
-                        <img src="assets/img/WorkReference/MicrosoftPipeline.png" alt="Project Image 1" style="display: none;" width="100%">
-                    </div>
-                </div>
-            </div>
-
-            <div class="project" onclick="toggleProject(this)">
-
-                <div class="row">
-                    <div class="col-md-7">
-                        <div><h4>Engineering a data lake for digital acquisitions at Chase</h4></div>
-                        <div class="project-content">
-                            <p>
-                                To facilitate a unified product tracking system across Chase, I spearheaded a significant technical initiative aimed at constructing a robust data lake harnessing behavioral clickstream data associated with customer acquisition. The underlying behavioral database of this acquisition data repository was substantial, given that Chase.com ranks among the top 50 most frequently visited websites in the United States, <strong>with 800 million monthly visits and 6 billion page views</strong>. The query times for this expansive database were prohibitively long due to their size, and the data within it was not structured in a user-friendly manner, necessitating analysts to perform complex table joins to extract meaningful insights.</p>
-                            <p>
-                                My role involved architecting a faster, more intuitive database capable of analyzing acquisition activities across all consumer banking products. This process required a mastery of the data as well as the business. Data mastery was essential as it allowed selection of the right columns and unique indexes to speed up the process. Our efforts resulted in a significant boost in efficiency. <strong>Analysts experienced a more than 90% reduction in query time, allowing them to access crucial insights almost instantly, instead of in hours.</strong> Furthermore, we simplified the database structure, reducing the number of tables required to see an application journey from four to just one.</p>
-                            <p>
-                                At the end of the project, I had developed an efficient Teradata script that transformed the dataset into a structured table, guaranteeing data integrity, efficiency, and scalability. This automation ensured that the data remained up-to-date even in my absence. The resulting data table offered us the capability to filter and analyze pivotal fields like product types and customer demographics, as well as what specific link drove traffic, thereby providing invaluable insights into our digital acquisition strategies and revenue generation. <strong>Moreover, it enabled data-driven assessments of advertising effectiveness and optimizations in user experience, significantly contributing to the bank's overall success.</strong> </p>
-                        </div>
-                    </div>
-                    <div class="col-md-5">
-                        <img src="assets/img/WorkReference/DatabaseCreation.png" alt="Project Image 1" style="display: none;" width="100%">
-                    </div>
-                </div>
-            </div>
-
-            <div class="project" onclick="toggleProject(this)">
-
-                <div class="row">
-                    <div class="col-md-7">
-                        <div><h4>Developing a customer segmentation approach to reduce marketing expenses by 20%</h4></div>
-                        <div class="project-content">
-                            <p>
-                                At Independence Blue Cross, I led a project focused on optimizing our direct mail marketing for health insurance enrollment. To do this, I employed Random Forest techniques to identify the most promising prospects for our mailers. The goal was to make our marketing campaigns more cost-effective and efficient. I used Random Forest to build predictive models that assessed the likelihood of individuals enrolling in health insurance after receiving our mailers. This involved tasks like data preprocessing, feature engineering, and model selection.</p>
-                            <p>
-                                I fine-tuned the algorithm to identify prospects with the highest enrollment potential by analyzing various factors like demographics, health history, and past mailing responses. The results were significant. Through this data-driven approach, we managed to reduce our marketing expenses by over 20% while achieving the same enrollment results as in previous years. Targeting prospects with the highest likelihood of enrolling made our operations more efficient and improved our return on investment.
-                            </p>
-                        </div>
-                    </div>
-                    <div class="col-md-5">
-                        <!-- Add an image element for this project -->
-                        <img src="assets/img/WorkReference/RandomForest.png" alt="Project Image 1" style="display: none;" width="100%">
-                    </div>
-                </div>
-            </div>
-
+          </div>
         </div>
 
-    </section><!-- End Data Section -->
-    <!-- ======= Strategy Section ======= -->
-    <section id="Strategy" class="Strategy">
-        <div class="container">
-
-            <div class="section-title">
-                <h2>Projects</h2>
+        <div class="project" onclick="toggleProject(this)">
+          <div class="row">
+            <div><h4 class="hover-underline">A/B Testing Chase's acquisition pipelines to increase monthly revenue by $20M </h4></div>
+            <div class="col-md-7">
+              <div class="project-content">
+                <p>
+                  During my tenure at JP Morgan Chase, I supported a series of initiatives aimed at enhancing the digital user experience and boosting digital account acquisition through owned advertisements and links. I was responsible for supporting acquisition research across both public and private digital portals, with a focus on data-driven decision-making. <strong>Through rigorous A/B testing, we meticulously fine-tuned our strategies to ensure more clients were arriving to acquisition funnels and of those that arrived more of them gained an account</strong>.
+                </p>
+                <p>
+                  One of the key achievements during this period was the successful implementation of personalized product recommendations for customers based on their existing holdings. By tailoring product offerings to individual customer profiles, we not only improved user satisfaction but also significantly increased digital account acquisition. Additionally, we revamped enrollment flows for various products to make them more user-friendly and intuitive, thereby removing barriers to entry and encouraging more customers to engage with our services. Each of these changes was tested to ensure improvements were marginal and sustained. 
+                </p>
+                <p>
+                  <strong>As a result of these strategic changes, we witnessed a 7% increase in total account volume year over year, primarily driven by an increase in deposit accounts, translating to approximately $20 million in revenue each month.</strong> 
+                </p>
+              </div>
             </div>
-
-            <div class="project" onclick="toggleProject(this)">
-
-                <div class="row">
-                    <div class="col-md-7">
-                        <div><h4>Fixing Chase's platform-wide Interstitial feature </h4></div>
-                        <div class="project-content">
-                            <p>
-                                In my role at JP Morgan Chase, I played a pivotal part in identifying and addressing a critical issue related to the effectiveness of the "Announcements" feature which is intended to provide information on changes after a customer signs in. It began when I performed fundamental research to assess the feature's performance. What caught my attention was that the Announcements were consistently underperforming, falling far below the expected metrics. <strong>It became evident that a significantly lower number of users were actually seeing these Announcements, even though the feature was designed to reach everyone eventually.</strong> In some instances, the visibility rate for an Announcement was as low as 30%.
-                            </p>
-                            <p>
-                                Upon digging deeper, I uncovered several key insights that shed light on the problem. First, I realized that all "Sign in interstitials," including "Announcements," were competing for priority in terms of display. Second, I discovered that the platform responsible for showcasing these interstitials wasn't under the jurisdiction of any internal team, resulting in a lack of controls and design guidelines. Third, a closer examination of other "Sign in interstitials" revealed a stark lack of design cohesion across the board. Lastly, I found that some of these interstitials were broken, repeatedly disrupting users instead of being dismissed after the initial display. User feedback in our Voice of Customer (VOC) channels confirmed that this issue was causing significant frustration.
-                            </p>
-                            <p>
-                                <strong>To tackle this issue head-on, my team within the organization took charge of the "Sign in interstitials" platform. We implemented comprehensive design guidelines, ensuring consistency and effectiveness across all interstitials.</strong> Additionally, we fixed the broken ones, ensuring that they would function correctly and no longer disrupt users excessively. This initiative not only improved the user experience but also enhanced our ability to effectively communicate important announcements to our customers.
-                            </p>
-                        </div>
-                    </div>
-                    <div class="col-md-5">
-                        <!-- Add an image element for this project -->
-                        <img src="assets/img/WorkReference/ChaseAnnouncements.png" alt="Project Image 1" style="display: none;" width="100%">
-                    </div>
-                </div>
+            <div class="col-md-5">
+              <img src="assets/img/WorkReference/EnrollmentGraphic.png" alt="Project Image 1" style="display: none;" width="100%">
             </div>
-
-
-            <div class="project" onclick="toggleProject(this)">
-
-                <div class="row">
-                    <div class="col-md-7">
-                        <div><h4>Unifying Chase's digital acquisition approach </h4></div>
-                        <div class="project-content">
-                            <p>
-                                When I arrived at Chase there was an expectation that each product group (Checking, Savings, Credit Cards, Personal Loans, Mortgages, Auto Leases and Auto Loans) perform their own analysis, reporting and communication. In addition, because each group was working independently these groups often competed for resources to eachothers' detriment. As a result, the analysis product groups' performed was not comparable to eachother and <strong>bankwide success was not able to be the priority.</strong>
-                            </p>
-                            <p>
-                                <strong>To tackle this challenge, I took the lead in developing a cohesive data management framework designed to facilitate consistent performance evaluation across various units.</strong> At the core of this endeavor was the overhaul and standardization of transactional enrollment data, as well as behavioral clickstream data associated with the acquisition process. This undertaking involved in-depth research into the user journey, including meticulous tracking and documentation of all links and pages leading to customer applications. By tracing these paths, we constructed a comprehensive taxonomy and subsequently created a Teradata script. This script efficiently organized the vast Adobe dataset, containing billions of rows, into a structured acquisition table of thousands of rows. This achievement established a common framework for analysis, streamlining the process and enhancing our ability to assess performance consistently across diverse products.
-                            </p>
-                            <p>
-                                The impact of this project had a profound effect on our understanding of our business. With the implementation of a standardized script and the establishment of a universal data repository, we gained the ability to easily compare each group's performance metrics. This newfound capability to engage in performance discussions using a common script, rather than relying on separate and delayed data sources, significantly enhanced our agility and decision-making abilities. It also provided us with a holistic "All Chase" view of our products, enabling us to prioritize products at a high level instead of locally. <strong>In essence, this organizational overhaul not only bolstered our data analytics capabilities but also facilitated more informed decision-making.</strong>
-                            </p>
-                        </div>
-                    </div>
-                    <div class="col-md-5">
-                        <!-- Add an image element for this project -->
-                        <img src="assets/img/WorkReference/ChaseHomepage.png" alt="Project Image 1" style="display: none;" width="100%">
-                    </div>
-                </div>
-            </div>
-
-
+          </div>
         </div>
+    </div>
+  </section>
+<!-- End User Research Section -->
 
-    </section><!-- End Strategy Section -->
-    <!-- ======= Leadership Section ======= -->
-    <section id="leadership" class="leadership">
-        <div class="container">
+<!-- ======= Data Section ======= -->
+  <section id="Data" class="Data">
+    <div class="container">
 
-            <div class="section-title">
-                <h2>Projects</h2>
+      <div class="section-title">
+        <h2>Projects</h2>
+      </div>
+
+      <div class="project" onclick="toggleProject(this)">
+
+        <div class="row">
+          <div><h4 class="hover-underline">Creating a data pipeline to analyze Microsoft's survey data </h4></div>  
+          <div class="col-md-7">
+            <div class="project-content">
+              <p>
+                During my early days at Microsoft, my primary focus was analyzing respondent data and adjusting mailers to inform stakeholders. <strong>It quickly became apparent that more time to research would allow me to uncover novel insights, which was a more valuable use of time.</strong> To address the analysis hurdle, I developed a series of scripts designed to automate various aspects of data management. These scripts streamlined the organization of respondent data, validated survey rating confidence intervals, populated mailer files and finally created a language model for handling open-ended responses. This innovation not only streamlined our data analysis but also introduced an objective tracking system, eliminating the need for extensive manual work and allowing greater consistency as we no longer relied on human ratings.</p>
+                <p> 
+                As part of the evolution of this system, I further automated the process, ensuring that every week, incoming responses were seamlessly processed and analyzed in real-time. This automation allowed us to track and compare trends in employee comments over time, providing invaluable insights into the evolving sentiments and needs of our workforce. <strong>By implementing this workflow, we significantly enhanced our ability to understand employee feedback, ultimately contributing to a more responsive and employee-centric approach within Microsoft.</strong></p>
             </div>
-
-            <div class="project" onclick="toggleProject(this)">
-
-                <div class="row">
-                    <div class="col-md-7">
-                        <div><h4>Hiring 5 team members at Chase to rebuild a depleted team </h4></div>
-                        <div class="project-content">
-                            <p>
-                                During the Great Resignation in early 2022 my team was depleted significantly and suddenly. I took on a role in re-expanding our team's capacity. <strong>Over the course of just three months, I successfully recruited and onboarded five new team members, effectively growing our team from three to eight members.</strong> This endeavor was not just about increasing headcount; it was about strategically identifying and bringing on board individuals who would not only fit seamlessly into our team culture but also excel in their roles.
-                            </p>
-                            <p>
-                                To achieve this, I developed an objective criteria to evaluate potential candidates. This criteria encompassed both a behavioral portion of the interview process and a coding assessment. It was essential for us to assess not only technical skills but also interpersonal qualities that would contribute to a positive and productive team dynamic. Notably, each of these new hires not only successfully integrated into the organization but also demonstrated outstanding performance in their respective roles, consistently delivering valuable contributions to our team's success. <strong>All five of the team members that were hired were still in the organization adding value one year later, proving that the decisions made were the correct ones.</strong>
-                            </p>
-                        </div>
-                    </div>
-                    <div class="col-md-5">
-                        <!-- Add an image element for this project -->
-                        <img src="assets/img/WorkReference/ChaseHiring.png" alt="Project Image 1" style="display: none;" width="100%">
-                    </div>
-                </div>
-            </div>
-
-
-            <div class="project" onclick="toggleProject(this)">
-
-                <div class="row">
-                    <div class="col-md-7">
-                        <div><h4>Teaching team members at Microsoft data skills to increase their productivity </h4></div>
-                        <div class="project-content">
-                            <p>
-                                During my tenure at Microsoft, I had the opportunity to play a pivotal role in enhancing the capabilities of our qualitative UX research team. Recognizing the increasing importance of data skills in our field, I took the initiative to teach team members the fundamentals of scripting and coding. This endeavor aimed not only to empower team members with new technical skills but also to leverage these skills to boost productivity and the overall performance of our team.
-                            </p>
-                            <p>
-                                I ensured that the training covered the basics of scripting and coding, making it accessible and applicable to individuals with varying levels of technical experience. Through hands-on workshops and personalized coaching, team members acquired the necessary skills to manipulate and analyze data efficiently, enabling them to draw deeper insights from their research findings. The benefits of this initiative were multifaceted. Not only did team members gain a new skill set that made them more self-reliant in data-related tasks, but it also led to a significant improvement in our team's overall productivity. With the ability to process and analyze data independently, our research projects became more streamlined and efficient. This, in turn, allowed us to provide more timely and data-driven insights to inform product development decisions.
-                            </p>
-                        </div>
-                    </div>
-                    <div class="col-md-5">
-                        <!-- Add an image element for this project -->
-                        <img src="assets/img/WorkReference/MicrosoftOffice.jpg" alt="Project Image 1" style="display: none;" width="100%">
-                    </div>
-                </div>
-            </div>
-
-
+          </div>
+          <div class="col-md-5">
+            <img src="assets/img/WorkReference/MicrosoftPipeline.png" alt="Project Image 1" style="display: none;" width="100%">
+          </div>
         </div>
-    </section><!-- End Contact Section -->
-    <!-- ======= Resume Section ======= -->
-    <section id="Resume" class="Resume">
-        <div class="container">
+      </div>
 
-            <div class="section-title">
-                <h2>Learn more about me.</h2>
+      <div class="project" onclick="toggleProject(this)">
+
+        <div class="row">
+          <div><h4 class="hover-underline">Engineering a data lake for digital acquisitions at Chase</h4></div>
+          <div class="col-md-7">
+            <div class="project-content">
+              <p>
+              To facilitate a unified product tracking system across Chase, I spearheaded a significant technical initiative aimed at constructing a robust data lake harnessing behavioral clickstream data associated with customer acquisition. The underlying behavioral database of this acquisition data repository was substantial, given that Chase.com ranks among the top 50 most frequently visited websites in the United States, <strong>with 800 million monthly visits and 6 billion page views</strong>. The query times for this expansive database were prohibitively long due to their size, and the data within it was not structured in a user-friendly manner, necessitating analysts to perform complex table joins to extract meaningful insights.</p>
+              <p>
+              My role involved architecting a faster, more intuitive database capable of analyzing acquisition activities across all consumer banking products. This process required a mastery of the data as well as the business. Data mastery was essential as it allowed selection of the right columns and unique indexes to speed up the process. Our efforts resulted in a significant boost in efficiency. <strong>Analysts experienced a more than 90% reduction in query time, allowing them to access crucial insights almost instantly, instead of in hours.</strong> Furthermore, we simplified the database structure, reducing the number of tables required to see an application journey from four to just one.</p>
+              <p>
+              At the end of the project, I had developed an efficient Teradata script that transformed the dataset into a structured table, guaranteeing data integrity, efficiency, and scalability. This automation ensured that the data remained up-to-date even in my absence. The resulting data table offered us the capability to filter and analyze pivotal fields like product types and customer demographics, as well as what specific link drove traffic, thereby providing invaluable insights into our digital acquisition strategies and revenue generation. <strong>Moreover, it enabled data-driven assessments of advertising effectiveness and optimizations in user experience, significantly contributing to the bank's overall success.</strong> </p>
             </div>
-
-            <div class="row">
-                <div class="col-lg-12 pt-4 pt-lg-0 content" data-aos="fade-left">
-                    <h3>Quantitative UX Researcher, Data Scientist &amp; Mentor</h3>
-                    <p class="fst-italic">
-                        Terron is a skilled data scientist and quantitative UX researcher with industry experience in healthcare, finance and technology who is dedicated to optimizing user experiences through data-driven insights and innovative research.
-                    </p>
-                    <div class="row">
-                        <div class="col-lg-6">
-                            <ul>
-                                <li><i class="bi bi-chevron-right"></i> <strong>City:</strong> <span>New York City</span></li>
-                                <li><i class="bi bi-chevron-right"></i> <strong>Email:</strong> <span>TerronGraham@Gmail.com</span></li>
-                            </ul>
-                        </div>
-                        <div class="col-lg-6">
-                            <ul>
-                                <li><i class="bi bi-chevron-right"></i> <strong>Undergrad:</strong> <span>Pennsylvania State University</span></li>
-                                <li><i class="bi bi-chevron-right"></i> <strong>Grad:</strong> <span>University of Pennsylvania</span></li>
-                            </ul>
-                        </div>
-                    </div>
-                    <p>
-                        He is seeking challenging opportunities where he can serve as a thought leader and mentor, contributing to an organization's growth both in terms of business success and cultural development. Terron is driven by a passion for fostering innovation and empowering products and teams to reach their full potential.
-                    </p>
-                </div>
-            </div>
-
+          </div>
+          <div class="col-md-5">
+            <img src="assets/img/WorkReference/DatabaseCreation.png" alt="Project Image 1" style="display: none;" width="100%">
+          </div>
         </div>
-        <!-- ======= Skills  ======= -->
-        <div class="skills container">
-
-            <div class="section-title">
-                <h2>Skills</h2>
+      </div>
+      <div class="project" onclick="toggleProject(this)">
+        <div class="row">
+          <div><h4 class="hover-underline">Developing a customer segmentation approach to reduce marketing expenses by 20%</h4></div>
+          <div class="col-md-7">
+            <div class="project-content">
+              <p>
+              At Independence Blue Cross, I led a project focused on optimizing our direct mail marketing for health insurance enrollment. To do this, I employed Random Forest techniques to identify the most promising prospects for our mailers. The goal was to make our marketing campaigns more cost-effective and efficient. I used Random Forest to build predictive models that assessed the likelihood of individuals enrolling in health insurance after receiving our mailers. This involved tasks like data preprocessing, feature engineering, and model selection.</p>
+              <p>
+              I fine-tuned the algorithm to identify prospects with the highest enrollment potential by analyzing various factors like demographics, health history, and past mailing responses. The results were significant. Through this data-driven approach, we managed to reduce our marketing expenses by over 20% while achieving the same enrollment results as in previous years. Targeting prospects with the highest likelihood of enrolling made our operations more efficient and improved our return on investment.
+              </p>
             </div>
-
-            <div class="row">
-                <div class="col-lg-3 col-md-4">
-                    <div class="icon-box">
-                        <i class="ri-store-line" style="color: #ffbb2c;"></i>
-                        <h3>R </h3>
-                    </div>
-                </div>
-                <div class="col-lg-3 col-md-4 mt-4 mt-md-0">
-                    <div class="icon-box">
-                        <i class="ri-bar-chart-box-line" style="color: #ffbb2c;"></i>
-                        <h3>Tidyverse</h3>
-                    </div>
-                </div>
-                <div class="col-lg-3 col-md-4 mt-4 mt-md-0">
-                    <div class="icon-box">
-                        <i class="ri-calendar-todo-line" style="color: #ffbb2c;"></i>
-                        <h3>dplyr</h3>
-                    </div>
-                </div>
-                <div class="col-lg-3 col-md-4 mt-4 mt-lg-0">
-                    <div class="icon-box">
-                        <i class="ri-paint-brush-line" style="color: #ffbb2c;"></i>
-                        <h3>ggplot</h3>
-                    </div>
-                </div>
-                <div class="col-lg-3 col-md-4 mt-4">
-                    <div class="icon-box">
-                        <i class="ri-database-2-line" style="color: #47aeff;"></i>
-                        <h3>Python</h3>
-                    </div>
-                </div>
-                <div class="col-lg-3 col-md-4 mt-4">
-                    <div class="icon-box">
-                        <i class="ri-gradienter-line" style="color: #47aeff;"></i>
-                        <h3>Pandas</h3>
-                    </div>
-                </div>
-                <div class="col-lg-3 col-md-4 mt-4">
-                    <div class="icon-box">
-                        <i class="ri-file-list-3-line" style="color: #47aeff;"></i>
-                        <h3>Numpy</h3>
-                    </div>
-                </div>
-                <div class="col-lg-3 col-md-4 mt-4">
-                    <div class="icon-box">
-                        <i class="ri-price-tag-2-line" style="color: #47aeff;"></i>
-                        <h3>Transformers</h3>
-                    </div>
-                </div>
-                <div class="col-lg-3 col-md-4 mt-4">
-                    <div class="icon-box">
-                        <i class="ri-database-2-line" style="color: #00A98F;"></i>
-                        <h3>UX Methods</h3>
-                    </div>
-                </div>
-                <div class="col-lg-3 col-md-4 mt-4">
-                    <div class="icon-box">
-                        <i class="ri-gradienter-line" style="color: #00A98F;"></i>
-                        <h3>Survey Methodology</h3>
-                    </div>
-                </div>
-                <div class="col-lg-3 col-md-4 mt-4">
-                    <div class="icon-box">
-                        <i class="ri-file-list-3-line" style="color: #00A98F;"></i>
-                        <h3>A/B Testing</h3>
-                    </div>
-                </div>
-                <div class="col-lg-3 col-md-4 mt-4">
-                    <div class="icon-box">
-                        <i class="ri-price-tag-2-line" style="color: #00A98F;"></i>
-                        <h3>Persona Creation</h3>
-                    </div>
-                </div>
-                <div class="col-lg-3 col-md-4 mt-4">
-                    <div class="icon-box">
-                        <i class="ri-anchor-line" style="color: #b2904f;"></i>
-                        <h3>SQL</h3>
-                    </div>
-                </div>
-                <div class="col-lg-3 col-md-4 mt-4">
-                    <div class="icon-box">
-                        <i class="ri-disc-line" style="color: #b20969;"></i>
-                        <h3>Tableau</h3>
-                    </div>
-                </div>
-                <div class="col-lg-3 col-md-4 mt-4">
-                    <div class="icon-box">
-                        <i class="ri-base-station-line" style="color: #ff5828;"></i>
-                        <h3>Adobe Analytics</h3>
-                    </div>
-                </div>
-                <div class="col-lg-3 col-md-4 mt-4">
-                    <div class="icon-box">
-                        <i class="ri-fingerprint-line" style="color: #29cc61;"></i>
-                        <h3>Google Analytics</h3>
-                    </div>
-                </div>
-            </div>
-
-        </div><!-- End Skills -->
-
-        <div class="counts container">
-
-            <div class="container">
-
-                <object data="assets/img/TGResume.pdf" width="100%" height="1150px">
-                </object>
-
-            </div>
-
+          </div>
+          <div class="col-md-5">
+            <img src="assets/img/WorkReference/RandomForest.png" alt="Project Image 1" style="display: none;" width="100%">
+          </div>
         </div>
-    </section><!-- End Resume Section -->
-    <!-- Vendor JS Files -->
-    <script src="assets/vendor/purecounter/purecounter_vanilla.js"></script>
-    <script src="assets/vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
-    <script src="assets/vendor/glightbox/js/glightbox.min.js"></script>
-    <script src="assets/vendor/isotope-layout/isotope.pkgd.min.js"></script>
-    <script src="assets/vendor/swiper/swiper-bundle.min.js"></script>
-    <script src="assets/vendor/waypoints/noframework.waypoints.js"></script>
-    <script src="assets/vendor/php-email-form/validate.js"></script>
+      </div>
+    </div>
+  </section>
+<!-- End Data Section -->
 
-    <!-- Template Main JS File -->
-    <script src="assets/js/main.js"></script>
+<!-- ======= Strategy Section ======= -->
+  <section id="Strategy" class="Strategy">
+    <div class="container">
+      <div class="section-title">
+        <h2>Projects</h2>
+      </div>
+      <div class="project" onclick="toggleProject(this)">
+        <div class="row">
+          <div><h4 class="hover-underline">Fixing Chase's platform-wide Interstitial feature </h4></div>
+          <div class="col-md-7">
+            <div class="project-content">
+              <p>
+              In my role at JP Morgan Chase, I played a pivotal part in identifying and addressing a critical issue related to the effectiveness of the "Announcements" feature which is intended to provide information on changes after a customer signs in. It began when I performed fundamental research to assess the feature's performance. What caught my attention was that the Announcements were consistently underperforming, falling far below the expected metrics. <strong>It became evident that a significantly lower number of users were actually seeing these Announcements, even though the feature was designed to reach everyone eventually.</strong> In some instances, the visibility rate for an Announcement was as low as 30%.</p>
+              <p>
+              Upon digging deeper, I uncovered several key insights that shed light on the problem. First, I realized that all "Sign in interstitials," including "Announcements," were competing for priority in terms of display. Second, I discovered that the platform responsible for showcasing these interstitials wasn't under the jurisdiction of any internal team, resulting in a lack of controls and design guidelines. Third, a closer examination of other "Sign in interstitials" revealed a stark lack of design cohesion across the board. Lastly, I found that some of these interstitials were broken, repeatedly disrupting users instead of being dismissed after the initial display. User feedback in our Voice of Customer (VOC) channels confirmed that this issue was causing significant frustration.</p>
+              <p>
+              <strong>To tackle this issue head-on, my team within the organization took charge of the "Sign in interstitials" platform. We implemented comprehensive design guidelines, ensuring consistency and effectiveness across all interstitials.</strong> Additionally, we fixed the broken ones, ensuring that they would function correctly and no longer disrupt users excessively. This initiative not only improved the user experience but also enhanced our ability to effectively communicate important announcements to our customers.
+              </p>
+            </div>
+          </div>
+          <div class="col-md-5">
+            <img src="assets/img/WorkReference/ChaseAnnouncements.png" alt="Project Image 1" style="display: none;" width="100%">
+          </div>
+        </div>
+      </div>
+      <div class="project" onclick="toggleProject(this)">
+        <div class="row">
+          <div><h4 class="hover-underline">Unifying Chase's digital acquisition approach </h4></div>
+          <div class="col-md-7">
+            <div class="project-content">
+              <p>
+              When I arrived at Chase there was an expectation that each product group (Checking, Savings, Credit Cards, Personal Loans, Mortgages, Auto Leases and Auto Loans) perform their own analysis, reporting and communication. In addition, because each group was working independently these groups often competed for resources to eachothers' detriment. As a result, the analysis product groups' performed was not comparable to eachother and <strong>bankwide success was not able to be the priority.</strong></p>
+              <p>
+              <strong>To tackle this challenge, I took the lead in developing a cohesive data management framework designed to facilitate consistent performance evaluation across various units.</strong> At the core of this endeavor was the overhaul and standardization of transactional enrollment data, as well as behavioral clickstream data associated with the acquisition process. This undertaking involved in-depth research into the user journey, including meticulous tracking and documentation of all links and pages leading to customer applications. By tracing these paths, we constructed a comprehensive taxonomy and subsequently created a Teradata script. This script efficiently organized the vast Adobe dataset, containing billions of rows, into a structured acquisition table of thousands of rows. This achievement established a common framework for analysis, streamlining the process and enhancing our ability to assess performance consistently across diverse products.</p>
+              <p>
+              The impact of this project had a profound effect on our understanding of our business. With the implementation of a standardized script and the establishment of a universal data repository, we gained the ability to easily compare each group's performance metrics. This newfound capability to engage in performance discussions using a common script, rather than relying on separate and delayed data sources, significantly enhanced our agility and decision-making abilities. It also provided us with a holistic "All Chase" view of our products, enabling us to prioritize products at a high level instead of locally. <strong>In essence, this organizational overhaul not only bolstered our data analytics capabilities but also facilitated more informed decision-making.</strong></p>
+            </div>
+          </div>
+          <div class="col-md-5">
+            <img src="assets/img/WorkReference/ChaseHomepage.png" alt="Project Image 1" style="display: none;" width="100%">
+          </div>
+        </div>
+      </div>
+    </div>
+  </section><!-- End Strategy Section -->
+
+  <!-- ======= Leadership Section ======= -->
+  <section id="leadership" class="leadership">
+    <div class="container">
+      <div class="section-title">
+        <h2>Projects</h2>
+      </div>
+      <div class="project" onclick="toggleProject(this)">
+        <div class="row">
+          <div><h4 class="hover-underline">Hiring 5 team members at Chase to rebuild a depleted team </h4></div>
+          <div class="col-md-7">
+            <div class="project-content">
+              <p>
+              During the Great Resignation in early 2022 my team was depleted significantly and suddenly. I took on a role in re-expanding our team's capacity. <strong>Over the course of just three months, I successfully recruited and onboarded five new team members, effectively growing our team from three to eight members.</strong> This endeavor was not just about increasing headcount; it was about strategically identifying and bringing on board individuals who would not only fit seamlessly into our team culture but also excel in their roles.</p>
+              <p>
+              To achieve this, I developed an objective criteria to evaluate potential candidates. This criteria encompassed both a behavioral portion of the interview process and a coding assessment. It was essential for us to assess not only technical skills but also interpersonal qualities that would contribute to a positive and productive team dynamic. Notably, each of these new hires not only successfully integrated into the organization but also demonstrated outstanding performance in their respective roles, consistently delivering valuable contributions to our team's success. <strong>All five of the team members that were hired were still in the organization adding value one year later, proving that the decisions made were the correct ones.</strong></p>
+            </div>
+          </div>
+          <div class="col-md-5">
+            <img src="assets/img/WorkReference/ChaseHiring.png" alt="Project Image 1" style="display: none;" width="100%">
+          </div>
+        </div>
+      </div>
+      <div class="project" onclick="toggleProject(this)">
+        <div class="row">
+          <div><h4 class="hover-underline">Teaching team members at Microsoft data skills to increase their productivity </h4></div>
+          <div class="col-md-7">
+            <div class="project-content">
+              <p>
+              During my tenure at Microsoft, I had the opportunity to play a pivotal role in enhancing the capabilities of our qualitative UX research team. Recognizing the increasing importance of data skills in our field, I took the initiative to teach team members the fundamentals of scripting and coding. This endeavor aimed not only to empower team members with new technical skills but also to leverage these skills to boost productivity and the overall performance of our team.</p>
+              <p>
+              I ensured that the training covered the basics of scripting and coding, making it accessible and applicable to individuals with varying levels of technical experience. Through hands-on workshops and personalized coaching, team members acquired the necessary skills to manipulate and analyze data efficiently, enabling them to draw deeper insights from their research findings. The benefits of this initiative were multifaceted. Not only did team members gain a new skill set that made them more self-reliant in data-related tasks, but it also led to a significant improvement in our team's overall productivity. With the ability to process and analyze data independently, our research projects became more streamlined and efficient. This, in turn, allowed us to provide more timely and data-driven insights to inform product development decisions.</p>
+            </div>
+          </div>
+          <div class="col-md-5">
+            <!-- Add an image element for this project -->
+            <img src="assets/img/WorkReference/MicrosoftOffice.jpg" alt="Project Image 1" style="display: none;" width="100%">
+          </div>
+        </div>
+      </div>
+    </div>
+  </section><!-- End Leadership Section -->
+
+  <!-- ======= Resume Section ======= -->
+  <section id="Resume" class="Resume">
+    <div class="container">
+
+      <div class="section-title">
+        <h2>Learn more about me.</h2>
+      </div>
+
+      <div class="row">
+        <div class="col-lg-12 pt-4 pt-lg-0 content" data-aos="fade-left">
+          <h3>Quantitative UX Researcher, Data Scientist &amp; Mentor</h3>
+          <p class="fst-italic">
+            Terron is a skilled data scientist and quantitative UX researcher with industry experience in healthcare, finance and technology who is dedicated to optimizing user experiences through data-driven insights and innovative research.
+          </p>
+          <div class="row">
+            <div class="col-lg-6">
+              <ul>
+                <li><i class="bi bi-chevron-right"></i> <strong>City:</strong> <span>New York City</span></li>
+                <li><i class="bi bi-chevron-right"></i> <strong>Email:</strong> <span>TerronGraham@Gmail.com</span></li>
+              </ul>
+            </div>
+            <div class="col-lg-6">
+              <ul>
+                <li><i class="bi bi-chevron-right"></i> <strong>Undergrad:</strong> <span>Pennsylvania State University</span></li>
+                <li><i class="bi bi-chevron-right"></i> <strong>Grad:</strong> <span>University of Pennsylvania</span></li>
+              </ul>
+            </div>
+          </div>
+          <p>
+            He is seeking challenging opportunities where he can serve as a thought leader and mentor, contributing to an organization's growth both in terms of business success and cultural development. Terron is driven by a passion for fostering innovation and empowering products and teams to reach their full potential.
+          </p>
+        </div>
+      </div>
+
+    </div>
+    <!-- ======= Skills  ======= -->
+    <div class="skills container">
+
+      <div class="section-title">
+        <h2>Skills</h2>
+      </div>
+
+      <div class="row">
+        <div class="col-lg-3 col-md-4">
+          <div class="icon-box">
+            <i class="ri-store-line" style="color: #ffbb2c;"></i>
+            <h3>R </h3>
+          </div>
+        </div>
+        <div class="col-lg-3 col-md-4 mt-4 mt-md-0">
+          <div class="icon-box">
+            <i class="ri-bar-chart-box-line" style="color: #ffbb2c;"></i>
+            <h3>Tidyverse</h3>
+          </div>
+        </div>
+        <div class="col-lg-3 col-md-4 mt-4 mt-md-0">
+          <div class="icon-box">
+            <i class="ri-calendar-todo-line" style="color: #ffbb2c;"></i>
+            <h3>dplyr</h3>
+          </div>
+        </div>
+        <div class="col-lg-3 col-md-4 mt-4 mt-lg-0">
+          <div class="icon-box">
+            <i class="ri-paint-brush-line" style="color: #ffbb2c;"></i>
+            <h3>ggplot</h3>
+          </div>
+        </div>
+        <div class="col-lg-3 col-md-4 mt-4">
+          <div class="icon-box">
+            <i class="ri-database-2-line" style="color: #47aeff;"></i>
+            <h3>Python</h3>
+          </div>
+        </div>
+        <div class="col-lg-3 col-md-4 mt-4">
+          <div class="icon-box">
+            <i class="ri-gradienter-line" style="color: #47aeff;"></i>
+            <h3>Pandas</h3>
+          </div>
+        </div>
+        <div class="col-lg-3 col-md-4 mt-4">
+          <div class="icon-box">
+            <i class="ri-file-list-3-line" style="color: #47aeff;"></i>
+            <h3>Numpy</h3>
+          </div>
+        </div>
+        <div class="col-lg-3 col-md-4 mt-4">
+          <div class="icon-box">
+            <i class="ri-price-tag-2-line" style="color: #47aeff;"></i>
+            <h3>Transformers</h3>
+          </div>
+        </div>
+        <div class="col-lg-3 col-md-4 mt-4">
+          <div class="icon-box">
+            <i class="ri-database-2-line" style="color: #00A98F;"></i>
+            <h3>UX Methods</h3>
+          </div>
+        </div>
+        <div class="col-lg-3 col-md-4 mt-4">
+          <div class="icon-box">
+            <i class="ri-gradienter-line" style="color: #00A98F;"></i>
+            <h3>Survey Methodology</h3>
+          </div>
+        </div>
+        <div class="col-lg-3 col-md-4 mt-4">
+          <div class="icon-box">
+            <i class="ri-file-list-3-line" style="color: #00A98F;"></i>
+            <h3>A/B Testing</h3>
+          </div>
+        </div>
+        <div class="col-lg-3 col-md-4 mt-4">
+          <div class="icon-box">
+            <i class="ri-price-tag-2-line" style="color: #00A98F;"></i>
+            <h3>Persona Creation</h3>
+          </div>
+        </div>
+        <div class="col-lg-3 col-md-4 mt-4">
+          <div class="icon-box">
+            <i class="ri-anchor-line" style="color: #b2904f;"></i>
+            <h3>SQL</h3>
+          </div>
+        </div>
+        <div class="col-lg-3 col-md-4 mt-4">
+          <div class="icon-box">
+            <i class="ri-disc-line" style="color: #b20969;"></i>
+            <h3>Tableau</h3>
+          </div>
+        </div>
+        <div class="col-lg-3 col-md-4 mt-4">
+          <div class="icon-box">
+            <i class="ri-base-station-line" style="color: #ff5828;"></i>
+            <h3>Adobe Analytics</h3>
+          </div>
+        </div>
+        <div class="col-lg-3 col-md-4 mt-4">
+          <div class="icon-box">
+            <i class="ri-fingerprint-line" style="color: #29cc61;"></i>
+            <h3>Google Analytics</h3>
+          </div>
+        </div>
+      </div>
+
+    </div><!-- End Skills -->
+
+    <div class="counts container">
+
+      <div class="container">
+
+        <object data="assets/img/TGResume.pdf" width="100%" height="1150px">
+        </object>
+
+      </div>
+
+    </div>
+  </section><!-- End Resume Section -->
+  <!-- Vendor JS Files -->
+  <script src="assets/vendor/purecounter/purecounter_vanilla.js"></script>
+  <script src="assets/vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
+  <script src="assets/vendor/glightbox/js/glightbox.min.js"></script>
+  <script src="assets/vendor/isotope-layout/isotope.pkgd.min.js"></script>
+  <script src="assets/vendor/swiper/swiper-bundle.min.js"></script>
+  <script src="assets/vendor/waypoints/noframework.waypoints.js"></script>
+  <script src="assets/vendor/php-email-form/validate.js"></script>
+
+  <!-- Template Main JS File -->
+  <script src="assets/js/main.js"></script>
 
 </body>
 

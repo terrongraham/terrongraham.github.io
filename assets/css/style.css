@@ -1188,3 +1188,23 @@ section .container {
 .credits a:hover {
   color: #fff;
 }
+
+/*--------------------------------------------------------------
+# Custom
+--------------------------------------------------------------*/
+.hover-underline {
+  display:inline-block;
+  padding-bottom:2px;
+  background-image: linear-gradient(#18d26e 0 0);
+  background-position: 0 100%;
+  background-size: 0% 2px;
+  background-repeat: no-repeat;
+  transition:
+	background-size 1.2s, 
+	background-position 0s 1.2s;
+}
+
+.hover-underline:hover {
+  background-position: 100% 100%;
+  background-size: 100% 2px;
+}
