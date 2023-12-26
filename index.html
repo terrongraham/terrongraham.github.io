@@ -117,11 +117,14 @@
               </p>
               <p>
                  The generated ground truth comprised haiku organized by theme, accompanied by features such as Word Complexity, Emotional Intensity, Metaphorical Depth, Archaic Language, and Imagery, each rated on a scale of 1-5 initially. I explored various Natural Language Processing (NLP) models designed to extract these features from haiku. 12,000 data points were used for training, 2,000 for testing, and an additional 1,000 for assessing AWS performance monitoring. These final 1,000 were uniformly distributed to see what the result was with deliberately introduced model drift.
-
+              </p>
+              <p>
                  Initial attempts at training distilbert-base proved suboptimal in predicting the specified feature values. While other models like BART, RoBERTa, and ALBERT exhibited improved performance, they didn't significantly outperform each other. Even when manually assessing each of these aspects' accuracy results were not reassuring; the granularity between a rating of 2 and 3 or 3 and 4 didn't appear to carry significant meaning, whether assessed by man or machine. The choice to confine the values within the range of 1 to 5 was arbitrary.
-
+              </p>
+              <p>
                  To improve model pertinence I reduced the number of labels from 5 to 3. Following this change, model performance changed from as low as _________ to as high as _________. An untrained bart-large-mnli was able to correctly assess the theme of the haiku 78% of the time, improving only marginally after fine-tuning. Among the models tested, RoBERTa emerged as the most effective for feature identification, with performance of _________.
-
+              </p>
+              <p>
                  The implementation involved multiple recommendation models, each offering unique advantages. These included bag-of-words modeling, user-item matrices, cosine similarity, matrix factorization, and theme-specific content filtering. These models were deployed on AWS using an EC2 instance, with Amazon SageMaker facilitating the integration of the fine-tuned RoBERTa and recommendation models. A robust tracking system was established for ongoing model performance monitoring. The deployment utilized 1,000 rows of uniformly distributed data to comprehensively assess the performance of the models.
 
               </p>
