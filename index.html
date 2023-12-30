@@ -139,7 +139,7 @@
                  <img src="assets/img/WorkReference/HaikuGenImg3.png" alt="Project Image 3" width="100%">
               </p>
               <p>
-        				 These models were deployed on AWS using an EC2 instance, with Amazon SageMaker facilitating the integration of the fine-tuned RoBERTa and recommendation models as endpoints. When new data is ingested, even without attached metadata, its features are able to be extracted and used for the recommendation models. SageMaker endpoints are configured for secure connections, and the Model Monitor is implemented for ongoing monitoring.
+                The deployment of these models on AWS was executed through an EC2 instance, leveraging Amazon SageMaker to integrate the fine-tuned RoBERTa and recommendation models as endpoints. In the data ingestion process facilitated by Apache Airflow, the RoBERTa model dynamically generates features when they are not provided, utilizing conditional DAGs. This ensures that, when invoked, the recommendation models always operate on complete data. SageMaker endpoints are configured to establish secure connections, complemented by the implementation of Model Monitor for continuous performance monitoring.
               </p>
             </div>
           </div>
