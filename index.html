@@ -125,7 +125,7 @@
                  Initial attempts at training distilbert-base proved suboptimal in predicting the specified feature values. At times, accuracy was beneath a random uniform guess, likely due to the distributions used to generate the data. While other models like BART, RoBERTa, and ALBERT exhibited marginally improved performance, they didn't significantly outperform each other. Even when manually assessing each of these aspects' accuracy, results were not reassuring; the granularity between a rating of 2 and 3 or 3 and 4 didn't appear to carry significant meaning, whether assessed by man or machine. The choice to initially confine the values within the range of 1 to 5 was arbitrary.
               </p>
               <p>
-                 To improve model intuitiveness I reduced the number of labels from 5 to 3. Following this change, model performance improved significantly. This increase is intuitive, as fewer options would also increase the probability of a random guess. Aggregate accuracy was as low as 23% across all 5 features in the case of 5 label distilbert models. Aggregate accuracy was as high as 62% across all 5 features in the case of 3 label RoBERTa models. An untrained bart-large-mnli was able to correctly assess the theme of the haiku 81% of the time, improving only marginally after fine-tuning. 
+                 To improve model intuitiveness I reduced the number of labels from 5 to 3. Following this change, model performance improved significantly. This increase is intuitive, as fewer options would also increase the probability of a random guess. Additionally, significant time was spent changing the hyper-parameters; particularly learning rate, number of epochs, batch size, and activation functions. Aggregate accuracy was as low as 23% across all 5 features in the case of 5 label distilbert models. Aggregate accuracy was as high as 62% across all 5 features in the case of 3 label RoBERTa models. An untrained bart-large-mnli was able to correctly assess the theme of the haiku 81% of the time, improving only marginally after fine-tuning. 
 				 
               </p>
               <p>
@@ -139,10 +139,7 @@
                  <img src="assets/img/WorkReference/HaikuGenImg3.png" alt="Project Image 3" width="100%">
               </p>
               <p>
-				 These models were deployed on AWS using an EC2 instance, with Amazon SageMaker facilitating the integration of the fine-tuned RoBERTa and recommendation models. A robust tracking system was established for ongoing model performance monitoring. The deployment utilized 1,000 rows of uniformly distributed data to comprehensively assess the performance of the models.
-              </p>
-              <p>
-                 The implementation involved multiple recommendation models, each offering unique advantages. These included bag-of-words modeling, user-item matrices, cosine similarity, matrix factorization, and theme-specific content filtering. These models were deployed on AWS using an EC2 instance, with Amazon SageMaker facilitating the integration of the fine-tuned RoBERTa and recommendation models. A robust tracking system was established for ongoing model performance monitoring. The deployment utilized 1,000 rows of uniformly distributed data to comprehensively assess the performance of the models.
+				 These models were deployed on AWS using an EC2 instance, with Amazon SageMaker facilitating the integration of the fine-tuned RoBERTa and recommendation models. Amazon Sagemaker Model Monitor was used to establish ongoing model performance monitoring. The deployment utilized 1,000 rows of uniformly distributed data to comprehensively assess the performance of the models.
               </p>
             </div>
           </div>
