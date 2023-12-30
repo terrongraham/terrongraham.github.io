@@ -139,7 +139,7 @@
                  <img src="assets/img/WorkReference/HaikuGenImg3.png" alt="Project Image 3" width="100%">
               </p>
               <p>
-				 These models were deployed on AWS using an EC2 instance, with Amazon SageMaker facilitating the integration of the fine-tuned RoBERTa and recommendation models. Amazon Sagemaker Model Monitor was used to establish ongoing model performance monitoring. The deployment utilized 1,000 rows of uniformly distributed data to comprehensively assess the performance of the models.
+        				 These models were deployed on AWS using an EC2 instance, with Amazon SageMaker facilitating the integration of the fine-tuned RoBERTa and recommendation models as endpoints. When new data is ingested, even without attached metadata, its features are able to be extracted and used for the recommendation models. SageMaker endpoints are configured for secure connections, and the Model Monitor is implemented for ongoing monitoring.
               </p>
             </div>
           </div>
