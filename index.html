@@ -133,8 +133,13 @@
 				 
               </p>
               <p>
-                 In creating recommendation models, I followed two approaches. 
-				 The implementation involved multiple recommendation models, each offering unique advantages. These included bag-of-words modeling, user-item matrices, cosine similarity, matrix factorization, and theme-specific content filtering. These models were deployed on AWS using an EC2 instance, with Amazon SageMaker facilitating the integration of the fine-tuned RoBERTa and recommendation models. A robust tracking system was established for ongoing model performance monitoring. The deployment utilized 1,000 rows of uniformly distributed data to comprehensively assess the performance of the models.
+                 When developing recommendation models, I employed two content-based approaches. The first involved utilizing Word2Vec without incorporating metadata, while the second focused solely on metadata, excluding content. In the latter scenario, manual recommendations based on metadata employed Euclidean distance to determine similarity. Additionally, the theme was incorporated, introducing a parameter ranging from 1 to 3 to bring together items with similar subject matters in closer proximity.
+              </p>
+              <p>
+                 <img src="assets/img/WorkReference/HaikuGenImg3.png" alt="Project Image 3" width="100%">
+              </p>
+              <p>
+				 These models were deployed on AWS using an EC2 instance, with Amazon SageMaker facilitating the integration of the fine-tuned RoBERTa and recommendation models. A robust tracking system was established for ongoing model performance monitoring. The deployment utilized 1,000 rows of uniformly distributed data to comprehensively assess the performance of the models.
               </p>
               <p>
                  The implementation involved multiple recommendation models, each offering unique advantages. These included bag-of-words modeling, user-item matrices, cosine similarity, matrix factorization, and theme-specific content filtering. These models were deployed on AWS using an EC2 instance, with Amazon SageMaker facilitating the integration of the fine-tuned RoBERTa and recommendation models. A robust tracking system was established for ongoing model performance monitoring. The deployment utilized 1,000 rows of uniformly distributed data to comprehensively assess the performance of the models.
