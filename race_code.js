@@ -2,7 +2,71 @@ import {
     fetchDataFromAPI, clickOnDropDownMenu, getNames, getArrayOfNames,
     getNumberBonuses, getListCheckBoxes, clearAllFromList} from './help.js';
 import { printBonusData, clearAbilityScoreBonuses } from './ability_score_code.js';
-const api_race = 'https://www.dnd5eapi.co/api/races/';
+const api_race = {
+  "count": 12,
+  "results": [
+    {
+      "index": "human",
+      "name": "Human",
+      "url": "/api/races/human"
+    },
+    {
+      "index": "lurker",
+      "name": "Lurker",
+      "url": "/api/races/lurker"
+    },
+    {
+      "index": "elf",
+      "name": "Elf",
+      "url": "/api/races/elf"
+    },
+    {
+      "index": "dwarf",
+      "name": "Dwarf",
+      "url": "/api/races/dwarf"
+    },
+    {
+      "index": "oni",
+      "name": "Oni",
+      "url": "/api/races/oni"
+    },
+    {
+      "index": "kitsune",
+      "name": "Kitsune",
+      "url": "/api/races/kitsune"
+    },
+    {
+      "index": "gnome",
+      "name": "Gnome",
+      "url": "/api/races/gnome"
+    },
+    {
+      "index": "yokai",
+      "name": "Yokai",
+      "url": "/api/races/yokai"
+    },
+    {
+      "index": "willowed",
+      "name": "Willowed",
+      "url": "/api/races/willowed"
+    },
+    {
+      "index": "fairy",
+      "name": "Fairy",
+      "url": "/api/races/fairy"
+    },
+    {
+      "index": "merfolk",
+      "name": "Merfolk",
+      "url": "/api/races/merfolk"
+    },
+    {
+      "index": "ryujin",
+      "name": "Ryujin",
+      "url": "/api/races/ryujin"
+    }
+  ]
+};
 const api_language = 'https://www.dnd5eapi.co/api/languages';
 let race_laguages;
 let userOtherProficieces = document.getElementById("char_other_proficiences");
@@ -35,11 +99,11 @@ function raceChoice() {
 async function raceAsk(input) {
     let url = api_race + input;
     const data = await fetchDataFromAPI(url);
-    getLanuage();
+    getLanguage();
     printRaceData(data);
 }
 
-async function getLanuage() {
+async function getLanguage() {
     let url = api_language;
     const data = await fetchDataFromAPI(url);
     printLangaugeList(data);
