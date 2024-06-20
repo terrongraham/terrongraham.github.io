@@ -10,7 +10,7 @@
 <body>
   <div class="header">
     <h1>Character Builder</h1>
-    <p>D&D 5 Character Creator/Generator</p>
+    <p>Character Creator</p>
   </div>
 
   <!-- Tab links -->
@@ -27,23 +27,26 @@
   </div>
   <!------------------Races------------------------->
   <div id="page_1" class="tabcontent">
-    <h2>Race:</h2>
-    <p>Chose your character race from below</p>
+    <h2>Ancestry:</h2>
+    <p>Choose your character's Ancestry from below. Their Ancestry is their parental origin. </p>
     <div class="dropdown">
       <button onclick="selectionButton('raceDropdown')" id='race_option' class="dropbtn">Race
         <i class="fa fa-caret-down"></i>
       </button>
       <div id="raceDropdown" class="dropdown-content">
         <ul id="raceList">
-          <li value="dragonborn">dragonborn</li>
-          <li value="dwarf">dwarf</li>
-          <li value="elf">elf</li>
-          <li value="gnome">gnome</li>
-          <li value="half-elf">half-elf</li>
-          <li value="half-orc">half-orc</li>
-          <li value="halfling">halfling</li>
           <li value="human">human</li>
-          <li value="tiefling">tiefling</li>
+          <li value="lurker">lurker</li>
+          <li value="elf">elf</li>
+          <li value="dwarf">dwarf</li>
+          <li value="oni">oni</li>
+          <li value="kitsune">kitsune</li>
+          <li value="gnome">gnome</li>
+          <li value="yokai">yokai</li>
+          <li value="willowed">willowed</li>
+          <li value="fairy">fairy</li>
+          <li value="merfolk">merfolk</li>
+          <li value="ryujin">ryujin</li>
         </ul>
       </div>
     </div>
@@ -60,29 +63,14 @@
       <p>Race Description:</p>
       <label id="race-age"> </label>
       <br />
-      <p>Race Alignment:</p>
-      <label id="race-alignment"> </label>
-      <br />
-      <p>Trait Names:</p>
+      <p>Features:</p>
       <label id="results"> </label>
       <br />
-      <p>Race Size:</p>
+      <p>Size:</p>
       <label id="size"> </label>
       <br />
-      <p>Race Languages:</p>
-      <label id="language"> </label>
-      <br />
-      <p>Race Weapons:</p>
-      <label id="weapon"> </label>
-      <br />
-      <p>Race Skills:</p>
-      <label id="race-skill"> </label>
-      <br />
-      <p>Race Ability Bonuses:</p>
+      <p>Ability Bonus Options:</p>
       <label id="bonuses"> </label>
-      <br />
-      <p>Subraces:</p>
-      <label id="subraces"> </label>
     </div>
   </div>
 
@@ -90,11 +78,8 @@
 
   <div id="page_2" class="tabcontent">
     <h2>Class:</h2>
-    <p>Chose your character class from below</p>
-    <p class="des_class"> A character class is a fundamental part of the identity and
-      nature of characters in the Dungeons & Dragons role-playing game. A character's capabilities,
-      strengths, and weaknesses are largely defined by its class. A character's class affects a character's
-      available skills and abilities</p>
+    <p>Choose your character class from below</p>
+    <p class="des_class"> A character's capabilities, strengths, and weaknesses are largely defined by its class. A character's class affects a character's available skills and abilities</p>
     <div class="dropdown">
       <button onclick="selectionButton('classDropdown')" id='class_option' class="dropbtn">Class
         <i class="fa fa-caret-down"></i>
@@ -125,16 +110,16 @@
       <p>Hit Die:</p>
       <label id="hit"></label>
       <br />
-      <p>Saving Throw:</p>
+      <p>Saving Throws:</p>
       <label id="throws"></label>
       <br />
-      <p>Number of Skills One can Have:</p>
+      <p>Skills:</p>
       <label id="skills"> </label>
       <br />
       <p>Recommended Equiment:</p>
       <label id="preffer_equiment"> </label>
       <br />
-      <p>Starting Spells:</p>
+      <p>Available Spells:</p>
       <label id="spells"> None </label>
       <br />
       <p>Spellcasting:</p>
