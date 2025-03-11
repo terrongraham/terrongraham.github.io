@@ -77,6 +77,7 @@
       <nav id="navbar" class="navbar">
         <ul>
           <li><a class="nav-link active" href="#header">Home</a></li>
+          <li><a class="nav-link" href="#ML">Machine Learning</a></li>
           <li><a class="nav-link" href="#UX">User Research</a></li>
           <li><a class="nav-link" href="#Data">Data Science</a></li>
           <li><a class="nav-link" href="#Strategy">Strategy</a></li>
@@ -90,6 +91,64 @@
   </header><!-- End Header -->
 
 <!-- ======= User Research Section ======= -->
+  <section id="ML" class="ML">
+    <div class="container">
+
+      <div class="section-title">
+        <h2>Projects</h2>
+      </div>
+
+      <div class="project" onclick="toggleProject(this)">
+        <div class="row">
+          <div><h4 class="hover-underline">Building a Novel NLP Based Recommendation Engine for Haikus </h4></div>
+            <div class="project-content">
+              <p>
+                <h5>Code woven in light, Silent dance of electrons, Universe awake </h5>
+              </p>
+              <p>
+                Recommendation algorithms are widely recognized for their application in e-commerce and social media platforms, employing user info to curate personalized suggested items. To learn more about recommendation systems, I built my own model. The initial challenge was finding an appropriate dataset, and to streamline the process, I opted for simplicity in content, opting for short-form text that lent itself well to recommendations, minimizing the computational load associated with longer and more complex inputs.
+              </p>
+              <p>
+                After several days of exploration, I encountered the dual challenge of finding a dataset that mirrored real-world scenarios (with missing data and duplicates) and possessed a substantial volume of entries (thousands of data points). Unfortunately, the search yielded no dataset with meaningful metadata available at a low cost. Consequently, I decided to generate the ground truth for the recommendation model using the OpenAI API. Specifically, I used the query below as input, with each of the aspects being picked randomly from a distribution based on theme. This allowed me to maintain all metadata for predictive models used later.
+              </p>
+              <p>
+                Create a haiku using no commas. Don't output anything except the haiku. Its theme should be: {SelectedTheme}. It should have word complexity of {WordComplexity}/5, emotional intensity of {EmotionalIntensity}/5, metaphorical depth of {MetaphoricalDepth}/5, archaic language usage of {ArchaicLanguage}/5, imagery of {Imagery}/5.
+                <img src="assets/img/WorkReference/HaikuGenImg1.png" alt="Project Image 1" style="display: none;" width="100%">
+              </p>
+              <p>
+                In theory, if the generative step were visible to users, user input validation using a lightweight model like Ada or Davinci could precede the use of a more resource-intensive model. This approach would ensure that inputs align with the task before invoking the costlier model for results. Checking for correct or divergent output could be done without ML, ensuring output matches expectation for the end user.
+              </p>
+              <p>
+                 The generated ground truth comprised haiku organized by theme, accompanied by features such as Word Complexity, Emotional Intensity, Metaphorical Depth, Archaic Language, and Imagery, each rated on a scale of 1-5 initially. I explored various Natural Language Processing (NLP) models to extract these features from haiku. 12,000 data points were used for training, 2,000 for testing, and an additional 1,000 for assessing AWS performance monitoring. These final 1,000 data points were uniformly distributed to see what the result was with deliberately introduced model drift.
+              </p>
+              <p>
+                 Initial attempts at training distilbert-base proved suboptimal in predicting the specified feature values. At times, accuracy was beneath a random uniform guess, likely due to the distributions used to generate the data. While other models like BART, RoBERTa, and ALBERT exhibited marginally improved performance, they didn't significantly outperform each other. Even when manually assessing each of these aspects' accuracy, results were not reassuring; the granularity between a rating of 2 and 3 or 3 and 4 didn't appear to carry significant meaning, whether assessed by man or machine. The choice to initially confine the values within the range of 1 to 5 was arbitrary.
+              </p>
+              <p>
+                 To improve model intuitiveness I reduced the number of labels from 5 to 3. Following this change, model performance improved significantly. This increase is intuitive, as fewer options would also increase the probability of a random guess. Additionally, significant time was spent changing the hyper-parameters; particularly learning rate, number of epochs, batch size, and activation functions. Aggregate accuracy was as low as 23% across all 5 features in the case of 5 label distilbert models. Aggregate accuracy was as high as 62% across all 5 features in the case of 3 label RoBERTa models. An untrained bart-large-mnli was able to correctly assess the theme of the haiku 81% of the time, improving only marginally after fine-tuning. 
+				 
+              </p>
+              <p>
+                 <img src="assets/img/WorkReference/HaikuGenImg2.png" alt="Project Image 2" width="100%">
+				 
+              </p>
+              <p>
+                 When developing recommendation models, I employed two content-based approaches. The first involved utilizing Word2Vec without incorporating metadata, while the second focused solely on metadata, excluding content. In the latter scenario, manual recommendations based on metadata employed Euclidean distance to determine similarity. Additionally, the theme was incorporated, introducing a parameter ranging from 1 to 3 to bring together items with similar subject matters in closer proximity.
+              </p>
+              <p>
+                 <img src="assets/img/WorkReference/HaikuGenImg3.png" alt="Project Image 3" width="100%">
+              </p>
+              <p>
+                The deployment of these models on AWS was executed through an EC2 instance, leveraging Amazon SageMaker to integrate the fine-tuned RoBERTa and recommendation models as endpoints. In the data ingestion process facilitated by Apache Airflow, the RoBERTa model dynamically generates features when they are not provided, utilizing conditional DAGs. This ensures that, when invoked, the recommendation models always operate on complete data. SageMaker endpoints are configured to establish secure connections, complemented by the implementation of Model Monitor for continuous performance monitoring.
+              </p>
+            </div>
+          </div>
+        </div>
+  </section>
+<!-- End Machine Learning Section -->
+
+
+<!-- ======= User Research Section ======= -->
   <section id="UX" class="UX">
     <div class="container">
 
@@ -99,47 +158,6 @@
 
       <div class="project" onclick="toggleProject(this)">
         <div class="row">
-          <div><h4 class="hover-underline">Helping Meta go 0-1 with integrating AI into Business Messaging</h4></div>
-          <div class="col-md-7">
-            <div class="project-content">
-              <p>
-                The main objective of this project was to research the value of AI-powered business messaging as it transitioned from concept to execution, focusing on identifying areas of strong usage and potential growth on platforms like Messenger and Instagram. Understanding how AI can enhance customer interactions was critical as businesses sought new digital engagement strategies. As the Quantitative UX Researcher, I led multinational studies combining survey data with platform interaction data. I managed the entire research process, including survey design, data analysis, and communicating findings to stakeholders. <strong>My approach involved close collaboration with qualitative researchers, providing them with user profiles and targeted outreach lists to ensure we reached the right participants.</strong>
-              </p>
-              <p>
-                For data analysis, I utilized internal survey tools, SQL for data retrieval, and Python for manipulation, allowing efficient extraction of relevant information. <strong>When we encountered broken eligibility criteria for survey participants, I was able to recover the data by finding other criteria by which to check whether the user had interacted with an AI or a human.</strong> I determined whether the data was random or systemic, to help determine whether the data was still representative as well as to understand what the likely failure point was. Working with the Data Engineering team, we identified and resolved these issues to maintain data integrity on future projects. To address data eligibility challenges that delayed our research timeline, I implemented survey weighting techniques ensuring our results represented target populations accurately. This critical step validated our findings across different user segments and allowed us to confidently present recommendations to stakeholders.
-              </p>
-              <p>
-                Through analysis of platform interaction data and survey responses, I uncovered insights like that users don't have a worsened experience when interacting with the AI but do get much more timely responses or that small businesses were able to increase the amount of work they can perform when they don't have to worry about customer support. These insights directly influenced the deployment strategy, ultimately enhancing customer engagement and satisfaction. The project marked my first experience with a non-iterative research approach, teaching me valuable lessons about quickly bringing products to market to achieve relevance. <strong>I learned that prioritizing speed and responsiveness is essential for success in a rapidly evolving landscape. These insights will guide my future work as I apply these lessons to drive innovation and enhance user experiences in upcoming projects.</strong>
-              </p>
-            </div>
-          </div>
-          <div class="col-md-5">
-            <img src="assets/img/WorkReference/MetaConnect.png" style="display: none;" width="80%">
-            </div>
-          </div>
-        </div>
-
-      <div class="project" onclick="toggleProject(this)">
-        <div class="row">
-          <div><h4 class="hover-underline">Sentiment Analysis: Tracking Business Messaging Across 15 Languages and Hundreds of Thousands of Monthly Responses</h4></div>
-          <div class="col-md-7">
-            <div class="project-content">
-              <p>
-                As the Quantitative UX Researcher for customer Business Messaging tracking, I led the implementation of a global research initiative designed to continuously monitor consumer sentiment across messaging platforms. The project tracked key metrics including value perception, relevance, and negative experiences associated with business messaging, serving as a critical guardrail against messaging overload. <strong>With hundreds of thousands of monthly responses spanning both Instagram and Messenger across priority markets, this project represented one of our largest-scale research efforts, providing visibility into global messaging trends and user sentiment.</strong> My responsibilities included supporting survey design, determining optimal invitation volumes, establishing data pipelines, and building comprehensive dashboards to visualize insights for stakeholders.
-              </p>
-              <p>
-                Working across diverse global markets presented unique challenges that required thoughtful solutions and cultural adaptations, including translation. To effectively analyze the massive dataset generated by this global survey, I utilized internal survey tools coupled with SQL for data retrieval and Python for sophisticated data manipulation and analysis. The scale of this project demanded innovative approaches to data visualization, leading me to develop interactive dashboards that allowed stakeholders to filter insights by region, platform, and demographic variables. By implementing weighted sampling techniques, I ensured our findings accurately represented user populations across all markets despite varying response rates. <strong>These insights directly informed critical product decisions, including the implementation of message frequency capping in high-volume markets and the optimization of delivery timing based on regional usage patterns.</strong> In the future, our hope is to use this abundance of data to understand what levers are able to be pulled to improve business messaging with a much longer understanding of effects.
-              </p>
-            </div>
-          </div>
-          <div class="col-md-5">
-            <img src="assets/img/WorkReference/BM Tracking.png" style="display: none;" width="100%">
-            </div>
-          </div>
-        </div>
-		
-      <div class="project" onclick="toggleProject(this)">
-        <div class="row">
           <div><h4 class="hover-underline">Making Microsoft's employee survey approach more actionable </h4></div>
           <div class="col-md-7">
             <div class="project-content">
@@ -147,6 +165,7 @@
                 Microsoft has a strong methodological process involving internal surveys used to test products and methods. My role was to support the Hybrid workstream which focused on improving employees' experience in a new working environment. The results of this workstream frequently fed into publicly available output, like shown on the right, as well as internal reporting to the units that manage portions of the experience. <strong>Our group was gaining great data on an important topic but was constantly coming up against the same problem; utilizing it effectively. </strong> With 2000+ responses each month, the amount and variety of data meant that just processing open-ended responses and updating newsletters took up most of my time. If we were going to utilize this wealth of data effectively, we required a new approach.
               </p>
               <p>
+
                 To address the challenge of efficiently utilizing the wealth of data collected through our internal surveys, <strong>I proposed a significant overhaul of the survey methodology</strong>. One of the key changes was to make the survey modular, breaking it down into smaller sections, each of which was bite sized and focused on a specific topic. This modular approach allowed us to serve different respondents different questions, gaining the same depth of information while reducing the number of items respondents see from dozens to fewer than a dozen and saving everyone time. By doing so, we not only gained wider coverage across various aspects of the employee experience but also increased response rates, as respondents were more likely to complete this shortened survey.
               </p>
               <p>
@@ -487,7 +506,7 @@
 
       <div class="container">
 
-        <iframe src="https://drive.google.com/file/d/1cFx2ya6KsyjvNN9s8M_l6VY3UDdo9a_H/view?usp=drive_link" width="100%" height="1150px"></iframe>
+        <iframe src="https://drive.google.com/file/d/1NTryFjVB31X28eDqZuFbjbrFdeIfIk3A/preview" width="100%" height="1150px"></iframe>
 
       </div>
 
