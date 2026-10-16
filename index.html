@@ -1125,5 +1125,36 @@
       appendMessage("I'm having trouble connecting to my live systems to answer custom questions right now. Please feel free to email Terron directly at <a href='mailto:TerronGrahamPro@Gmail.com' style='color:#18d26e;'>TerronGrahamPro@Gmail.com</a>.", 'ai');
     }
   </script>
+  
+  <script>
+  document.addEventListener('DOMContentLoaded', () => {
+    const aiChat = document.getElementById('ai-chat-section');
+
+    // Function to check the active section and toggle the chat
+    function toggleChatVisibility(targetHash) {
+      if (!aiChat) return;
+      
+      // If the target is the home header or there is no target (default load), show the chat
+      if (targetHash === '#header' || targetHash === '' || targetHash === '#') {
+        aiChat.style.display = 'block'; 
+      } else {
+        // Hide the chat for #case-studies, #capabilities, #resume, etc.
+        aiChat.style.display = 'none';
+      }
+    }
+
+    // 1. Check the URL hash when the page first loads
+    toggleChatVisibility(window.location.hash);
+
+    // 2. Watch all navigation links for clicks to instantly hide/show the chat
+    const navLinks = document.querySelectorAll('.nav-link');
+    navLinks.forEach(link => {
+      link.addEventListener('click', function() {
+        const targetHref = this.getAttribute('href');
+        toggleChatVisibility(targetHref);
+      });
+    });
+  });
+</script>
 </body>
 </html>
