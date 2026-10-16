@@ -870,26 +870,37 @@
     function toggleAiChat() {
       const modal = document.getElementById('aiChatModal');
       const fab = document.getElementById('aiChatFab');
-      if (modal.style.display === 'flex') {
-        modal.style.display = 'none';
-        fab.style.display = 'flex';
-      } else {
-        modal.style.display = 'flex';
-        fab.style.display = 'none';
-        document.getElementById('aiChatInput').focus();
+      const input = document.getElementById('aiChatInput');
+      
+      if (modal) {
+        if (modal.style.display === 'flex') {
+          modal.style.display = 'none';
+          if (fab) fab.style.display = 'flex';
+        } else {
+          modal.style.display = 'flex';
+          if (fab) fab.style.display = 'none';
+          if (input) input.focus();
+        }
       }
     }
 
-    const inputEl = document.getElementById('aiChatInput');
-    const charCountEl = document.getElementById('aiChatCharCount');
-    if (inputEl) {
-      inputEl.addEventListener('input', function() {
-        charCountEl.innerText = `${this.value.length}/300`;
-      });
-    }
+    // Safely attach character counter event listener once DOM is loaded
+    document.addEventListener('DOMContentLoaded', function() {
+      const inputEl = document.getElementById('aiChatInput');
+      const charCountEl = document.getElementById('aiChatCharCount');
+      if (inputEl) {
+        inputEl.addEventListener('input', function() {
+          if (charCountEl) {
+            charCountEl.innerText = `${this.value.length}/300`;
+          }
+        });
+      }
+    });
 
     function appendMessage(text, sender) {
       const chatBody = document.getElementById('aiChatBody');
+      if (!chatBody) return null;
+
       const bubble = document.createElement('div');
       bubble.className = `chat-bubble chat-bubble-${sender}`;
       bubble.innerHTML = text.replace(/\n/g, '<br>');
@@ -900,6 +911,8 @@
 
     function appendTypingIndicator() {
       const chatBody = document.getElementById('aiChatBody');
+      if (!chatBody) return;
+
       const indicator = document.createElement('div');
       indicator.id = 'aiTypingIndicator';
       indicator.className = 'chat-bubble chat-bubble-ai typing-dots';
@@ -915,32 +928,37 @@
 
     function sendPillQuery(query) {
       const input = document.getElementById('aiChatInput');
-      input.value = query;
+      if (input) {
+        input.value = query;
+      }
       sendUserMessage();
     }
 
     async function sendUserMessage() {
       const input = document.getElementById('aiChatInput');
+      if (!input) return;
+
       const query = input.value.trim();
       if (!query) return;
 
       const pills = document.getElementById('chatPills');
       if (pills) pills.style.display = 'none';
 
+      const charCountEl = document.getElementById('aiChatCharCount');
+
+      // Check max session limit without displaying remaining count in the UI
       if (sessionQuestionCount >= PORTFOLIO_AI_CONFIG.MAX_SESSION_QUESTIONS) {
         appendMessage(query, 'user');
         input.value = '';
+        if (charCountEl) charCountEl.innerText = '0/300';
         appendMessage("You've reached the session question limit. Please reach out directly to Terron at <a href='mailto:TerronGrahamPro@Gmail.com' style='color:#18d26e; text-decoration:underline;'>TerronGrahamPro@Gmail.com</a>!", 'ai');
         return;
       }
 
       appendMessage(query, 'user');
       input.value = '';
-      charCountEl.innerText = '0/300';
+      if (charCountEl) charCountEl.innerText = '0/300';
       sessionQuestionCount++;
-
-      const remaining = PORTFOLIO_AI_CONFIG.MAX_SESSION_QUESTIONS - sessionQuestionCount;
-      document.getElementById('aiChatRemaining').innerText = `${remaining} questions left`;
 
       appendTypingIndicator();
 
@@ -959,17 +977,23 @@
           body: JSON.stringify({ message: query })
         });
 
-        const data = await response.json();
         removeTypingIndicator();
 
-        if (response.ok && data.reply) {
-          appendMessage(data.reply, 'ai');
+        if (response.ok) {
+          const data = await response.json();
+          if (data && data.reply) {
+            appendMessage(data.reply, 'ai');
+          } else {
+            generateLocalGroundedResponse(query);
+          }
         } else {
-          appendMessage(data.error || "Sorry, I couldn't reach the AI service right now. Please feel free to email Terron directly at TerronGrahamPro@Gmail.com.", 'ai');
+          // Automatic fallback if worker returns an error status
+          generateLocalGroundedResponse(query);
         }
       } catch (err) {
         removeTypingIndicator();
-        appendMessage("Connection error to AI service. Feel free to reach out directly at <a href='mailto:TerronGrahamPro@Gmail.com' style='color:#18d26e;'>TerronGrahamPro@Gmail.com</a>.", 'ai');
+        // Automatic fallback if network or fetch connection fails
+        generateLocalGroundedResponse(query);
       }
     }
 
