@@ -1,0 +1,8 @@
+﻿name = terron-portfolio-ai
+main = worker.js
+compatibility_date = 2024-01-01
+
+# Environment variables (Add your secret GEMINI_API_KEY via 
+px wrangler secret put GEMINI_API_KEY or Cloudflare dashboard)
+[vars]
+ENVIRONMENT = production
