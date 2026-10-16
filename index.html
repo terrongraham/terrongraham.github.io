@@ -973,7 +973,7 @@
   <script src="assets/js/main.js"></script>
 
   <!-- ==============================================
-       AI CHAT JAVASCRIPT
+       AI CHAT JAVASCRIPT (WITH DEBUGGING)
        ============================================== -->
 
   <script>
@@ -986,12 +986,12 @@
 
     // Strict mapping of exact queries to local canned responses
     const STOCK_RESPONSES = {
-	  "what are terron's core technical areas of expertise?": "Terron's differentiator lies at the intersection of Data Science and UX Research. He specializes in building massive research infrastructure, operationalizing abstract constructs and measuring things that haven't been measurable before. He is highly proficient in SQL, Python, and statistical testing. He has a proven track record partnering with senior leadership to accelerate innovation at Fortune 50 enterprises.",
-	  "how does terron approach building 0-1 products and scaling them?": "Terron thrives in ambiguity. For 0-1 products, he focuses on looking directly at where a gap exists in the world, whether that space is technological, physical, cultural, or structural. Instead of polling audiences or reacting to surface-level complaints, he studies the domain itself to find the exact points where a real need isn't being met, including the tradeoffs people simply take for granted. He defines the shape of that empty space and builds to fill it, testing whether the product immediately satisfies the unfulfilled need and brings something valuable into existence.",
-	  "what kinds of business impact has terron driven across his career?": "Across Meta, JPMorgan Chase, and Microsoft, Terron has driven massive impact. Notable highlights include delivering a ~$20M monthly revenue lift at Chase via infrastructure and analysis building, defining the strict quantitative launch gates for Meta's agentic AI messaging tools, and rebuilding Microsoft's employee experience measurement program.",
-	  "what is terron's background and educational foundation?": "Terron grew up in Philadelphia, attending a school where interacting with diverse communities sparked his lifelong passion for understanding who people are and what they truly want. He went on to earn a Master's in Statistics from the University of Pennsylvania, shaping a perspective where research serves as his primary tool for discovering and solving human needs.",
-	  "what does terron like to do when he is away from work?": "Terron is a big Eagles fan, an author of a D&D book, and an avid golfer. When he's not architecting data systems or designing research frameworks, he also enjoys exploring New York City, staying active, and keeping up with the latest developments in tech and AI."
-	};
+      "what are terron's core technical areas of expertise?": "Terron's differentiator lies at the intersection of Data Science and UX Research. He specializes in building massive research infrastructure, operationalizing abstract constructs and measuring things that haven't been measurable before. He is highly proficient in SQL, Python, and statistical testing. He has a proven track record partnering with senior leadership to accelerate innovation at Fortune 50 enterprises.",
+      "how does terron approach building 0-1 products and scaling them?": "Terron thrives in ambiguity. For 0-1 products, he focuses on looking directly at where a gap exists in the world, whether that space is technological, physical, cultural, or structural. Instead of polling audiences or reacting to surface-level complaints, he studies the domain itself to find the exact points where a real need isn't being met, including the tradeoffs people simply take for granted. He defines the shape of that empty space and builds to fill it, testing whether the product immediately satisfies the unfulfilled need and brings something valuable into existence.",
+      "what kinds of business impact has terron driven across his career?": "Across Meta, JPMorgan Chase, and Microsoft, Terron has driven massive impact. Notable highlights include delivering a ~$20M monthly revenue lift at Chase via infrastructure and analysis building, defining the strict quantitative launch gates for Meta's agentic AI messaging tools, and rebuilding Microsoft's employee experience measurement program.",
+      "what is terron's background and educational foundation?": "Terron grew up in Philadelphia, attending a school where interacting with diverse communities sparked his lifelong passion for understanding who people are and what they truly want. He went on to earn a Master's in Statistics from the University of Pennsylvania, shaping a perspective where research serves as his primary tool for discovering and solving human needs.",
+      "what does terron like to do when he is away from work?": "Terron is a big Eagles fan, an author of a D&D book, and an avid golfer. When he's not architecting data systems or designing research frameworks, he also enjoys exploring New York City, staying active, and keeping up with the latest developments in tech and AI."
+    };
 
     // Safely attach character counter event listener once DOM is loaded
     document.addEventListener('DOMContentLoaded', function() {
@@ -1069,10 +1069,19 @@
 
       appendTypingIndicator();
 
-      const normalizedQuery = query.toLowerCase();
+      // IMPORTANT: Added trim() to remove any trailing spaces from HTML attributes
+      const normalizedQuery = query.toLowerCase().trim();
+
+      // ======== DEBUGGING LOGS ========
+      console.log("=== DEBUGGING INFO ===");
+      console.log("1. Raw Query:", `"${query}"`);
+      console.log("2. Normalized Query:", `"${normalizedQuery}"`);
+      console.log("3. Match in STOCK_RESPONSES?", !!STOCK_RESPONSES[normalizedQuery]);
+      // ================================
 
       // 1. Intercept stock questions and answer locally
       if (STOCK_RESPONSES[normalizedQuery]) {
+        console.log("4. Route taken: LOCAL STOCK RESPONSE");
         setTimeout(() => {
           removeTypingIndicator();
           appendMessage(STOCK_RESPONSES[normalizedQuery], 'ai');
@@ -1081,6 +1090,7 @@
       }
 
       // 2. If it's a custom question, hit the Cloudflare Worker API
+      console.log("4. Route taken: CLOUDFLARE API CALL");
       try {
         const response = await fetch(PORTFOLIO_AI_CONFIG.API_URL, {
           method: 'POST',
@@ -1088,19 +1098,24 @@
           body: JSON.stringify({ message: query })
         });
 
+        console.log("5. API Response Status:", response.status);
         removeTypingIndicator();
 
         if (response.ok) {
           const data = await response.json();
+          console.log("6. API Data Received:", data);
           if (data && data.reply) {
             appendMessage(data.reply, 'ai');
           } else {
+            console.warn("API returned OK, but 'reply' field is missing.", data);
             showApiError();
           }
         } else {
+          console.error("API Error Response:", await response.text());
           showApiError();
         }
       } catch (err) {
+        console.error("7. Fetch Catch Block Triggered - Network/CORS Error:", err);
         removeTypingIndicator();
         showApiError();
       }
