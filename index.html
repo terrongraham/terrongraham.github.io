@@ -26,322 +26,335 @@
 
   <!-- Template Main CSS File -->
   <link href="assets/css/style.css" rel="stylesheet">
-	  
-	<style>
-	#ai-chat-section {
-		padding: 40px 0;
-		width: 100%;
-		font-family: inherit;
-	  }
-	  #ai-chat-section .section-title {
-		text-align: center;
-		margin-bottom: 30px;
-	  }
-	  #ai-chat-section .section-title h2 {
-		font-size: 32px;
-		font-weight: bold;
-		margin-bottom: 20px;
-		position: relative;
-		color: #fff;
-	  }
-	  #ai-chat-section .section-title p {
-		color: rgba(255, 255, 255, 0.8);
-	  }
-	  
-	  .chat-interface-wrapper {
-		max-width: 800px;
-		margin: 0 auto;
-		border: 1px solid rgba(255, 255, 255, 0.15);
-		border-radius: 12px;
-		background: rgba(0, 0, 0, 0.6);
-        backdrop-filter: blur(10px);
-		box-shadow: 0 4px 30px rgba(0, 0, 0, 0.5);
-		display: flex;
-		flex-direction: column;
-		overflow: hidden;
-	  }
-	  
-	  .ai-chat-body {
-		height: 400px;
-		overflow-y: auto;
-		padding: 24px;
-		background: transparent;
-		display: flex;
-		flex-direction: column;
-		gap: 12px;
-	  }
-	  
-	  .chat-bubble {
-		max-width: 80%;
-		padding: 12px 16px;
-		border-radius: 8px;
-		line-height: 1.5;
-		font-size: 15px;
-	  }
-	  
-	  .chat-bubble-ai {
-		align-self: flex-start;
-		background: rgba(255, 255, 255, 0.08);
-		color: #fff;
-        border: 1px solid rgba(255, 255, 255, 0.05);
-		border-bottom-left-radius: 2px;
-	  }
-	  
-	  .chat-bubble-user {
-		align-self: flex-end;
-		background: #18d26e;
-		color: #111;
-		border-bottom-right-radius: 2px;
-	  }
-	  
-	  .chat-pills-container {
-		display: flex;
-		flex-wrap: wrap;
-		gap: 8px;
-		margin-top: 8px;
-	  }
-	  
-	  .chat-pill {
-		background: rgba(24, 210, 110, 0.05);
-		border: 1px solid #18d26e;
-		color: #18d26e;
-		padding: 8px 14px;
-		border-radius: 20px;
-		font-size: 13px;
-		cursor: pointer;
-		transition: all 0.2s ease;
-	  }
-	  
-	  .chat-pill:hover {
-		background: #18d26e;
-		color: #111;
-	  }
-	  
-	  .chat-input-area {
-		display: flex;
-		padding: 16px 20px 4px 20px;
-		background: transparent;
-		border-top: 1px solid rgba(255, 255, 255, 0.1);
-		gap: 10px;
-	  }
-	  
-	  #aiChatInput {
-		flex-grow: 1;
-		padding: 12px 16px;
-		border: 1px solid rgba(255, 255, 255, 0.2);
-        background: rgba(255, 255, 255, 0.05);
-        color: #fff;
-		border-radius: 6px;
-		font-size: 15px;
-		outline: none;
-		transition: all 0.2s ease;
-	  }
-
-      #aiChatInput::placeholder {
-        color: rgba(255, 255, 255, 0.4);
-      }
-	  
-	  #aiChatInput:focus {
-		border-color: #18d26e;
-        background: rgba(255, 255, 255, 0.1);
-	  }
-	  
-	  .chat-send-btn {
-		background: #18d26e;
-		color: #111;
-		border: none;
-		padding: 0 24px;
-		border-radius: 6px;
-		font-weight: bold;
-		cursor: pointer;
-		transition: background 0.2s;
-	  }
-	  
-	  .chat-send-btn:hover {
-		background: #15bb62;
-	  }
-	  
-	  .chat-footer {
-		padding: 0 20px 16px 20px;
-		background: transparent;
-		text-align: right;
-	  }
-	  
-	  #aiChatCharCount {
-		font-size: 12px;
-		color: rgba(255, 255, 255, 0.5);
-	  }
-	  
-	  /* Typing Indicator Animation */
-	  .typing-dots span {
-		display: inline-block;
-		width: 5px;
-		height: 5px;
-		background-color: #fff;
-		border-radius: 50%;
-		margin-left: 2px;
-		animation: typing 1.4s infinite ease-in-out both;
-	  }
-	  .typing-dots span:nth-child(1) { animation-delay: -0.32s; }
-	  .typing-dots span:nth-child(2) { animation-delay: -0.16s; }
-	  @keyframes typing {
-		0%, 80%, 100% { transform: scale(0); }
-		40% { transform: scale(1); }
-	  }
-	</style>
 
   <style>
-    /* Project & Case Study Styles */
-    .project {
-      cursor: pointer;
-      margin-bottom: 18px;
-      padding: 12px 16px;
-      border-radius: 8px;
-      background: rgba(255, 255, 255, 0.03);
-      border: 1px solid rgba(255, 255, 255, 0.08);
-      transition: all 0.3s ease;
-    }
+	/* =========================================================
+	   UNIVERSAL & FLUID RESPONSIVE OVERRIDES (FIXED SCALING)
+	   ========================================================= */
+	:root {
+	  --primary-green: #18d26e;
+	  --primary-green-hover: #15bb62;
+	}
 
-    .project:hover {
-      background: rgba(255, 255, 255, 0.06);
-      border-color: rgba(24, 210, 110, 0.3);
-    }
+	/* 1. Tightened Fluid Typography Scale */
+	h1 { 
+	  font-size: clamp(1.4rem, 3.5vw, 2.2rem) !important; 
+	  line-height: 1.25 !important; 
+	}
+	h2 { 
+	  font-size: clamp(0.95rem, 2vw, 1.25rem) !important; 
+	  line-height: 1.4 !important; 
+	  font-weight: 400 !important;
+	}
+	h4 { 
+	  font-size: clamp(0.95rem, 1.8vw, 1.2rem) !important; 
+	}
+	h5 { 
+	  font-size: clamp(0.9rem, 1.5vw, 1.05rem) !important; 
+	  color: #fff; 
+	  margin-top: 14px; 
+	  margin-bottom: 6px; 
+	}
+	p, li { 
+	  font-size: clamp(0.85rem, 1.2vw, 0.95rem) !important; 
+	  line-height: 1.55 !important; 
+	}
 
-    .project-header {
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
-      user-select: none;
-    }
+	/* 2. Explicit Small Screen Hard-Cap (Mobile Breakpoint) */
+	@media (max-width: 768px) {
+	  #header h1 {
+		font-size: 1.35rem !important;
+	  }
+	  #header h2 {
+		font-size: 0.875rem !important;
+	  }
+	  .project-header h4 {
+		font-size: 0.95rem !important;
+	  }
+	  .project-content p, 
+	  .project-content li {
+		font-size: 0.85rem !important;
+	  }
+	  .badge-tag {
+		font-size: 0.7rem !important;
+		padding: 2px 7px !important;
+	  }
+	}
 
-    .project-header h4 {
-      margin-bottom: 0;
-    }
+#header {
+  min-height: auto !important;
+  height: auto !important;
+  display: block !important;
+  padding-top: clamp(20px, 4vh, 60px) !important;
+  padding-bottom: clamp(20px, 4vh, 40px) !important;
+}
 
-    .project-toggle-icon {
-      font-size: 20px;
-      color: #18d26e;
-      transition: transform 0.3s ease;
-    }
+@media (max-height: 700px) {
+  #header {
+    padding-top: 20px !important;
+  }
+  #ai-chat-section {
+    padding-top: 10px !important;
+  }
+}
 
-    .project.active .project-toggle-icon {
-      transform: rotate(180deg);
-    }
+	/* AI Chat Section Styling */
+	#ai-chat-section {
+	  padding: 15px 0;
+	  width: 100%;
+	  font-family: inherit;
+	}
 
-    .project-content {
-      display: none;
-      margin-top: 15px;
-    }
+	.chat-interface-wrapper {
+	  max-width: 800px;
+	  margin: 0 auto;
+	  border: 1px solid rgba(255, 255, 255, 0.15);
+	  border-radius: 12px;
+	  background: rgba(0, 0, 0, 0.6);
+	  backdrop-filter: blur(10px);
+	  box-shadow: 0 4px 30px rgba(0, 0, 0, 0.5);
+	  display: flex;
+	  flex-direction: column;
+	  overflow: hidden;
+	}
 
-    .project.active .project-content {
-      display: block;
-    }
-    
-    /* Filter Button Styles */
-    .project-filters {
-      margin-bottom: 30px;
-      display: flex;
-      flex-wrap: wrap;
-      justify-content: center;
-      gap: 10px;
-    }
-    
-    .filter-btn {
-      background: rgba(255, 255, 255, 0.05);
-      border: 1px solid rgba(255, 255, 255, 0.15);
-      color: #fff;
-      padding: 8px 18px;
-      border-radius: 50px;
-      font-size: 14px;
-      font-weight: 500;
-      cursor: pointer;
-      transition: all 0.3s ease;
-    }
-    
-    .filter-btn:hover, .filter-btn.active {
-      background: rgba(24, 210, 110, 0.15);
-      border-color: #18d26e;
-      color: #18d26e;
-    }
+	.ai-chat-body {
+	  height: clamp(200px, 30vh, 360px);
+	  overflow-y: auto;
+	  padding: 14px;
+	  background: transparent;
+	  display: flex;
+	  flex-direction: column;
+	  gap: 10px;
+	}
 
-    /* Competency & Badge Styles */
-    .competency-card {
-      background: rgba(255, 255, 255, 0.05);
-      border-left: 3px solid #18d26e;
-      padding: 18px 20px;
-      margin-bottom: 20px;
-      border-radius: 0 8px 8px 0;
-      height: 100%;
-    }
+	.chat-bubble {
+	  max-width: 85%;
+	  padding: 8px 12px;
+	  border-radius: 8px;
+	  line-height: 1.45;
+	  font-size: clamp(0.8rem, 1.1vw, 0.9rem);
+	}
 
-    .competency-card h4 {
-      font-size: 18px;
-      color: #fff;
-      margin-bottom: 10px;
-      font-weight: 600;
-    }
+	.chat-bubble-ai {
+	  align-self: flex-start;
+	  background: rgba(255, 255, 255, 0.08);
+	  color: #fff;
+	  border: 1px solid rgba(255, 255, 255, 0.05);
+	  border-bottom-left-radius: 2px;
+	}
 
-    .competency-card p {
-      color: rgba(255, 255, 255, 0.8);
-      font-size: 14px;
-      line-height: 1.6;
-      margin-bottom: 0;
-    }
+	.chat-bubble-user {
+	  align-self: flex-end;
+	  background: var(--primary-green);
+	  color: #111;
+	  border-bottom-right-radius: 2px;
+	}
 
-    .skill-category-title {
-      font-size: 16px;
-      color: #18d26e;
-      font-weight: 700;
-      text-transform: uppercase;
-      letter-spacing: 1px;
-      margin: 25px 0 15px 0;
-    }
+	/* Single-Row Horizontal Scroll for Pills & Filters */
+	.chat-pills-container,
+	.project-filters {
+	  display: flex;
+	  flex-wrap: wrap;
+	  padding-bottom: 6px;
+	  gap: 8px;
+	  justify-content: flex-start;
+	}
 
-    .badge-tag {
-      display: inline-block;
-      background: rgba(24, 210, 110, 0.12);
-      color: #18d26e;
-      border: 1px solid rgba(24, 210, 110, 0.3);
-      padding: 3px 10px;
-      border-radius: 12px;
-      font-size: 12px;
-      font-weight: 600;
-      margin-right: 6px;
-      margin-bottom: 6px;
-    }
+	.chat-pills-container::-webkit-scrollbar,
+	.project-filters::-webkit-scrollbar {
+	  display: none;
+	}
 
-    #copy-toast {
-      position: fixed;
-      bottom: 25px;
-      right: 25px;
-      background: #18d26e;
-      color: #040404;
-      font-weight: 700;
-      padding: 10px 20px;
-      border-radius: 6px;
-      box-shadow: 0 4px 15px rgba(0, 0, 0, 0.4);
-      display: none;
-      z-index: 99999;
-      transition: opacity 0.3s ease;
-    }
+	.chat-pill,
+	.filter-btn {
+	  white-space: nowrap;
+	  flex-shrink: 0;
+	  scroll-snap-align: start;
+	  background: rgba(255, 255, 255, 0.05);
+	  border: 1px solid rgba(255, 255, 255, 0.15);
+	  color: #fff;
+	  padding: 5px 12px;
+	  border-radius: 50px;
+	  font-size: clamp(0.725rem, 1vw, 0.825rem);
+	  font-weight: 500;
+	  cursor: pointer;
+	  transition: all 0.2s ease;
+	}
 
+	.chat-pill {
+	  background: rgba(24, 210, 110, 0.05);
+	  border-color: var(--primary-green);
+	  color: var(--primary-green);
+	}
+
+	.chat-pill:hover,
+	.filter-btn:hover, 
+	.filter-btn.active {
+	  background: rgba(24, 210, 110, 0.15);
+	  border-color: var(--primary-green);
+	  color: var(--primary-green);
+	}
+
+	.chat-input-area {
+	  display: flex;
+	  padding: 10px 14px 4px 14px;
+	  background: transparent;
+	  border-top: 1px solid rgba(255, 255, 255, 0.1);
+	  gap: 8px;
+	}
+
+	#aiChatInput {
+	  flex-grow: 1;
+	  padding: 8px 12px;
+	  border: 1px solid rgba(255, 255, 255, 0.2);
+	  background: rgba(255, 255, 255, 0.05);
+	  color: #fff;
+	  border-radius: 6px;
+	  font-size: 13px;
+	  outline: none;
+	  transition: all 0.2s ease;
+	}
+
+	#aiChatInput::placeholder { color: rgba(255, 255, 255, 0.4); }
+	#aiChatInput:focus { border-color: var(--primary-green); background: rgba(255, 255, 255, 0.1); }
+
+	.chat-send-btn {
+	  background: var(--primary-green);
+	  color: #111;
+	  border: none;
+	  padding: 0 16px;
+	  border-radius: 6px;
+	  font-weight: bold;
+	  font-size: 13px;
+	  cursor: pointer;
+	  transition: background 0.2s;
+	}
+
+	.chat-send-btn:hover { background: var(--primary-green-hover); }
+
+	.chat-footer {
+	  padding: 0 14px 8px 14px;
+	  background: transparent;
+	  text-align: right;
+	}
+
+	#aiChatCharCount { font-size: 11px; color: rgba(255, 255, 255, 0.5); }
+
+	/* Project Cards */
+	.project {
+	  cursor: pointer;
+	  margin-bottom: 12px;
+	  padding: 12px 16px;
+	  border-radius: 8px;
+	  background: rgba(255, 255, 255, 0.03);
+	  border: 1px solid rgba(255, 255, 255, 0.08);
+	  transition: all 0.3s ease;
+	}
+
+	.project:hover {
+	  background: rgba(255, 255, 255, 0.06);
+	  border-color: rgba(24, 210, 110, 0.3);
+	}
+
+	.project-header {
+	  display: flex;
+	  justify-content: space-between;
+	  align-items: center;
+	  user-select: none;
+	}
+
+	.project-header h4 { margin-bottom: 0; }
+
+	.project-toggle-icon {
+	  font-size: 18px;
+	  color: var(--primary-green);
+	  transition: transform 0.3s ease;
+	  margin-left: 10px;
+	  flex-shrink: 0;
+	}
+
+	.project.active .project-toggle-icon { transform: rotate(180deg); }
+	.project-content { display: none; margin-top: 12px; }
+	.project.active .project-content { display: block; }
+
+	/* Badges & Cards */
+	.badge-tag {
+	  display: inline-block;
+	  background: rgba(24, 210, 110, 0.12);
+	  color: var(--primary-green);
+	  border: 1px solid rgba(24, 210, 110, 0.3);
+	  padding: 2px 8px;
+	  border-radius: 12px;
+	  font-size: 0.725rem;
+	  font-weight: 600;
+	  margin-right: 5px;
+	  margin-bottom: 5px;
+	}
+
+	.competency-card {
+	  background: rgba(255, 255, 255, 0.05);
+	  border-left: 3px solid var(--primary-green);
+	  padding: 14px 16px;
+	  margin-bottom: 16px;
+	  border-radius: 0 8px 8px 0;
+	  height: 100%;
+	}
+
+	.competency-card h4 {
+	  font-size: 0.95rem;
+	  color: #fff;
+	  margin-bottom: 8px;
+	  font-weight: 600;
+	}
+
+	.competency-card p {
+	  color: rgba(255, 255, 255, 0.8);
+	  margin-bottom: 0;
+	}
+
+	.skill-category-title {
+	  font-size: 13px;
+	  color: var(--primary-green);
+	  font-weight: 700;
+	  text-transform: uppercase;
+	  letter-spacing: 1px;
+	  margin: 20px 0 12px 0;
+	}
+
+	#copy-toast {
+	  position: fixed;
+	  bottom: 20px;
+	  right: 20px;
+	  background: var(--primary-green);
+	  color: #040404;
+	  font-weight: 700;
+	  padding: 8px 16px;
+	  border-radius: 6px;
+	  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.4);
+	  display: none;
+	  z-index: 99999;
+	  transition: opacity 0.3s ease;
+	}
+
+	.counts iframe {
+	  width: 100% !important;
+	  height: clamp(400px, 60vh, 850px) !important;
+	  border: none;
+	}	
   </style>
 </head>
 
 <body>
-<!-- ======= Scripts ======= -->
+  <!-- ======= Utility Scripts ======= -->
   <script>
     function toggleProject(element) {
       element.classList.toggle('active');
       var projectContent = element.querySelector('.project-content');
-      var mediaElement = element.querySelector('img, iframe');
-
       if (element.classList.contains('active')) {
         if (projectContent) projectContent.style.display = 'block';
-        if (mediaElement) mediaElement.style.display = 'block';
       } else {
         if (projectContent) projectContent.style.display = 'none';
-        if (mediaElement) mediaElement.style.display = 'none';
       }
     }
     
@@ -357,9 +370,7 @@
           proj.style.display = 'none';
           proj.classList.remove('active');
           const content = proj.querySelector('.project-content');
-          const media = proj.querySelector('img, iframe');
           if(content) content.style.display = 'none';
-          if(media) media.style.display = 'none';
         }
       });
     }
@@ -380,7 +391,7 @@
   </script>
   <div id="copy-toast"><i class="bi bi-check-circle-fill"></i> Email copied to clipboard!</div>
 
-<!-- ======= Header ======= -->
+  <!-- ======= Header ======= -->
   <header id="header">
     <div class="container">
       <h1>Terron Graham</h1>
@@ -397,33 +408,31 @@
           <li><a class="nav-link" href="#resume">Resume</a></li>
         </ul>
         <i class="bi bi-list mobile-nav-toggle"></i>
-		
-		  
       </nav>
 
       <!-- ======= AI Chat Section ======= -->
       <div id="ai-chat-section">
-        
         <div class="chat-interface-wrapper">
           <div id="aiChatBody" class="ai-chat-body">
             <div class="chat-bubble chat-bubble-ai">
               Hello! I'm an AI assistant that can help you answer questions you may have about Terron's experience and what makes him unique. Ask me anything about his research, his background, or even how he likes to spend his free time. 
             </div>
             <div class="chat-pills-container" id="chatPills">
-				<button class="chat-pill" onclick="sendPillQuery('What are Terron\'s core technical areas of expertise?')">
-				  ⚡ Core Expertise &amp; Skills
-				</button>
-				<button class="chat-pill" onclick="sendPillQuery('How does Terron approach building 0-1 products and scaling them?')">
-				  🚀 0-1 Product Philosophy
-				</button>
-				<button class="chat-pill" onclick="sendPillQuery('What kinds of business impact has Terron driven across his career?')">
-				  📊 Career Business Impact
-				</button>
-				<button class="chat-pill" onclick="sendPillQuery('What is Terron\'s background and educational foundation?')">
-				  🏫 Education &amp; Background
-				</button>
-				<button class="chat-pill" onclick="sendPillQuery('What does Terron like to do when he is away from work?')">
-				  ☕ Interests &amp; Free Time
+              <button class="chat-pill" onclick="sendPillQuery('What are Terron\'s core technical areas of expertise?')">
+                ⚡ Core Expertise &amp; Skills
+              </button>
+              <button class="chat-pill" onclick="sendPillQuery('How does Terron approach building 0-1 products and scaling them?')">
+                🚀 0-1 Product Philosophy
+              </button>
+              <button class="chat-pill" onclick="sendPillQuery('What kinds of business impact has Terron driven across his career?')">
+                📊 Career Business Impact
+              </button>
+              <button class="chat-pill" onclick="sendPillQuery('What is Terron\'s background and educational foundation?')">
+                🏫 Education &amp; Background
+              </button>
+              <button class="chat-pill" onclick="sendPillQuery('What does Terron like to do when he is away from work?')">
+                ☕ Interests &amp; Free Time
+              </button>
             </div>
           </div>
           
@@ -437,11 +446,10 @@
         </div>
       </div>
       <!-- End AI Chat Section -->
-
     </div>
   </header>
 
-<!-- ======= Case Studies Section ======= -->
+  <!-- ======= Case Studies Section ======= -->
   <section id="case-studies" class="UX">
     <div class="container">
 
@@ -449,400 +457,258 @@
         <h2>Case Studies &amp; Projects</h2>
       </div>
       
-      <!-- Filter Bar -->
+      <!-- Horizontal Touch Filter Bar -->
       <div class="project-filters">
-		<button class="filter-btn active" onclick="filterProjects('all', this)">All Work</button>
-		<button class="filter-btn" onclick="filterProjects('0-1', this)">Ambiguity Navigation &amp; 0–1</button>
-		<button class="filter-btn" onclick="filterProjects('infra', this)">Infrastructure &amp; Pipelines</button>
-		<button class="filter-btn" onclick="filterProjects('analytics', this)">Analytics &amp; Modeling</button>
-		<button class="filter-btn" onclick="filterProjects('strategy', this)">Product Strategy</button>
-		<button class="filter-btn" onclick="filterProjects('leadership', this)">Leadership &amp; Operations</button>
-	  </div>
+        <button class="filter-btn active" onclick="filterProjects('all', this)">All Work</button>
+        <button class="filter-btn" onclick="filterProjects('0-1', this)">Ambiguity Navigation &amp; 0–1</button>
+        <button class="filter-btn" onclick="filterProjects('infra', this)">Infrastructure &amp; Pipelines</button>
+        <button class="filter-btn" onclick="filterProjects('analytics', this)">Analytics &amp; Modeling</button>
+        <button class="filter-btn" onclick="filterProjects('strategy', this)">Product Strategy</button>
+        <button class="filter-btn" onclick="filterProjects('leadership', this)">Leadership &amp; Operations</button>
+      </div>
 
-      <!-- 1. Stealth Startup -->
+      <!-- 1. Stealth Startup (Single Column) -->
       <div class="project" data-filters="0-1 strategy" onclick="toggleProject(this)">
         <div class="project-header">
-          <h4 class="hover-underline">Founding Research to Resolve Privacy and Safety Concern in Digital Identity Verification </h4>
+          <h4 class="hover-underline">Founding Research to Resolve Privacy and Safety Concern in Digital Identity Verification</h4>
           <i class="bi bi-chevron-down project-toggle-icon"></i>
         </div>
-        <div class="row">
-          <div class="col-md-7">
-            <div class="project-content">
-              <div style="margin-bottom: 12px;">
-                <span class="badge-tag">Founding Researcher</span>
-                <span class="badge-tag">0-1 Innovation</span>
-                <span class="badge-tag">Usability Testing and Interviews</span>
-              </div>
-              <p><h5>Project Overview</h5></p>
-              <p>As Founding Researcher in a blank-slate environment on a 3-person core team, I architected the research strategy and validity frameworks for a 0-1 civic advocacy platform utilizing blockchain digital IDs. My mandate was to translate user behavioral insights directly into technical protocols, UI specifications, and launch validation frameworks alongside engineering and product design.</p>
-              <p><h5>Diagnosing Trust Hurdles</h5></p>
-              <p>User research uncovered critical psychological barriers: users were hesitant to connect cryptographic identities to real-world advocacy without clarity on anonymity guarantees. <strong>I diagnosed onboarding drop-off points and collaborated with engineering to design transparent, user-facing cryptographic explanations</strong>, demystifying zero-knowledge concepts into intuitive trust cues.</p>
-              <p><h5>Impact</h5></p>
-              <p>By systematically aligning protocol security with user mental models, we significantly improved onboarding funnel conversion and unlocked successful multi-market pilot deployments across California and New York.</p>
-            </div>
+        <div class="project-content">
+          <div style="margin-bottom: 12px;">
+            <span class="badge-tag">Founding Researcher</span>
+            <span class="badge-tag">0-1 Innovation</span>
+            <span class="badge-tag">Usability Testing and Interviews</span>
           </div>
-          <div class="col-md-5">
-            <div class="project-content text-center pt-3">
-              <div style="background: rgba(255,255,255,0.05); border: 1px solid rgba(24, 210, 110, 0.3); border-radius: 8px; padding: 25px 20px;">
-                <i class="bi bi-shield-lock-fill" style="font-size: 50px; color: #18d26e;"></i>
-                <h5 style="color: #fff; margin-top: 15px;">0-1 Trust Framework</h5>
-              </div>
-            </div>
-          </div>
+          <h5>Project Overview</h5>
+          <p>As Founding Researcher in a blank-slate environment on a 3-person core team, I architected the research strategy and validity frameworks for a 0-1 civic advocacy platform utilizing blockchain digital IDs. My mandate was to translate user behavioral insights directly into technical protocols, UI specifications, and launch validation frameworks alongside engineering and product design.</p>
+          <h5>Diagnosing Trust Hurdles</h5>
+          <p>User research uncovered critical psychological barriers: users were hesitant to connect cryptographic identities to real-world advocacy without clarity on anonymity guarantees. <strong>I diagnosed onboarding drop-off points and collaborated with engineering to design transparent, user-facing cryptographic explanations</strong>, demystifying zero-knowledge concepts into intuitive trust cues.</p>
+          <h5>Impact</h5>
+          <p>By systematically aligning protocol security with user mental models, we significantly improved onboarding funnel conversion and unlocked successful multi-market pilot deployments across California and New York.</p>
         </div>
       </div>
 
-      <!-- 2. Meta: 0-1 Agentic AI & 12 Vendors -->
+      <!-- 2. Meta: 0-1 Agentic AI & 12 Vendors (Single Column) -->
       <div class="project" data-filters="0-1 analytics strategy leadership" onclick="toggleProject(this)">
         <div class="project-header">
-          <h4 class="hover-underline">0-1 Agentic AI Launch Gating &amp; Global Vendor Operations </h4>
+          <h4 class="hover-underline">0-1 Agentic AI Launch Gating &amp; Global Vendor Operations</h4>
           <i class="bi bi-chevron-down project-toggle-icon"></i>
         </div>
-        <div class="row">
-          <div class="col-md-7">
-            <div class="project-content">
-              <div style="margin-bottom: 12px;">
-                <span class="badge-tag">Meta</span>
-                <span class="badge-tag">Agentic AI Creation</span>
-                <span class="badge-tag">0-1 Project Research</span>
-                <span class="badge-tag">Global Operations (12 Vendors)</span>
-              </div>
-              <p><h5>Project Overview</h5></p>
-              <p>
-                The main objective of this project was to research the value of AI-powered agentic business messaging as it transitioned from concept to execution, focusing on identifying areas of value for businesses on Messenger and Instagram. Understanding how AI could perform as a substitute for what had traditionally been human customer support interactions, like giving information about products, was critical particularly for small businesses that had very few employees. 
-              <p><h5>Key Responsibilities</h5></p>
-              <p>
-                As the Quantitative UX Researcher, I led multinational alpha, beta and general availability studies combining survey data with platform interaction data. I managed the research process, including survey design, data analysis, and communicating findings to stakeholders. <strong>My approach involved close collaboration with qualitative researchers, providing them with user profiles and targeted outreach lists to ensure we spoke with the right participants.</strong>
-              </p>
-              <p><h5>Technical Approach</h5></p>
-              <p>
-                For data analysis, I utilized internal survey tools, SQL for data retrieval, and Python for manipulation, allowing efficient extraction of relevant information. <strong>When we encountered broken eligibility criteria for survey participants, I was able to recover the data by finding other criteria by which to check whether the user had interacted with an AI or a human.</strong> I determined whether the data was random or systemic, to help determine whether the data was still representative as well as to understand what the likely failure point was. 
-                </p>
-                <p>
-                Working with the Data Engineering team, we identified and resolved these issues to maintain data integrity on future projects. To address data eligibility challenges that delayed our research timeline, I implemented survey weighting techniques ensuring our results represented target populations accurately. This critical step validated our findings across different user segments and allowed us to confidently present recommendations to stakeholders.
-              </p>
-              <p><h5>Impact & Findings</h5></p>
-              <p>
-                Through analysis of platform interaction data and survey responses, I uncovered key insights:
-                <ul> 
-                    <li>Users don't have a worsened experience when interacting with the AI but do get much more timely responses</li> 
-                    <li>Small businesses were able to increase the amount of work they can perform when they don't have to worry about customer support</li> 
-
-                    These insights directly influenced the deployment strategy, ultimately enhancing customer engagement and satisfaction. </ul>
-              <p><h5>Professional Growth</h5></p>
-              <p>
-                The project marked my first experience with a non-iterative research approach, teaching me valuable lessons about quickly bringing products to market to achieve relevance. <strong>I learned that prioritizing speed and responsiveness is essential for success in a rapidly evolving landscape. These insights will guide my future work as I apply these lessons to drive innovation and enhance user experiences in upcoming projects.</strong>
-              </p>
-            </div>
+        <div class="project-content">
+          <div style="margin-bottom: 12px;">
+            <span class="badge-tag">Meta</span>
+            <span class="badge-tag">Agentic AI Creation</span>
+            <span class="badge-tag">0-1 Project Research</span>
+            <span class="badge-tag">Global Operations (12 Vendors)</span>
           </div>
-          <div class="col-md-5">
-            <img class="project-content" src="assets/img/WorkReference/MetaConnect.png" style="display: none; width: 90%; margin-top: 15px;">
-          </div>
+          <h5>Project Overview</h5>
+          <p>The main objective of this project was to research the value of AI-powered agentic business messaging as it transitioned from concept to execution, focusing on identifying areas of value for businesses on Messenger and Instagram. Understanding how AI could perform as a substitute for what had traditionally been human customer support interactions, like giving information about products, was critical particularly for small businesses that had very few employees.</p>
+          <h5>Key Responsibilities</h5>
+          <p>As the Quantitative UX Researcher, I led multinational alpha, beta and general availability studies combining survey data with platform interaction data. I managed the research process, including survey design, data analysis, and communicating findings to stakeholders. <strong>My approach involved close collaboration with qualitative researchers, providing them with user profiles and targeted outreach lists to ensure we spoke with the right participants.</strong></p>
+          <h5>Technical Approach</h5>
+          <p>For data analysis, I utilized internal survey tools, SQL for data retrieval, and Python for manipulation, allowing efficient extraction of relevant information. <strong>When we encountered broken eligibility criteria for survey participants, I was able to recover the data by finding other criteria by which to check whether the user had interacted with an AI or a human.</strong> I determined whether the data was random or systemic, to help determine whether the data was still representative as well as to understand what the likely failure point was.</p>
+          <p>Working with the Data Engineering team, we identified and resolved these issues to maintain data integrity on future projects. To address data eligibility challenges that delayed our research timeline, I implemented survey weighting techniques ensuring our results represented target populations accurately. This critical step validated our findings across different user segments and allowed us to confidently present recommendations to stakeholders.</p>
+          <h5>Impact &amp; Findings</h5>
+          <p>Through analysis of platform interaction data and survey responses, I uncovered key insights:</p>
+          <ul>
+            <li>Users don't have a worsened experience when interacting with the AI but do get much more timely responses</li>
+            <li>Small businesses were able to increase the amount of work they can perform when they don't have to worry about customer support</li>
+          </ul>
+          <p>These insights directly influenced the deployment strategy, ultimately enhancing customer engagement and satisfaction.</p>
+          <h5>Professional Growth</h5>
+          <p>The project marked my first experience with a non-iterative research approach, teaching me valuable lessons about quickly bringing products to market to achieve relevance. <strong>I learned that prioritizing speed and responsiveness is essential for success in a rapidly evolving landscape. These insights will guide my future work as I apply these lessons to drive innovation and enhance user experiences in upcoming projects.</strong></p>
         </div>
       </div>
 
-      <!-- 3. Meta: Eliminating Liquidity Barriers -->
+      <!-- 3. Meta: Eliminating Liquidity Barriers (Single Column) -->
       <div class="project" data-filters="strategy" onclick="toggleProject(this)">
         <div class="project-header">
-          <h4 class="hover-underline">Eliminating Liquidity Barriers Across SMB Automated Campaigns </h4>
+          <h4 class="hover-underline">Eliminating Liquidity Barriers Across SMB Automated Campaigns</h4>
           <i class="bi bi-chevron-down project-toggle-icon"></i>
         </div>
-        <div class="row">
-          <div class="col-md-7">
-            <div class="project-content">
-              <div style="margin-bottom: 12px;">
-                <span class="badge-tag">Meta</span>
-                <span class="badge-tag">Mixed-Methods</span>
-                <span class="badge-tag">Ad-Spend Retention</span>
-              </div>
-              <h5>Challenge & Context</h5>
-				<p>
-				  Within Meta's Small and Medium Business (SMB) advertising ecosystem, self-serve merchants face significant operational friction when launching and scaling campaigns. High interface complexity, confusing audience targeting options, and overwhelming budgeting controls led to frequent onboarding drop-offs, sub-optimal campaign setups, and premature ad spend abandonment.
-				</p>
-				<p>
-				  To unlock advertiser growth and improve platform liquidity, Meta needed deep, actionable insights into where and why self-serve merchants were stalling during the campaign setup journey.
-				</p>
-
-				<h5>Mixed-Methods Research Strategy</h5>
-				<p>
-				  I designed and executed an end-to-end mixed-methods research initiative to map the complete advertiser lifecycle and identify key UX and functional friction points:
-				</p>
-				<ul>
-				  <li><strong>Quantitative Log Analysis:</strong> Analyzed behavioral telemetry and telemetry logs from thousands of advertiser sessions to pinpoint exact drop-off steps, configuration errors, and feature drop-out rates in the creation funnel.</li>
-				  <li><strong>Qualitative Merchant Interviews:</strong> Conducted in-depth interviews with diverse SMB owners to evaluate mental models, risk perceptions around budget allocation, and pain points regarding audience targeting.</li>
-				  <li><strong>Attitudinal Surveys:</strong> Deployed targeted in-product surveys to measure confidence levels, ease-of-use perception, and feature satisfaction during active campaign builds.</li>
-				</ul>
-
-				<h5>Key Research Findings & Strategic Recommendations</h5>
-				<p>
-				  Our research revealed that SMB advertisers didn't lack marketing intent—they lacked confidence. Over-choice in targeting parameters created decision paralysis, while a lack of real-time feedback made merchants hesitant to commit advertising budgets.
-				</p>
-				<p>
-				  I partnered directly with Product Managers, UX Designers, and Engineering squads to translate these findings into concrete product interventions:
-				</p>
-				<ul>
-				  <li><strong>Smart Targeting Presets:</strong> Replaced granular manual targeting fields with AI-assisted preset audiences tailored to business verticals and localized demographics.</li>
-				  <li><strong>Guided Setup Workflows:</strong> Streamlined the creation flow into progressive disclosure steps, reducing cognitive load and preventing user fatigue.</li>
-				  <li><strong>Contextual Guidance & Tooltips:</strong> Designed dynamic tooltips and performance preview estimators that gave merchants real-time feedback on expected reach and ROI before launching.</li>
-				</ul>
-
-				<h5>Impact & Business Outcomes</h5>
-				<p>
-				  <strong>By addressing core setup friction and simplifying targeting workflows, the team drove measurable gains across key platform metrics:</strong>
-				</p>
-				<ul>
-				  <li><strong>Increased Adoption:</strong> Boosted adoption of self-serve targeting tools among newly onboarded SMB merchants.</li>
-				  <li><strong>Accelerated Setup Velocity:</strong> Significantly reduced the average time required for merchants to build and publish an ad campaign.</li>
-				  <li><strong>Sustained Liquidity & Retention:</strong> Lowered early campaign abandonment, driving higher long-term advertiser retention and sustained monthly ad-spend liquidity across Meta's ad ecosystem.</li>
-				</ul>
-            </div>
+        <div class="project-content">
+          <div style="margin-bottom: 12px;">
+            <span class="badge-tag">Meta</span>
+            <span class="badge-tag">Mixed-Methods</span>
+            <span class="badge-tag">Ad-Spend Retention</span>
           </div>
-          <div class="col-md-5">
-            <div class="project-content text-center pt-3">
-              <div style="background: rgba(255,255,255,0.05); border: 1px solid rgba(24, 210, 110, 0.3); border-radius: 8px; padding: 25px 20px;">
-                <i class="bi bi-graph-up-arrow" style="font-size: 50px; color: #18d26e;"></i>
-                <h5 style="color: #fff; margin-top: 15px;">SMB Advertising Suite</h5>
-              </div>
-            </div>
-          </div>
+          <h5>Challenge &amp; Context</h5>
+          <p>Within Meta's Small and Medium Business (SMB) advertising ecosystem, self-serve merchants face significant operational friction when launching and scaling campaigns. High interface complexity, confusing audience targeting options, and overwhelming budgeting controls led to frequent onboarding drop-offs, sub-optimal campaign setups, and premature ad spend abandonment.</p>
+          <p>To unlock advertiser growth and improve platform liquidity, Meta needed deep, actionable insights into where and why self-serve merchants were stalling during the campaign setup journey.</p>
+          <h5>Mixed-Methods Research Strategy</h5>
+          <p>I designed and executed an end-to-end mixed-methods research initiative to map the complete advertiser lifecycle and identify key UX and functional friction points:</p>
+          <ul>
+            <li><strong>Quantitative Log Analysis:</strong> Analyzed behavioral telemetry and telemetry logs from thousands of advertiser sessions to pinpoint exact drop-off steps, configuration errors, and feature drop-out rates in the creation funnel.</li>
+            <li><strong>Qualitative Merchant Interviews:</strong> Conducted in-depth interviews with diverse SMB owners to evaluate mental models, risk perceptions around budget allocation, and pain points regarding audience targeting.</li>
+            <li><strong>Attitudinal Surveys:</strong> Deployed targeted in-product surveys to measure confidence levels, ease-of-use perception, and feature satisfaction during active campaign builds.</li>
+          </ul>
+          <h5>Key Research Findings &amp; Strategic Recommendations</h5>
+          <p>Our research revealed that SMB advertisers didn't lack marketing intent—they lacked confidence. Over-choice in targeting parameters created decision paralysis, while a lack of real-time feedback made merchants hesitant to commit advertising budgets.</p>
+          <p>I partnered directly with Product Managers, UX Designers, and Engineering squads to translate these findings into concrete product interventions:</p>
+          <ul>
+            <li><strong>Smart Targeting Presets:</strong> Replaced granular manual targeting fields with AI-assisted preset audiences tailored to business verticals and localized demographics.</li>
+            <li><strong>Guided Setup Workflows:</strong> Streamlined the creation flow into progressive disclosure steps, reducing cognitive load and preventing user fatigue.</li>
+            <li><strong>Contextual Guidance &amp; Tooltips:</strong> Designed dynamic tooltips and performance preview estimators that gave merchants real-time feedback on expected reach and ROI before launching.</li>
+          </ul>
+          <h5>Impact &amp; Business Outcomes</h5>
+          <p><strong>By addressing core setup friction and simplifying targeting workflows, the team drove measurable gains across key platform metrics:</strong></p>
+          <ul>
+            <li><strong>Increased Adoption:</strong> Boosted adoption of self-serve targeting tools among newly onboarded SMB merchants.</li>
+            <li><strong>Accelerated Setup Velocity:</strong> Significantly reduced the average time required for merchants to build and publish an ad campaign.</li>
+            <li><strong>Sustained Liquidity &amp; Retention:</strong> Lowered early campaign abandonment, driving higher long-term advertiser retention and sustained monthly ad-spend liquidity across Meta's ad ecosystem.</li>
+          </ul>
         </div>
       </div>
 
-      <!-- 4. Meta: BM Pulse Global Tracking -->
+      <!-- 4. Meta: BM Pulse Global Tracking (Single Column) -->
       <div class="project" data-filters="infra leadership" onclick="toggleProject(this)">
         <div class="project-header">
-          <h4 class="hover-underline">Creating and Administering the Business Messaging Platform Survey for Facebook & Instagram</h4>
+          <h4 class="hover-underline">Creating and Administering the Business Messaging Platform Survey for Facebook &amp; Instagram</h4>
           <i class="bi bi-chevron-down project-toggle-icon"></i>
         </div>
-        <div class="row">
-          <div class="col-md-7">
-            <div class="project-content">
-              <div style="margin-bottom: 12px;">
-                <span class="badge-tag">Meta</span>
-                <span class="badge-tag">Continuous Monitoring</span>
-                <span class="badge-tag">n=100k+/month</span>
-              </div>
-              <p><h5>Project Overview & Scale</h5></p>
-              <p>
-                As the Quantitative UX Researcher for customer Business Messaging tracking, I led the implementation of a global research initiative designed to continuously monitor consumer sentiment across messaging platforms. The project tracked key metrics including value perception, relevance, and negative experiences associated with business messaging, serving as a critical guardrail against messaging overload. <strong>With hundreds of thousands of monthly responses spanning both Instagram and Messenger across priority markets, this project represented one of our largest-scale research efforts, providing visibility into global messaging trends and user sentiment.</strong>
-              </p>
-
-              <p><h5>Key Responsibilities & Technical Approach</h5></p>
-              <p>
-                My responsibilities included survey design, determining optimal invitation volumes, establishing data pipelines, and building comprehensive dashboards to visualize insights for stakeholders. 
-              <p>
-                To effectively analyze the massive dataset, I utilized:
-              <ul>
-                  <li>Internal survey tools for data collection across multiple markets</li> 
-                  <li>SQL for efficient data retrieval from our databases</li> 
-                  <li>Python for sophisticated data manipulation and statistical analysis</li> 
-                  <li>Interactive dashboards allowing stakeholders to filter by region, platform, and demographics</li> 
-              </ul>
-              </p>
-                Working across diverse global markets presented unique challenges that required thoughtful solutions and cultural adaptations, including translation. By implementing weighted sampling techniques, I ensured our findings accurately represented user populations across all markets despite varying response rates.
-
-
-              <p><h5>Impact & Future Direction</h5></p>
-              <p>
-                These insights directly informed critical product decisions, including the implementation of message frequency capping in high-volume markets and the optimization of delivery timing based on regional usage patterns. In the future, our hope is to use this abundance of data to understand what levers are able to be pulled to improve business messaging with a much longer understanding of effects.
-              </p>
-            </div>
-            </div>
+        <div class="project-content">
+          <div style="margin-bottom: 12px;">
+            <span class="badge-tag">Meta</span>
+            <span class="badge-tag">Continuous Monitoring</span>
+            <span class="badge-tag">n=100k+/month</span>
           </div>
-          <div class="col-md-5">
-            <img class="project-content" src="assets/img/WorkReference/BM Tracking.png" style="display: none; width: 100%; margin-top: 15px;">
-          </div>
+          <h5>Project Overview &amp; Scale</h5>
+          <p>As the Quantitative UX Researcher for customer Business Messaging tracking, I led the implementation of a global research initiative designed to continuously monitor consumer sentiment across messaging platforms. The project tracked key metrics including value perception, relevance, and negative experiences associated with business messaging, serving as a critical guardrail against messaging overload. <strong>With hundreds of thousands of monthly responses spanning both Instagram and Messenger across priority markets, this project represented one of our largest-scale research efforts, providing visibility into global messaging trends and user sentiment.</strong></p>
+          <h5>Key Responsibilities &amp; Technical Approach</h5>
+          <p>My responsibilities included survey design, determining optimal invitation volumes, establishing data pipelines, and building comprehensive dashboards to visualize insights for stakeholders.</p>
+          <p>To effectively analyze the massive dataset, I utilized:</p>
+          <ul>
+            <li>Internal survey tools for data collection across multiple markets</li> 
+            <li>SQL for efficient data retrieval from our databases</li> 
+            <li>Python for sophisticated data manipulation and statistical analysis</li> 
+            <li>Interactive dashboards allowing stakeholders to filter by region, platform, and demographics</li> 
+          </ul>
+          <p>Working across diverse global markets presented unique challenges that required thoughtful solutions and cultural adaptations, including translation. By implementing weighted sampling techniques, I ensured our findings accurately represented user populations across all markets despite varying response rates.</p>
+          <h5>Impact &amp; Future Direction</h5>
+          <p>These insights directly informed critical product decisions, including the implementation of message frequency capping in high-volume markets and the optimization of delivery timing based on regional usage patterns. In the future, our hope is to use this abundance of data to understand what levers are able to be pulled to improve business messaging with a much longer understanding of effects.</p>
         </div>
+      </div>
 
-      <!-- 5. Microsoft: Fusing Telemetry & Hybrid Workstream Overhaul -->
+      <!-- 5. Microsoft: Automated NLP Pipeline (Single Column) -->
       <div class="project" data-filters="infra analytics" onclick="toggleProject(this)">
         <div class="project-header">
-          <h4 class="hover-underline">Overhauling Microsoft's Hybrid Workstream Survey: Automated NLP Pipeline & Methodological Redesign</h4>
+          <h4 class="hover-underline">Overhauling Microsoft's Hybrid Workstream Survey: Automated NLP Pipeline &amp; Methodological Redesign</h4>
           <i class="bi bi-chevron-down project-toggle-icon"></i>
         </div>
-        <div class="row">
-          <div class="col-md-7">
-            <div class="project-content">
-              <div style="margin-bottom: 12px;">
-                <span class="badge-tag">Microsoft</span>
-                <span class="badge-tag">Methodology Innovation</span>
-                <span class="badge-tag">Qualitative Analysis Automation</span>
-              </div>
-              <h5>1. The Bottleneck: Manual Analysis of Unstructured Data</h5>
-				<p>
-				  Microsoft's Hybrid workstream collected over 2,000 employee survey responses monthly to inform internal policies and product direction. Initially, analyzing open-ended text responses and compiling stakeholder updates was done completely by hand. This manual analysis was prohibitively slow and consumed significant time that could otherwise be spent on high-value research.
-				</p>
-
-				<h5>2. The Technical Solution: Automated NLP Pipeline</h5>
-				<p>
-				  To resolve the speed barrier, I developed an automated data processing pipeline and fine-tuned a <strong>BART-large-MNLI zero-shot topic modeling solution</strong> to classify unstructured feedback automatically. <strong>Fine-tuning increased classification accuracy from 61% to 83%</strong>, drastically speeding up analysis and establishing consistent, objective weekly sentiment tracking.
-				</p>
-
-				<h5>3. The Deeper Realization: Structural Survey Flaws</h5>
-				<p>
-				  While the NLP model successfully accelerated text processing, a fundamental issue persisted: open-ended responses were rarely utilized downstream by operational teams. The sheer ambiguity of open-ended text made it difficult for stakeholders to extract concrete, decisive actions, proving that automating an inefficient data source was only a partial fix.
-				</p>
-
-				<h5>4. The Systemic Redesign: Modular & Structured Data</h5>
-				<p>
-				  Recognizing that the data collection method itself needed an overhaul, I redesigned the survey methodology. We transitioned from monolithic surveys with heavy open-ended text to a modular framework that served dynamic, targeted question subsets—reducing length from dozens of items to fewer than 12.
-				</p>
-				<p>
-				  We shifted primary data collection to structured, closed-ended questions for quantifiable insights, while retaining an "Other" field to capture emergent qualitative nuances.
-				</p>
-
-				<h5>Key Achievements & Impact</h5>
-				<ul>
-				  <li><strong>Automated NLP Classification:</strong> Boosted topic modeling accuracy to 83% and eliminated manual text sorting.</li>
-				  <li><strong>Methodological Overhaul:</strong> Cut survey lengths to &lt;12 items, significantly increasing completion and response rates.</li>
-				  <li><strong>Actionable Intelligence:</strong> Replaced vague text responses with structured, decision-ready data for Microsoft leadership.</li>
-				</ul>
-            </div>
+        <div class="project-content">
+          <div style="margin-bottom: 12px;">
+            <span class="badge-tag">Microsoft</span>
+            <span class="badge-tag">Methodology Innovation</span>
+            <span class="badge-tag">Qualitative Analysis Automation</span>
           </div>
-          <div class="col-md-5">
-            <img class="project-content" src="assets/img/WorkReference/MicrosoftPipeline.png" style="display: none; width: 100%; margin-top: 15px;">
-          </div>
+          <h5>1. The Bottleneck: Manual Analysis of Unstructured Data</h5>
+          <p>Microsoft's Hybrid workstream collected over 2,000 employee survey responses monthly to inform internal policies and product direction. Initially, analyzing open-ended text responses and compiling stakeholder updates was done completely by hand. This manual analysis was prohibitively slow and consumed significant time that could otherwise be spent on high-value research.</p>
+          <h5>2. The Technical Solution: Automated NLP Pipeline</h5>
+          <p>To resolve the speed barrier, I developed an automated data processing pipeline and fine-tuned a <strong>BART-large-MNLI zero-shot topic modeling solution</strong> to classify unstructured feedback automatically. <strong>Fine-tuning increased classification accuracy from 61% to 83%</strong>, drastically speeding up analysis and establishing consistent, objective weekly sentiment tracking.</p>
+          <h5>3. The Deeper Realization: Structural Survey Flaws</h5>
+          <p>While the NLP model successfully accelerated text processing, a fundamental issue persisted: open-ended responses were rarely utilized downstream by operational teams. The sheer ambiguity of open-ended text made it difficult for stakeholders to extract concrete, decisive actions, proving that automating an inefficient data source was only a partial fix.</p>
+          <h5>4. The Systemic Redesign: Modular &amp; Structured Data</h5>
+          <p>Recognizing that the data collection method itself needed an overhaul, I redesigned the survey methodology. We transitioned from monolithic surveys with heavy open-ended text to a modular framework that served dynamic, targeted question subsets—reducing length from dozens of items to fewer than 12.</p>
+          <p>We shifted primary data collection to structured, closed-ended questions for quantifiable insights, while retaining an "Other" field to capture emergent qualitative nuances.</p>
+          <h5>Key Achievements &amp; Impact</h5>
+          <ul>
+            <li><strong>Automated NLP Classification:</strong> Boosted topic modeling accuracy to 83% and eliminated manual text sorting.</li>
+            <li><strong>Methodological Overhaul:</strong> Cut survey lengths to &lt;12 items, significantly increasing completion and response rates.</li>
+            <li><strong>Actionable Intelligence:</strong> Replaced vague text responses with structured, decision-ready data for Microsoft leadership.</li>
+          </ul>
         </div>
       </div>
 
-      <!-- 6. Microsoft: Upskilling Qual Researchers -->
+      <!-- 6. Microsoft: Upskilling Qual Researchers (Single Column) -->
       <div class="project" data-filters="leadership" onclick="toggleProject(this)">
         <div class="project-header">
-          <h4 class="hover-underline">Upskilling Qualitative UX Researchers in Data &amp; Scripting </h4>
+          <h4 class="hover-underline">Upskilling Qualitative UX Researchers in Data &amp; Scripting</h4>
           <i class="bi bi-chevron-down project-toggle-icon"></i>
         </div>
-        <div class="row">
-          <div class="col-md-7">
-            <div class="project-content">
-              <div style="margin-bottom: 12px;">
-                <span class="badge-tag">Microsoft</span>
-                <span class="badge-tag">Technical Mentorship</span>
-                <span class="badge-tag">Data Upskilling</span>
-                <span class="badge-tag">Python &amp; SQL</span>
-              </div>
-              <p>Recognizing that qualitative researchers frequently waited on central engineering queues for basic data queries, I initiated and led a technical training curriculum teaching team members Python scripting, SQL data extraction, and statistical fundamentals. This endeavor aimed not only to empower team members with new technical skills but also to leverage these skills to boost productivity and the overall performance of our team.</p>
-              <p>Through hands-on workshops and 1-on-1 coaching, <strong>qualitative researchers learned to query and visualize their own respondent datasets independently</strong>, accelerating research turnaround times and fostering deeper cross-pollination between qualitative empathy and quantitative rigor.</p>
-            </div>
+        <div class="project-content">
+          <div style="margin-bottom: 12px;">
+            <span class="badge-tag">Microsoft</span>
+            <span class="badge-tag">Technical Mentorship</span>
+            <span class="badge-tag">Data Upskilling</span>
+            <span class="badge-tag">Python &amp; SQL</span>
           </div>
-          <div class="col-md-5">
-            <img class="project-content" src="assets/img/WorkReference/MicrosoftOffice.jpg" style="display: none; width: 100%; margin-top: 15px;">
-          </div>
+          <p>Recognizing that qualitative researchers frequently waited on central engineering queues for basic data queries, I initiated and led a technical training curriculum teaching team members Python scripting, SQL data extraction, and statistical fundamentals. This endeavor aimed not only to empower team members with new technical skills but also to leverage these skills to boost productivity and the overall performance of our team.</p>
+          <p>Through hands-on workshops and 1-on-1 coaching, <strong>qualitative researchers learned to query and visualize their own respondent datasets independently</strong>, accelerating research turnaround times and fostering deeper cross-pollination between qualitative empathy and quantitative rigor.</p>
         </div>
       </div>
 
-      <!-- 7. Chase: Data Lake, Acquisition, AB Testing, C-Suite -->
+      <!-- 7. Chase: Data Lake & AB Testing (Single Column) -->
       <div class="project" data-filters="infra analytics strategy leadership" onclick="toggleProject(this)">
         <div class="project-header">
-          <h4 class="hover-underline">A/B Testing & Data Engineering Chase's Acquisition Pipelines to Increase Monthly Revenue by $20M</h4>
+          <h4 class="hover-underline">A/B Testing &amp; Data Engineering Chase's Acquisition Pipelines to Increase Monthly Revenue by $20M</h4>
           <i class="bi bi-chevron-down project-toggle-icon"></i>
         </div>
-        <div class="row">
-          <div class="col-md-7">
-            <div class="project-content">
-              <div style="margin-bottom: 12px;">
-                <span class="badge-tag">JP Morgan Chase</span>
-                <span class="badge-tag">800M+ MAU Data Lake</span>
-                <span class="badge-tag">Causal Experimentation</span>
-                <span class="badge-tag">C-Suite Advisory</span>
-              </div>
-              <h5>Role & Responsibility</h5>
-				<p>
-				  During my tenure at JPMorgan Chase, I spearheaded and supported a series of technical and analytical initiatives aimed at constructing robust data infrastructure, enhancing digital user experiences, and driving digital account acquisition across public and private portals.
-				</p>
-
-				<h5>Engineering the Acquisition Data Lake</h5>
-				<p>
-				  To facilitate a unified tracking system, I led the technical initiative to construct a high-performance data lake utilizing behavioral clickstream data. Supporting Chase.com—one of the top 50 most visited U.S. websites with <strong>800 million monthly visits and 6 billion page views</strong>—required optimizing an expansive database with prohibitively long query times and overly complex table joins.
-				</p>
-				<p>
-				  I engineered an automated Teradata transformation script that streamlined the architecture, reducing the tables required to view an application journey from four to just one. This automation guaranteed data integrity and scalability while allowing multi-dimensional filtering across demographics, product types, and traffic sources. <strong>Analysts experienced a >90% reduction in query times, retrieving insights almost instantly rather than waiting hours.</strong>
-				</p>
-
-				<h5>Research Approach & A/B Testing</h5>
-				<p>
-				  With scalable infrastructure in place, we conducted full-funnel A/B testing across owned advertisements and acquisition pathways. Unlike traditional siloed analyses that evaluated media clicks or application starts independently, our end-to-end approach tracked users from initial link exposure through final account opening. This prevented low-intent clicks and ensured tailored product placements aligned with user eligibility.
-				</p>
-
-				<h5>Key Initiatives & Achievements</h5>
-				<ul>
-				  <li>Engineered a unified digital acquisition data lake, cutting query times by over 90% and simplifying 4-table joins into a single structured view.</li>
-				  <li>Implemented personalized product recommendations driven by existing holdings and customer financial profiles.</li>
-				  <li>Revamped and streamlined product enrollment flows to minimize drop-off points.</li>
-				  <li>Executed continuous, rigorously tested incremental optimizations to ensure sustained performance improvements.</li>
-				</ul>
-
-				<h5>Business Impact</h5>
-				<p>
-				  <strong>These infrastructure and UX enhancements delivered a 7% year-over-year increase in total account volume—driven primarily by deposit account growth—generating approximately $20 million in incremental monthly revenue.</strong>
-				</p>
-            </div>
+        <div class="project-content">
+          <div style="margin-bottom: 12px;">
+            <span class="badge-tag">JP Morgan Chase</span>
+            <span class="badge-tag">800M+ MAU Data Lake</span>
+            <span class="badge-tag">Causal Experimentation</span>
+            <span class="badge-tag">C-Suite Advisory</span>
           </div>
-          <div class="col-md-5">
-            <img class="project-content" src="assets/img/WorkReference/DatabaseCreation.png" style="display: none; width: 100%; margin-top: 15px;">
-          </div>
+          <h5>Role &amp; Responsibility</h5>
+          <p>During my tenure at JPMorgan Chase, I spearheaded and supported a series of technical and analytical initiatives aimed at constructing robust data infrastructure, enhancing digital user experiences, and driving digital account acquisition across public and private portals.</p>
+          <h5>Engineering the Acquisition Data Lake</h5>
+          <p>To facilitate a unified tracking system, I led the technical initiative to construct a high-performance data lake utilizing behavioral clickstream data. Supporting Chase.com—one of the top 50 most visited U.S. websites with <strong>800 million monthly visits and 6 billion page views</strong>—required optimizing an expansive database with prohibitively long query times and overly complex table joins.</p>
+          <p>I engineered an automated Teradata transformation script that streamlined the architecture, reducing the tables required to view an application journey from four to just one. This automation guaranteed data integrity and scalability while allowing multi-dimensional filtering across demographics, product types, and traffic sources. <strong>Analysts experienced a &gt;90% reduction in query times, retrieving insights almost instantly rather than waiting hours.</strong></p>
+          <h5>Research Approach &amp; A/B Testing</h5>
+          <p>With scalable infrastructure in place, we conducted full-funnel A/B testing across owned advertisements and acquisition pathways. Unlike traditional siloed analyses that evaluated media clicks or application starts independently, our end-to-end approach tracked users from initial link exposure through final account opening. This prevented low-intent clicks and ensured tailored product placements aligned with user eligibility.</p>
+          <h5>Key Initiatives &amp; Achievements</h5>
+          <ul>
+            <li>Engineered a unified digital acquisition data lake, cutting query times by over 90% and simplifying 4-table joins into a single structured view.</li>
+            <li>Implemented personalized product recommendations driven by existing holdings and customer financial profiles.</li>
+            <li>Revamped and streamlined product enrollment flows to minimize drop-off points.</li>
+            <li>Executed continuous, rigorously tested incremental optimizations to ensure sustained performance improvements.</li>
+          </ul>
+          <h5>Business Impact</h5>
+          <p><strong>These infrastructure and UX enhancements delivered a 7% year-over-year increase in total account volume—driven primarily by deposit account growth—generating approximately $20 million in incremental monthly revenue.</strong></p>
         </div>
       </div>
 
-      <!-- 8. Chase: Fixing Interstitials -->
+      <!-- 8. Chase: Fixing Interstitials (Single Column) -->
       <div class="project" data-filters="0-1" onclick="toggleProject(this)">
         <div class="project-header">
           <h4 class="hover-underline">Fixing Platform-Wide Sign-In Interstitials &amp; Announcements Architecture</h4>
           <i class="bi bi-chevron-down project-toggle-icon"></i>
         </div>
-        <div class="row">
-          <div class="col-md-7">
-            <div class="project-content">
-              <div style="margin-bottom: 12px;">
-                <span class="badge-tag">JP Morgan Chase</span>
-                <span class="badge-tag">Unstructured Problem Framing</span>
-                <span class="badge-tag">Platform Governance</span>
-              </div>
-              <p>
-              In my role at JP Morgan Chase, I played a pivotal part in identifying and addressing a critical issue related to the effectiveness of the "Announcements" feature which is intended to provide information on changes after a customer signs in. It began when I performed fundamental research to assess the feature's performance. What caught my attention was that the Announcements were consistently underperforming, falling far below the expected metrics. <strong>It became evident that a significantly lower number of users were actually seeing these Announcements, even though the feature was designed to reach everyone eventually.</strong> In some instances, the visibility rate for an Announcement was as low as 30%.</p>
-              <p>
-              Upon digging deeper, I uncovered several key insights that shed light on the problem. First, I realized that all "Sign in interstitials," including "Announcements," were competing for priority in terms of display. Second, I discovered that the platform responsible for showcasing these interstitials wasn't under the jurisdiction of any internal team, resulting in a lack of controls and design guidelines. Third, a closer examination of other "Sign in interstitials" revealed a stark lack of design cohesion across the board. Lastly, I found that some of these interstitials were broken, repeatedly disrupting users instead of being dismissed after the initial display. User feedback in our Voice of Customer (VOC) channels confirmed that this issue was causing significant frustration.</p>
-              <p>
-              <strong>To tackle this issue head-on, my team within the organization took charge of the "Sign in interstitials" platform. We implemented comprehensive design guidelines, ensuring consistency and effectiveness across all interstitials.</strong> Additionally, we fixed the broken ones, ensuring that they would function correctly and no longer disrupt users excessively. This initiative not only improved the user experience but also enhanced our ability to effectively communicate important announcements to our customers.
-              </p>
-            </div>
+        <div class="project-content">
+          <div style="margin-bottom: 12px;">
+            <span class="badge-tag">JP Morgan Chase</span>
+            <span class="badge-tag">Unstructured Problem Framing</span>
+            <span class="badge-tag">Platform Governance</span>
           </div>
-          <div class="col-md-5">
-            <img class="project-content" src="assets/img/WorkReference/ChaseAnnouncements.png" style="display: none; width: 100%; margin-top: 15px;">
-          </div>
+          <p>In my role at JP Morgan Chase, I played a pivotal part in identifying and addressing a critical issue related to the effectiveness of the "Announcements" feature which is intended to provide information on changes after a customer signs in. It began when I performed fundamental research to assess the feature's performance. What caught my attention was that the Announcements were consistently underperforming, falling far below the expected metrics. <strong>It became evident that a significantly lower number of users were actually seeing these Announcements, even though the feature was designed to reach everyone eventually.</strong> In some instances, the visibility rate for an Announcement was as low as 30%.</p>
+          <p>Upon digging deeper, I uncovered several key insights that shed light on the problem. First, I realized that all "Sign in interstitials," including "Announcements," were competing for priority in terms of display. Second, I discovered that the platform responsible for showcasing these interstitials wasn't under the jurisdiction of any internal team, resulting in a lack of controls and design guidelines. Third, a closer examination of other "Sign in interstitials" revealed a stark lack of design cohesion across the board. Lastly, I found that some of these interstitials were broken, repeatedly disrupting users instead of being dismissed after the initial display. User feedback in our Voice of Customer (VOC) channels confirmed that this issue was causing significant frustration.</p>
+          <p><strong>To tackle this issue head-on, my team within the organization took charge of the "Sign in interstitials" platform. We implemented comprehensive design guidelines, ensuring consistency and effectiveness across all interstitials.</strong> Additionally, we fixed the broken ones, ensuring that they would function correctly and no longer disrupt users excessively. This initiative not only improved the user experience but also enhanced our ability to effectively communicate important announcements to our customers.</p>
         </div>
       </div>
 
-      <!-- 9. Chase: Recruiting and Onboarding -->
+      <!-- 9. Chase: Recruiting and Onboarding (Single Column) -->
       <div class="project" data-filters="leadership" onclick="toggleProject(this)">
         <div class="project-header">
           <h4 class="hover-underline">Recruiting &amp; Onboarding Analytics Squad During the Great Resignation</h4>
           <i class="bi bi-chevron-down project-toggle-icon"></i>
         </div>
-        <div class="row">
-          <div class="col-md-7">
-            <div class="project-content">
-              <div style="margin-bottom: 12px;">
-                <span class="badge-tag">JP Morgan Chase</span>
-                <span class="badge-tag">Technical Interviewing</span>
-                <span class="badge-tag">Capacity Scaling</span>
-              </div>
-              <p>During early 2022, our core analytics team experienced sudden attrition. I took on a role in re-expanding our team's capacity. <strong>Over the course of just three months, I successfully recruited and onboarded five new team members, effectively growing our team from three to eight members.</strong> This endeavor was not just about increasing headcount; it was about strategically identifying and bringing on board individuals who would not only fit seamlessly into our team culture but also excel in their roles.</p>
-              <p>
-              To achieve this, I developed an objective criteria to evaluate potential candidates. This criteria encompassed both a behavioral portion of the interview process and a coding assessment. It was essential for us to assess not only technical skills but also interpersonal qualities that would contribute to a positive and productive team dynamic. Notably, each of these new hires not only successfully integrated into the organization but also demonstrated outstanding performance in their respective roles, consistently delivering valuable contributions to our team's success. <strong>All five of the team members that were hired were still in the organization adding value one year later, proving that the decisions made were the correct ones.</strong></p>
-            </div>
+        <div class="project-content">
+          <div style="margin-bottom: 12px;">
+            <span class="badge-tag">JP Morgan Chase</span>
+            <span class="badge-tag">Technical Interviewing</span>
+            <span class="badge-tag">Capacity Scaling</span>
           </div>
-          <div class="col-md-5">
-            <img class="project-content" src="assets/img/WorkReference/ChaseHiring.png" style="display: none; width: 100%; margin-top: 15px;">
-          </div>
+          <p>During early 2022, our core analytics team experienced sudden attrition. I took on a role in re-expanding our team's capacity. <strong>Over the course of just three months, I successfully recruited and onboarded five new team members, effectively growing our team from three to eight members.</strong> This endeavor was not just about increasing headcount; it was about strategically identifying and bringing on board individuals who would not only fit seamlessly into our team culture but also excel in their roles.</p>
+          <p>To achieve this, I developed an objective criteria to evaluate potential candidates. This criteria encompassed both a behavioral portion of the interview process and a coding assessment. It was essential for us to assess not only technical skills but also interpersonal qualities that would contribute to a positive and productive team dynamic. Notably, each of these new hires not only successfully integrated into the organization but also demonstrated outstanding performance in their respective roles, consistently delivering valuable contributions to our team's success. <strong>All five of the team members that were hired were still in the organization adding value one year later, proving that the decisions made were the correct ones.</strong></p>
         </div>
       </div>
 
-
     </div>
   </section>
-<!-- End Case Studies Section -->
+  <!-- End Case Studies Section -->
 
-<!-- ======= Capabilities & Methods Section ======= -->
+  <!-- ======= Capabilities & Methods Section ======= -->
   <section id="capabilities" class="Resume" style="background: rgba(255, 255, 255, 0.02);">
     <div class="container">
       <div class="section-title">
@@ -918,9 +784,9 @@
       </div>
     </div>
   </section>
-<!-- End Capabilities Section -->
+  <!-- End Capabilities Section -->
 
-<!-- ======= Resume Details Section ======= -->
+  <!-- ======= Resume Details Section ======= -->
   <section id="resume" class="Resume">
     <div class="container">
       <div class="section-title">
@@ -928,7 +794,7 @@
       </div>
 
       <div class="row">
-        <div class="col-lg-12 content" data-aos="fade-left">
+        <div class="col-lg-12 content">
           <h3>Senior Quantitative UX Researcher</h3>
           <p class="fst-italic">
             Senior researcher with 8 years designing and executing research strategies at global organizations including Meta, Microsoft, and JPMorgan Chase. Expert in translating complex behavioral data into actionable executive insights, designing scalable infrastructure, and measuring impact through data-driven frameworks across Fortune 50 enterprises and 0-1 startups.
@@ -954,13 +820,13 @@
       
       <!-- Resume PDF Iframe -->
       <div class="counts container mt-5 text-center">
-        <iframe src="https://drive.google.com/file/d/1h4_RGg3gnq-a_Rr7dP1jNJjni8rmBEPH/preview" width="80%" height="1200px" style="border:none;"></iframe>
+        <iframe src="https://drive.google.com/file/d/1h4_RGg3gnq-a_Rr7dP1jNJjni8rmBEPH/preview"></iframe>
       </div>
     </div>
   </section>
-<!-- End Resume Details Section -->
+  <!-- End Resume Details Section -->
 
-<!-- Vendor JS Files -->
+  <!-- Vendor JS Files -->
   <script src="assets/vendor/purecounter/purecounter_vanilla.js"></script>
   <script src="assets/vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
   <script src="assets/vendor/glightbox/js/glightbox.min.js"></script>
@@ -969,13 +835,10 @@
   <script src="assets/vendor/waypoints/noframework.waypoints.js"></script>
   <script src="assets/vendor/php-email-form/validate.js"></script>
   
-<!-- Template Main JS File -->
+  <!-- Template Main JS File -->
   <script src="assets/js/main.js"></script>
 
-  <!-- ==============================================
-       AI CHAT JAVASCRIPT (WITH DEBUGGING)
-       ============================================== -->
-
+  <!-- ======= AI Chat JavaScript ======= -->
   <script>
     const PORTFOLIO_AI_CONFIG = {
       API_URL: 'https://terron-portfolio-ai.terrongraham.workers.dev', 
@@ -984,7 +847,6 @@
 
     let sessionQuestionCount = 0;
 
-    // Strict mapping of exact queries to local canned responses
     const STOCK_RESPONSES = {
       "what are terron's core technical areas of expertise?": "Terron's differentiator lies at the intersection of Data Science and UX Research. He specializes in building massive research infrastructure, operationalizing abstract constructs and measuring things that haven't been measurable before. He is highly proficient in SQL, Python, and statistical testing. He has a proven track record partnering with senior leadership to accelerate innovation at Fortune 50 enterprises.",
       "how does terron approach building 0-1 products and scaling them?": "Terron thrives in ambiguity. For 0-1 products, he focuses on looking directly at where a gap exists in the world, whether that space is technological, physical, cultural, or structural. Instead of polling audiences or reacting to surface-level complaints, he studies the domain itself to find the exact points where a real need isn't being met, including the tradeoffs people simply take for granted. He defines the shape of that empty space and builds to fill it, testing whether the product immediately satisfies the unfulfilled need and brings something valuable into existence.",
@@ -993,7 +855,6 @@
       "what does terron like to do when he is away from work?": "Terron is a big Eagles fan, an author of a D&D book, and an avid golfer. When he's not architecting data systems or designing research frameworks, he also enjoys exploring New York City, staying active, and keeping up with the latest developments in tech and AI."
     };
 
-    // Safely attach character counter event listener once DOM is loaded
     document.addEventListener('DOMContentLoaded', function() {
       const inputEl = document.getElementById('aiChatInput');
       const charCountEl = document.getElementById('aiChatCharCount');
@@ -1053,7 +914,6 @@
 
       const charCountEl = document.getElementById('aiChatCharCount');
 
-      // Enforce limit silently
       if (sessionQuestionCount >= PORTFOLIO_AI_CONFIG.MAX_SESSION_QUESTIONS) {
         appendMessage(query, 'user');
         input.value = '';
@@ -1069,19 +929,9 @@
 
       appendTypingIndicator();
 
-      // IMPORTANT: Added trim() to remove any trailing spaces from HTML attributes
       const normalizedQuery = query.toLowerCase().trim();
 
-      // ======== DEBUGGING LOGS ========
-      console.log("=== DEBUGGING INFO ===");
-      console.log("1. Raw Query:", `"${query}"`);
-      console.log("2. Normalized Query:", `"${normalizedQuery}"`);
-      console.log("3. Match in STOCK_RESPONSES?", !!STOCK_RESPONSES[normalizedQuery]);
-      // ================================
-
-      // 1. Intercept stock questions and answer locally
       if (STOCK_RESPONSES[normalizedQuery]) {
-        console.log("4. Route taken: LOCAL STOCK RESPONSE");
         setTimeout(() => {
           removeTypingIndicator();
           appendMessage(STOCK_RESPONSES[normalizedQuery], 'ai');
@@ -1089,8 +939,6 @@
         return;
       }
 
-      // 2. If it's a custom question, hit the Cloudflare Worker API
-      console.log("4. Route taken: CLOUDFLARE API CALL");
       try {
         const response = await fetch(PORTFOLIO_AI_CONFIG.API_URL, {
           method: 'POST',
@@ -1098,24 +946,19 @@
           body: JSON.stringify({ message: query })
         });
 
-        console.log("5. API Response Status:", response.status);
         removeTypingIndicator();
 
         if (response.ok) {
           const data = await response.json();
-          console.log("6. API Data Received:", data);
           if (data && data.reply) {
             appendMessage(data.reply, 'ai');
           } else {
-            console.warn("API returned OK, but 'reply' field is missing.", data);
             showApiError();
           }
         } else {
-          console.error("API Error Response:", await response.text());
           showApiError();
         }
       } catch (err) {
-        console.error("7. Fetch Catch Block Triggered - Network/CORS Error:", err);
         removeTypingIndicator();
         showApiError();
       }
@@ -1124,37 +967,29 @@
     function showApiError() {
       appendMessage("I'm having trouble connecting to my live systems to answer custom questions right now. Please feel free to email Terron directly at <a href='mailto:TerronGrahamPro@Gmail.com' style='color:#18d26e;'>TerronGrahamPro@Gmail.com</a>.", 'ai');
     }
-  </script>
-  
-  <script>
-  document.addEventListener('DOMContentLoaded', () => {
-    const aiChat = document.getElementById('ai-chat-section');
 
-    // Function to check the active section and toggle the chat
-    function toggleChatVisibility(targetHash) {
-      if (!aiChat) return;
-      
-      // If the target is the home header or there is no target (default load), show the chat
-      if (targetHash === '#header' || targetHash === '' || targetHash === '#') {
-        aiChat.style.display = 'block'; 
-      } else {
-        // Hide the chat for #case-studies, #capabilities, #resume, etc.
-        aiChat.style.display = 'none';
+    document.addEventListener('DOMContentLoaded', () => {
+      const aiChat = document.getElementById('ai-chat-section');
+
+      function toggleChatVisibility(targetHash) {
+        if (!aiChat) return;
+        if (targetHash === '#header' || targetHash === '' || targetHash === '#') {
+          aiChat.style.display = 'block'; 
+        } else {
+          aiChat.style.display = 'none';
+        }
       }
-    }
 
-    // 1. Check the URL hash when the page first loads
-    toggleChatVisibility(window.location.hash);
+      toggleChatVisibility(window.location.hash);
 
-    // 2. Watch all navigation links for clicks to instantly hide/show the chat
-    const navLinks = document.querySelectorAll('.nav-link');
-    navLinks.forEach(link => {
-      link.addEventListener('click', function() {
-        const targetHref = this.getAttribute('href');
-        toggleChatVisibility(targetHref);
+      const navLinks = document.querySelectorAll('.nav-link');
+      navLinks.forEach(link => {
+        link.addEventListener('click', function() {
+          const targetHref = this.getAttribute('href');
+          toggleChatVisibility(targetHref);
+        });
       });
     });
-  });
-</script>
+  </script>
 </body>
 </html>
