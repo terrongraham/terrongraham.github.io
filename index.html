@@ -28,320 +28,285 @@
   <link href="assets/css/style.css" rel="stylesheet">
 
   <style>
-	/* =========================================================
-	   UNIVERSAL & FLUID RESPONSIVE OVERRIDES (FIXED SCALING)
-	   ========================================================= */
-	:root {
-	  --primary-green: #18d26e;
-	  --primary-green-hover: #15bb62;
-	}
+    /* =========================================================
+       UNIVERSAL FLUID RESPONSIVE & LAYOUT OVERRIDES
+       ========================================================= */
+    :root {
+      --primary-green: #18d26e;
+      --primary-green-hover: #15bb62;
+    }
 
-	/* 1. Tightened Fluid Typography Scale */
-	h1 { 
-	  font-size: clamp(1.4rem, 3.5vw, 2.2rem) !important; 
-	  line-height: 1.25 !important; 
-	}
-	h2 { 
-	  font-size: clamp(0.95rem, 2vw, 1.25rem) !important; 
-	  line-height: 1.4 !important; 
-	  font-weight: 400 !important;
-	}
-	h4 { 
-	  font-size: clamp(0.95rem, 1.8vw, 1.2rem) !important; 
-	}
-	h5 { 
-	  font-size: clamp(0.9rem, 1.5vw, 1.05rem) !important; 
-	  color: #fff; 
-	  margin-top: 14px; 
-	  margin-bottom: 6px; 
-	}
-	p, li { 
-	  font-size: clamp(0.85rem, 1.2vw, 0.95rem) !important; 
-	  line-height: 1.55 !important; 
-	}
+    /* Prevent clipping on short viewports or mobile landscape */
+    #header {
+      min-height: auto !important;
+      height: auto !important;
+      display: block !important;
+      padding-top: clamp(20px, 4vh, 60px) !important;
+      padding-bottom: clamp(20px, 4vh, 40px) !important;
+    }
 
-	/* 2. Explicit Small Screen Hard-Cap (Mobile Breakpoint) */
-	@media (max-width: 768px) {
-	  #header h1 {
-		font-size: 1.35rem !important;
-	  }
-	  #header h2 {
-		font-size: 0.875rem !important;
-	  }
-	  .project-header h4 {
-		font-size: 0.95rem !important;
-	  }
-	  .project-content p, 
-	  .project-content li {
-		font-size: 0.85rem !important;
-	  }
-	  .badge-tag {
-		font-size: 0.7rem !important;
-		padding: 2px 7px !important;
-	  }
-	}
+    /* Tightened Fluid Typography Scale */
+    h1 { font-size: clamp(1.4rem, 3.5vw, 2.2rem) !important; line-height: 1.25 !important; }
+    h2 { font-size: clamp(0.95rem, 2vw, 1.25rem) !important; line-height: 1.4 !important; font-weight: 400 !important; }
+    h4 { font-size: clamp(0.95rem, 1.8vw, 1.2rem) !important; }
+    h5 { font-size: clamp(0.9rem, 1.5vw, 1.05rem) !important; color: #fff; margin-top: 14px; margin-bottom: 6px; }
+    p, li { font-size: clamp(0.85rem, 1.2vw, 0.95rem) !important; line-height: 1.55 !important; }
 
-#header {
-  min-height: auto !important;
-  height: auto !important;
-  display: block !important;
-  padding-top: clamp(20px, 4vh, 60px) !important;
-  padding-bottom: clamp(20px, 4vh, 40px) !important;
-}
+    /* Mobile Typography Hard-Cap */
+    @media (max-width: 768px) {
+      #header h1 { font-size: 1.35rem !important; }
+      #header h2 { font-size: 0.875rem !important; }
+      .project-header h4 { font-size: 0.95rem !important; }
+      .project-content p, .project-content li { font-size: 0.85rem !important; }
+      .badge-tag { font-size: 0.7rem !important; padding: 2px 7px !important; }
+    }
 
-@media (max-height: 700px) {
-  #header {
-    padding-top: 20px !important;
-  }
-  #ai-chat-section {
-    padding-top: 10px !important;
-  }
-}
+    /* AI Chat Section Styling */
+    #ai-chat-section {
+      padding: 15px 0;
+      width: 100%;
+      font-family: inherit;
+    }
 
-	/* AI Chat Section Styling */
-	#ai-chat-section {
-	  padding: 15px 0;
-	  width: 100%;
-	  font-family: inherit;
-	}
+    .chat-interface-wrapper {
+      max-width: 800px;
+      margin: 0 auto;
+      border: 1px solid rgba(255, 255, 255, 0.15);
+      border-radius: 12px;
+      background: rgba(0, 0, 0, 0.6);
+      backdrop-filter: blur(10px);
+      box-shadow: 0 4px 30px rgba(0, 0, 0, 0.5);
+      display: flex;
+      flex-direction: column;
+      overflow: hidden;
+    }
 
-	.chat-interface-wrapper {
-	  max-width: 800px;
-	  margin: 0 auto;
-	  border: 1px solid rgba(255, 255, 255, 0.15);
-	  border-radius: 12px;
-	  background: rgba(0, 0, 0, 0.6);
-	  backdrop-filter: blur(10px);
-	  box-shadow: 0 4px 30px rgba(0, 0, 0, 0.5);
-	  display: flex;
-	  flex-direction: column;
-	  overflow: hidden;
-	}
+    .ai-chat-body {
+      height: clamp(200px, 30vh, 360px);
+      overflow-y: auto;
+      padding: 14px;
+      background: transparent;
+      display: flex;
+      flex-direction: column;
+      gap: 10px;
+    }
 
-	.ai-chat-body {
-	  height: clamp(200px, 30vh, 360px);
-	  overflow-y: auto;
-	  padding: 14px;
-	  background: transparent;
-	  display: flex;
-	  flex-direction: column;
-	  gap: 10px;
-	}
+    .chat-bubble {
+      max-width: 85%;
+      padding: 8px 12px;
+      border-radius: 8px;
+      line-height: 1.45;
+      font-size: clamp(0.8rem, 1.1vw, 0.9rem);
+    }
 
-	.chat-bubble {
-	  max-width: 85%;
-	  padding: 8px 12px;
-	  border-radius: 8px;
-	  line-height: 1.45;
-	  font-size: clamp(0.8rem, 1.1vw, 0.9rem);
-	}
+    .chat-bubble-ai {
+      align-self: flex-start;
+      background: rgba(255, 255, 255, 0.08);
+      color: #fff;
+      border: 1px solid rgba(255, 255, 255, 0.05);
+      border-bottom-left-radius: 2px;
+    }
 
-	.chat-bubble-ai {
-	  align-self: flex-start;
-	  background: rgba(255, 255, 255, 0.08);
-	  color: #fff;
-	  border: 1px solid rgba(255, 255, 255, 0.05);
-	  border-bottom-left-radius: 2px;
-	}
+    .chat-bubble-user {
+      align-self: flex-end;
+      background: var(--primary-green);
+      color: #111;
+      border-bottom-right-radius: 2px;
+    }
 
-	.chat-bubble-user {
-	  align-self: flex-end;
-	  background: var(--primary-green);
-	  color: #111;
-	  border-bottom-right-radius: 2px;
-	}
+    /* Single-Row Horizontal Scroll for Pills & Filters */
+    .chat-pills-container,
+    .project-filters {
+      display: flex;
+      flex-wrap: wrap;
+      overflow-x: auto;
+      padding-bottom: 6px;
+      gap: 8px;
+      justify-content: safe left;
+    }
 
-	/* Single-Row Horizontal Scroll for Pills & Filters */
-	.chat-pills-container,
-	.project-filters {
-	  display: flex;
-	  flex-wrap: wrap;
-	  padding-bottom: 6px;
-	  gap: 8px;
-	  justify-content: flex-start;
-	}
+    .chat-pills-container::-webkit-scrollbar,
+    .project-filters::-webkit-scrollbar {
+      display: none;
+    }
 
-	.chat-pills-container::-webkit-scrollbar,
-	.project-filters::-webkit-scrollbar {
-	  display: none;
-	}
+    .chat-pill,
+    .filter-btn {
+      white-space: nowrap;
+      flex-shrink: 0;
+      scroll-snap-align: start;
+      background: rgba(255, 255, 255, 0.05);
+      border: 1px solid rgba(255, 255, 255, 0.15);
+      color: #fff;
+      padding: 5px 12px;
+      border-radius: 50px;
+      font-size: clamp(0.725rem, 1vw, 0.825rem);
+      font-weight: 500;
+      cursor: pointer;
+      transition: all 0.2s ease;
+    }
 
-	.chat-pill,
-	.filter-btn {
-	  white-space: nowrap;
-	  flex-shrink: 0;
-	  scroll-snap-align: start;
-	  background: rgba(255, 255, 255, 0.05);
-	  border: 1px solid rgba(255, 255, 255, 0.15);
-	  color: #fff;
-	  padding: 5px 12px;
-	  border-radius: 50px;
-	  font-size: clamp(0.725rem, 1vw, 0.825rem);
-	  font-weight: 500;
-	  cursor: pointer;
-	  transition: all 0.2s ease;
-	}
+    .chat-pill {
+      background: rgba(24, 210, 110, 0.05);
+      border-color: var(--primary-green);
+      color: var(--primary-green);
+    }
 
-	.chat-pill {
-	  background: rgba(24, 210, 110, 0.05);
-	  border-color: var(--primary-green);
-	  color: var(--primary-green);
-	}
+    .chat-pill:hover,
+    .filter-btn:hover, 
+    .filter-btn.active {
+      background: rgba(24, 210, 110, 0.15);
+      border-color: var(--primary-green);
+      color: var(--primary-green);
+    }
 
-	.chat-pill:hover,
-	.filter-btn:hover, 
-	.filter-btn.active {
-	  background: rgba(24, 210, 110, 0.15);
-	  border-color: var(--primary-green);
-	  color: var(--primary-green);
-	}
+    .chat-input-area {
+      display: flex;
+      padding: 10px 14px 4px 14px;
+      background: transparent;
+      border-top: 1px solid rgba(255, 255, 255, 0.1);
+      gap: 8px;
+    }
 
-	.chat-input-area {
-	  display: flex;
-	  padding: 10px 14px 4px 14px;
-	  background: transparent;
-	  border-top: 1px solid rgba(255, 255, 255, 0.1);
-	  gap: 8px;
-	}
+    #aiChatInput {
+      flex-grow: 1;
+      padding: 8px 12px;
+      border: 1px solid rgba(255, 255, 255, 0.2);
+      background: rgba(255, 255, 255, 0.05);
+      color: #fff;
+      border-radius: 6px;
+      font-size: 13px;
+      outline: none;
+      transition: all 0.2s ease;
+    }
 
-	#aiChatInput {
-	  flex-grow: 1;
-	  padding: 8px 12px;
-	  border: 1px solid rgba(255, 255, 255, 0.2);
-	  background: rgba(255, 255, 255, 0.05);
-	  color: #fff;
-	  border-radius: 6px;
-	  font-size: 13px;
-	  outline: none;
-	  transition: all 0.2s ease;
-	}
+    #aiChatInput::placeholder { color: rgba(255, 255, 255, 0.4); }
+    #aiChatInput:focus { border-color: var(--primary-green); background: rgba(255, 255, 255, 0.1); }
 
-	#aiChatInput::placeholder { color: rgba(255, 255, 255, 0.4); }
-	#aiChatInput:focus { border-color: var(--primary-green); background: rgba(255, 255, 255, 0.1); }
+    .chat-send-btn {
+      background: var(--primary-green);
+      color: #111;
+      border: none;
+      padding: 0 16px;
+      border-radius: 6px;
+      font-weight: bold;
+      font-size: 13px;
+      cursor: pointer;
+      transition: background 0.2s;
+    }
 
-	.chat-send-btn {
-	  background: var(--primary-green);
-	  color: #111;
-	  border: none;
-	  padding: 0 16px;
-	  border-radius: 6px;
-	  font-weight: bold;
-	  font-size: 13px;
-	  cursor: pointer;
-	  transition: background 0.2s;
-	}
+    .chat-send-btn:hover { background: var(--primary-green-hover); }
 
-	.chat-send-btn:hover { background: var(--primary-green-hover); }
+    .chat-footer {
+      padding: 0 14px 8px 14px;
+      background: transparent;
+      text-align: right;
+    }
 
-	.chat-footer {
-	  padding: 0 14px 8px 14px;
-	  background: transparent;
-	  text-align: right;
-	}
+    #aiChatCharCount { font-size: 11px; color: rgba(255, 255, 255, 0.5); }
 
-	#aiChatCharCount { font-size: 11px; color: rgba(255, 255, 255, 0.5); }
+    /* Single-Column Case Study Cards */
+    .project {
+      cursor: pointer;
+      margin-bottom: 12px;
+      padding: 12px 16px;
+      border-radius: 8px;
+      background: rgba(255, 255, 255, 0.03);
+      border: 1px solid rgba(255, 255, 255, 0.08);
+      transition: all 0.3s ease;
+    }
 
-	/* Project Cards */
-	.project {
-	  cursor: pointer;
-	  margin-bottom: 12px;
-	  padding: 12px 16px;
-	  border-radius: 8px;
-	  background: rgba(255, 255, 255, 0.03);
-	  border: 1px solid rgba(255, 255, 255, 0.08);
-	  transition: all 0.3s ease;
-	}
+    .project:hover {
+      background: rgba(255, 255, 255, 0.06);
+      border-color: rgba(24, 210, 110, 0.3);
+    }
 
-	.project:hover {
-	  background: rgba(255, 255, 255, 0.06);
-	  border-color: rgba(24, 210, 110, 0.3);
-	}
+    .project-header {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      user-select: none;
+    }
 
-	.project-header {
-	  display: flex;
-	  justify-content: space-between;
-	  align-items: center;
-	  user-select: none;
-	}
+    .project-header h4 { margin-bottom: 0; }
 
-	.project-header h4 { margin-bottom: 0; }
+    .project-toggle-icon {
+      font-size: 18px;
+      color: var(--primary-green);
+      transition: transform 0.3s ease;
+      margin-left: 10px;
+      flex-shrink: 0;
+    }
 
-	.project-toggle-icon {
-	  font-size: 18px;
-	  color: var(--primary-green);
-	  transition: transform 0.3s ease;
-	  margin-left: 10px;
-	  flex-shrink: 0;
-	}
+    .project.active .project-toggle-icon { transform: rotate(180deg); }
+    .project-content { display: none; margin-top: 12px; }
+    .project.active .project-content { display: block; }
 
-	.project.active .project-toggle-icon { transform: rotate(180deg); }
-	.project-content { display: none; margin-top: 12px; }
-	.project.active .project-content { display: block; }
+    /* Badges & Cards */
+    .badge-tag {
+      display: inline-block;
+      background: rgba(24, 210, 110, 0.12);
+      color: var(--primary-green);
+      border: 1px solid rgba(24, 210, 110, 0.3);
+      padding: 2px 8px;
+      border-radius: 12px;
+      font-size: 0.725rem;
+      font-weight: 600;
+      margin-right: 5px;
+      margin-bottom: 5px;
+    }
 
-	/* Badges & Cards */
-	.badge-tag {
-	  display: inline-block;
-	  background: rgba(24, 210, 110, 0.12);
-	  color: var(--primary-green);
-	  border: 1px solid rgba(24, 210, 110, 0.3);
-	  padding: 2px 8px;
-	  border-radius: 12px;
-	  font-size: 0.725rem;
-	  font-weight: 600;
-	  margin-right: 5px;
-	  margin-bottom: 5px;
-	}
+    .competency-card {
+      background: rgba(255, 255, 255, 0.05);
+      border-left: 3px solid var(--primary-green);
+      padding: 14px 16px;
+      margin-bottom: 16px;
+      border-radius: 0 8px 8px 0;
+      height: 100%;
+    }
 
-	.competency-card {
-	  background: rgba(255, 255, 255, 0.05);
-	  border-left: 3px solid var(--primary-green);
-	  padding: 14px 16px;
-	  margin-bottom: 16px;
-	  border-radius: 0 8px 8px 0;
-	  height: 100%;
-	}
+    .competency-card h4 {
+      font-size: 0.95rem;
+      color: #fff;
+      margin-bottom: 8px;
+      font-weight: 600;
+    }
 
-	.competency-card h4 {
-	  font-size: 0.95rem;
-	  color: #fff;
-	  margin-bottom: 8px;
-	  font-weight: 600;
-	}
+    .competency-card p {
+      color: rgba(255, 255, 255, 0.8);
+      margin-bottom: 0;
+    }
 
-	.competency-card p {
-	  color: rgba(255, 255, 255, 0.8);
-	  margin-bottom: 0;
-	}
+    .skill-category-title {
+      font-size: 13px;
+      color: var(--primary-green);
+      font-weight: 700;
+      text-transform: uppercase;
+      letter-spacing: 1px;
+      margin: 20px 0 12px 0;
+    }
 
-	.skill-category-title {
-	  font-size: 13px;
-	  color: var(--primary-green);
-	  font-weight: 700;
-	  text-transform: uppercase;
-	  letter-spacing: 1px;
-	  margin: 20px 0 12px 0;
-	}
+    #copy-toast {
+      position: fixed;
+      bottom: 20px;
+      right: 20px;
+      background: var(--primary-green);
+      color: #040404;
+      font-weight: 700;
+      padding: 8px 16px;
+      border-radius: 6px;
+      box-shadow: 0 4px 15px rgba(0, 0, 0, 0.4);
+      display: none;
+      z-index: 99999;
+      transition: opacity 0.3s ease;
+    }
 
-	#copy-toast {
-	  position: fixed;
-	  bottom: 20px;
-	  right: 20px;
-	  background: var(--primary-green);
-	  color: #040404;
-	  font-weight: 700;
-	  padding: 8px 16px;
-	  border-radius: 6px;
-	  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.4);
-	  display: none;
-	  z-index: 99999;
-	  transition: opacity 0.3s ease;
-	}
-
-	.counts iframe {
-	  width: 100% !important;
-	  height: clamp(400px, 60vh, 850px) !important;
-	  border: none;
-	}	
+    /* Fluid Resume Embed */
+    .counts iframe {
+      width: 100% !important;
+      height: clamp(400px, 60vh, 850px) !important;
+      border: none;
+    }
   </style>
 </head>
 
@@ -403,8 +368,9 @@
       <nav id="navbar" class="navbar">
         <ul>
           <li><a class="nav-link active" href="#header">Home</a></li>
+          <li><a class="nav-link" href="#overview">Overview</a></li>
           <li><a class="nav-link" href="#case-studies">Case Studies</a></li>
-          <li><a class="nav-link" href="#capabilities">Capabilities &amp; Methods</a></li>
+          <li><a class="nav-link" href="#capabilities">Capabilities &amp; Playbooks</a></li>
           <li><a class="nav-link" href="#resume">Resume</a></li>
         </ul>
         <i class="bi bi-list mobile-nav-toggle"></i>
@@ -448,6 +414,60 @@
       <!-- End AI Chat Section -->
     </div>
   </header>
+
+  <!-- ======= 1-Minute Executive Overview ======= -->
+	<section id="overview" class="services" style="padding: 30px 0 20px 0;">
+	  <div class="container">
+		
+		<div class="section-title mb-3" style="text-align: left;">
+		  <h2 style="margin-bottom: 4px;">Executive Snapshot</h2>
+		  <p style="color: rgba(255, 255, 255, 0.6); font-size: 13px; margin: 0;">Everything you need to know about Terron's background in 60 seconds.</p>
+		</div>
+
+		<!-- 1-Minute Career Narrative -->
+		<div style="background: rgba(255, 255, 255, 0.03); border: 1px solid rgba(255, 255, 255, 0.08); padding: 20px; border-radius: 8px; margin-bottom: 20px;">
+		  <p style="font-size: clamp(0.9rem, 1.4vw, 1rem); line-height: 1.6; color: rgba(255, 255, 255, 0.9); margin-bottom: 12px;">
+			I am a <strong>Senior Quantitative UX Researcher</strong> with 8 years of experience leading research and architecture across <strong>Meta, Microsoft, JPMorgan Chase</strong>, and startups. Backed by a <strong>Master’s in Statistics from the University of Pennsylvania</strong>, I specialize in translating complex behavioral telemetry into executive product strategy.
+		  </p>
+		  <p style="font-size: clamp(0.85rem, 1.3vw, 0.95rem); line-height: 1.6; color: rgba(255, 255, 255, 0.8); margin: 0;">
+			My work spans building <strong>ecosystem-scale behavioral pipelines (800M+ MAU)</strong>, massive global monitoring platforms (100K+ responses/month), establishing pyschometric launch gates for first of its kind tech (Agentic AI/cryptographic identity) and engineering full-funnel A/B testing frameworks that delivered a <strong>+$20M monthly revenue lift</strong>.
+		  </p>
+		  <p style="font-size: clamp(0.85rem, 1.3vw, 0.95rem); line-height: 1.6; color: var(--primary-green); font-weight: 600; margin: 0;">
+        Whether you are navigating 0–1 product ambiguity, scaling tracking infrastructure, or eliminating funnel friction to drive growth, I partner with cross-functional teams to solve high-stakes behavioral and quantitative challenges.
+      </p>
+		</div>
+
+		<!-- 4 High-Density Credential Badges -->
+		<div class="row text-center" style="gap: 10px 0;">
+		  <div class="col-6 col-md-3">
+			<div style="background: rgba(24, 210, 110, 0.04); border: 1px solid rgba(24, 210, 110, 0.25); padding: 12px 8px; border-radius: 6px;">
+			  <div style="font-size: 11px; font-weight: 700; color: #18d26e;">EXPERIENCE & EDUCATION</div>
+			  <div style="font-size: 13px; color: #fff; font-weight: 600; margin-top: 2px;">8 Yrs • UPenn MS Stats</div>
+			</div>
+		  </div>
+		  <div class="col-6 col-md-3">
+			<div style="background: rgba(24, 210, 110, 0.04); border: 1px solid rgba(24, 210, 110, 0.25); padding: 12px 8px; border-radius: 6px;">
+			  <div style="font-size: 11px; font-weight: 700; color: #18d26e;">ENTERPRISE FOOTPRINT</div>
+			  <div style="font-size: 13px; color: #fff; font-weight: 600; margin-top: 2px;">Meta • MSFT • Chase</div>
+			</div>
+		  </div>
+		  <div class="col-6 col-md-3">
+			<div style="background: rgba(24, 210, 110, 0.04); border: 1px solid rgba(24, 210, 110, 0.25); padding: 12px 8px; border-radius: 6px;">
+			  <div style="font-size: 11px; font-weight: 700; color: #18d26e;">MAX SCALE & IMPACT</div>
+			  <div style="font-size: 13px; color: #fff; font-weight: 600; margin-top: 2px;">+$20M/mo • 800M+ MAU</div>
+			</div>
+		  </div>
+		  <div class="col-6 col-md-3">
+			<div style="background: rgba(24, 210, 110, 0.04); border: 1px solid rgba(24, 210, 110, 0.25); padding: 12px 8px; border-radius: 6px;">
+			  <div style="font-size: 11px; font-weight: 700; color: #18d26e;">CORE TECH STACK</div>
+			  <div style="font-size: 13px; color: #fff; font-weight: 600; margin-top: 2px;">Python • SQL • A/B</div>
+			</div>
+		  </div>
+		</div>
+
+	  </div>
+	</section>
+  <!-- End Quick Overview Section -->
 
   <!-- ======= Case Studies Section ======= -->
   <section id="case-studies" class="UX">
@@ -708,83 +728,118 @@
   </section>
   <!-- End Case Studies Section -->
 
-  <!-- ======= Capabilities & Methods Section ======= -->
-  <section id="capabilities" class="Resume" style="background: rgba(255, 255, 255, 0.02);">
-    <div class="container">
-      <div class="section-title">
-        <h2>Capabilities &amp; End-to-End Methodology</h2>
-      </div>
+  <!-- ======= Forward-Looking Capabilities & Playbooks Section ======= -->
+	<!-- ======= Forward-Looking Capabilities & Playbooks Section ======= -->
+	  <section id="capabilities" class="Resume" style="background: rgba(255, 255, 255, 0.02); padding: 40px 0;">
+		<div class="container">
+		  <div class="section-title mb-4">
+			<h2>Capabilities &amp; Strategic Playbooks</h2>
+			<p style="color: rgba(255, 255, 255, 0.6); font-size: 13px;">Practical problem-solving blueprints: How I diagnose friction, navigate constraints, and drive executive decisions.</p>
+		  </div>
 
-      <!-- Core Competencies -->
-      <div class="row">
-        <div class="col-lg-6 mb-4">
-          <div class="competency-card">
-            <h4><i class="bi bi-compass-fill" style="color: #18d26e; margin-right: 8px;"></i> 0-1 Product Innovation &amp; Ambiguity Navigation</h4>
-            <p>Leading research in blank-slate environments without established playbooks, driving 0-1 product development from founding a startup's validation frameworks to defining launch gates for novel AI agents.</p>
-          </div>
-        </div>
-        <div class="col-lg-6 mb-4">
-          <div class="competency-card">
-            <h4><i class="bi bi-cpu-fill" style="color: #18d26e; margin-right: 8px;"></i> Ecosystem-Scale Infrastructure Building</h4>
-            <p>Architecting massive-scale continuous monitoring pipelines, a 100,000+/month global tracking survey at Meta and 800M+ monthly digital telemetry datasets for Fortune 50 clients.</p>
-          </div>
-        </div>
-        <div class="col-lg-6 mb-4">
-          <div class="competency-card">
-            <h4><i class="bi bi-clipboard2-data-fill" style="color: #18d26e; margin-right: 8px;"></i> Operationalizing Abstract Constructs</h4>
-            <p>Pioneering novel measurement frameworks to quantify highly ambiguous, high-stakes psychometric variables, from existential user trust metrics to multi-dimensional behavioral risk thresholds.</p>
-          </div>
-        </div>
-        <div class="col-lg-6 mb-4">
-          <div class="competency-card">
-            <h4><i class="bi bi-signpost-split-fill" style="color: #18d26e; margin-right: 8px;"></i> Pioneering Critical User Journeys (CUJs)</h4>
-            <p>Mapping and optimizing complex behavioral funnels for entirely unprecedented user experiences, ranging from cryptographic onboarding flows to human-AI interaction journeys.</p>
-          </div>
-        </div>
-      </div>
+		  <!-- Playbook 1 -->
+		  <div class="playbook-card">
+			<div style="font-size: 11px; font-weight: 700; text-transform: uppercase; letter-spacing: 1px; color: var(--primary-green); margin-bottom: 4px;">PLAYBOOK 01</div>
+			<h3>Addressing Non-Deterministic AI Integration &amp; Evaluation</h3>
+			
+			<h5>The Problem</h5>
+			<p>Integrating non-deterministic AI—ranging from generative content models to autonomous agentic workflows—introduces unpredictable, non-repeatable system behavior into product experiences. Unlike deterministic software, user friction doesn't stem from traditional usability bugs, but from the ambiguity of delegation versus control: users struggle to understand system boundaries, monitor autonomous task execution, evaluate non-standard outputs, and know when or how to intervene when a model or agent strays.</p>
+			
+			<h5>How I Would Approach This Problem and Why</h5>
+			<ul style="padding-left: 18px; color: rgba(255, 255, 255, 0.85);">
+			  <li style="margin-bottom: 8px;">
+				<strong>Establish Intent Completion &amp; Autonomy Baselines:</strong> I would evaluate end-to-end goal resolution, error rates, and total task effort across varying degrees of system autonomy by comparing fully automated agent execution, human-in-the-loop checkpoint workflows, and existing manual baselines. In agentic and generative workflows, users trade fine-grained manual control for delegation speed; benchmarking where task failure occurs across levels of autonomy reveals whether a feature is ready for unassisted delegation or requires structured human verification gates.
+			  </li>
+			  <li style="margin-bottom: 8px;">
+				<strong>Instrument Passive Intervention &amp; Control Proxies:</strong> I would track real-time behavioral telemetry on user control signals—such as mid-execution task aborts, manual parameter overrides, intervention frequencies, repeated goal re-framing, and post-execution correction rates. Because self-reported surveys fail to capture real-time trust degradation, passive behavioral telemetry pinpoints the exact operational moments where users lose confidence in the system's execution or feel compelled to micromanage it.
+			  </li>
+			  <li style="margin-bottom: 8px;">
+				<strong>Isolate System Capability Gaps from UX Observability &amp; Steering:</strong> I would run controlled evaluations to decouple backend system failures (tool-execution errors, model drift, context gaps) from frontend visibility failures (opaque agent state, missing rollback mechanisms, ambiguous execution feedback). Product teams frequently waste engineering cycles retraining models or tweaking system prompts when the actual root cause is that users panic and abort tasks simply because they cannot observe what the system is executing behind the scenes.
+			  </li>
+			</ul>
 
-      <!-- Skill Tags -->
-      <div class="skills mt-4">
-        <div class="skill-category-title">Research &amp; Measurement</div>
-        <div class="mb-3">
-          <span class="badge-tag">Mixed-Methods Triangulation</span>
-          <span class="badge-tag">Causal Inference &amp; A/B Testing</span>
-          <span class="badge-tag">Telemetry &amp; Log Analysis</span>
-          <span class="badge-tag">Experimental Design</span>
-          <span class="badge-tag">Longitudinal Tracking</span>
-          <span class="badge-tag">Critical User Journey (CUJ) Mapping</span>
-          <span class="badge-tag">Survey Methodology &amp; Weighting</span>
-          <span class="badge-tag">Usability Testing</span>
-        </div>
+			<h5>The Decision Output</h5>
+			<p style="margin-bottom: 0;">An executive diagnostic framework that identifies whether user friction or drop-off is driven by core model capability, insufficient system state observability, or an improper balance between automated delegation and human control—delivering clear operational directives for engineering architecture versus interaction design.</p>
+		  </div>
 
-        <div class="skill-category-title">Technical &amp; Analytics</div>
-        <div class="mb-3">
-          <span class="badge-tag">SQL</span>
-          <span class="badge-tag">Python (Pandas, NumPy, Scikit-Learn)</span>
-          <span class="badge-tag">R (Tidyverse, dplyr)</span>
-          <span class="badge-tag">NLP &amp; Transformers (BART-large)</span>
-          <span class="badge-tag">Tableau</span>
-          <span class="badge-tag">Adobe Analytics</span>
-          <span class="badge-tag">Qualtrics</span>
-          <span class="badge-tag">Statistical Hypothesis Testing</span>
-          <span class="badge-tag">Massive-Scale Data Architecture</span>
-          <span class="badge-tag">Experimentation Platform Design</span>
-        </div>
+		  <!-- Playbook 2 -->
+		  <div class="playbook-card">
+			<div style="font-size: 11px; font-weight: 700; text-transform: uppercase; letter-spacing: 1px; color: var(--primary-green); margin-bottom: 4px;">PLAYBOOK 02</div>
+			<h3>Building Product Measurement Programs When They Don't Already Exist</h3>
+			
+			<h5>The Problem</h5>
+			<p>When faced with high ambiguity, the need to ship fast causes significant pressure to make any decision instead of spending time to make a good decision. Because waiting for data feels like an unnecessary tax on release momentum, leadership can decide to go without. Research in any practical setting isn't an academic exercise, it exists to drive decisions, reduce uncertainty, and influence outcomes, which means working within the time and resources available. Without a mechanism to deliver fast, high-conviction signal within those constraints, teams risk mistaking velocity for progress and shipping the wrong solution faster.</p>
+			
+			<h5>How I Would Approach This Problem and Why</h5>
+			<ul style="padding-left: 18px; color: rgba(255, 255, 255, 0.85);">
+			  <li style="margin-bottom: 8px;">
+				<strong>Define the Decision Context and Do Desk Research:</strong> Before committing resources to novel field studies, I map the specific executive decisions, risk thresholds, and default paths that hinge on the research outcome. I then conduct targeted desk research using existing literature, competitor benchmarks, and adjacent domain studies to eliminate redundant effort and focus data collection strictly on high-leverage knowledge gaps.
+			  </li>
+			  <li style="margin-bottom: 8px;">
+				<strong>Map Decision Timelines Against the Data-Generation Cost Curve:</strong> I evaluate upcoming product deadlines against the time, financial, and technical resources required to generate valid data across candidate methodologies. This trade-off analysis prevents launching complex quantitative instrumentation for time-sensitive choices while ensuring high-stakes bets receive appropriate empirical backing.
+			  </li>
+			  <li style="margin-bottom: 8px;">
+				<strong>Instrument MVP Research ASAP and Scale Iteratively:</strong> I deploy lightweight research mechanisms like micro-surveys, basic telemetry hooks, or targeted usability walkthroughs immediately to capture directional signal within days. Using these early qualitative and quantitative insights to refine assumptions in real time, I progressively scale successful probes into permanent tracking frameworks and deeper studies.
+			  </li>
+			</ul>
 
-        <div class="skill-category-title">Product Strategy &amp; Governance</div>
-        <div class="mb-3">
-          <span class="badge-tag">0-1 Product Validation</span>
-          <span class="badge-tag">Human-AI Interaction Evaluation</span>
-          <span class="badge-tag">Trust &amp; Risk Metrics</span>
-          <span class="badge-tag">Executive-Tier Strategic Advisory</span>
-          <span class="badge-tag">Multi-Sided Marketplace Dynamics</span>
-          <span class="badge-tag">International Vendor Operations (12 Vendors)</span>
-          <span class="badge-tag">Cross-Functional Leadership</span>
-        </div>
-      </div>
-    </div>
-  </section>
-  <!-- End Capabilities Section -->
+			<h5>The Decision Output</h5>
+			<p style="margin-bottom: 0;">A phased decision framework that pairs immediate, high-conviction directional guidance with a clear roadmap for scaling data fidelity over time. It provides leadership with synthesized desk research and early MVP findings to make near-term product choices safely, while establishing explicit metrics and timeline triggers for expanding lightweight probes into long-term tracking infrastructure.</p>
+		  </div>
+
+		  <!-- Playbook 3 -->
+		  <div class="playbook-card">
+			<div style="font-size: 11px; font-weight: 700; text-transform: uppercase; letter-spacing: 1px; color: var(--primary-green); margin-bottom: 4px;">PLAYBOOK 03</div>
+			<h3>Resolving the Say-Do Gap to Drive Actionable Product Directives</h3>
+			
+			<h5>The Problem</h5>
+			<p>Relying on self-reported user sentiment or behavioral telemetry in isolation creates major strategic risk because individuals are frequently unreliable narrators of their own habits. When survey responses directly contradict live interaction metrics, product teams struggle to diagnose whether low feature adoption stems from severe usability friction, an automated background habit, or purely aspirational intent. Without a structured framework to reconcile this disconnect within project constraints, leadership risks mistaking release velocity for true progress and wasting engineering capital on features users claim to want but never actually use.</p>
+			
+			<h5>How I Would Approach This Problem and Why</h5>
+			<ul style="padding-left: 18px; color: rgba(255, 255, 255, 0.85);">
+			  <li style="margin-bottom: 8px;">
+				<strong>Establish Telemetry as Behavioral Ground Truth:</strong> I would track interaction metrics such as hesitation delays, workflow abandonment points, and manual workarounds to map what users physically do under live conditions. Establishing an objective baseline of interaction eliminates reliance on memory recall and isolates real-world user behavior from aspirational self-reporting.
+			  </li>
+			  <li style="margin-bottom: 8px;">
+				<strong>Investigate Signal Divergence via Retrospective Playback Sessions:</strong> When self-reported feedback conflicts with observed telemetry, I would walk users back through recordings or event logs of their own recent sessions. Grounding discussions in specific drop-off moments allows me to probe what the user was trying to accomplish at that exact instant, uncovering hidden UX friction without triggering defensive rationalizations.
+			  </li>
+			  <li style="margin-bottom: 8px;">
+				<strong>Apply Conflict Diagnostic Logic to Categorize User Signal:</strong> Instead of averaging conflicting survey scores and usage metrics, I would process divergent data through explicit diagnostic rules. This logic would separate usability bottlenecks (high intent blocked by poor interface design) from aspirational noise (high survey interest with zero interaction friction), ensuring engineering sprints target genuine value drivers.
+			  </li>
+			</ul>
+
+			<h5>The Decision Output</h5>
+			<p style="margin-bottom: 0;">A synthesized conflict resolution matrix that translates divergent attitudinal and behavioral data into explicit execution directives: Kill, Fix UX, or Automate Defaults. It provides product and engineering leadership with clear, risk-adjusted directives on whether to overhaul workflow UI, deprecate aspirational feature requests, or reallocate development cycles toward high-utility daily habits.</p>
+		  </div>
+
+		  <!-- Playbook 4 -->
+		  <div class="playbook-card">
+			<div style="font-size: 11px; font-weight: 700; text-transform: uppercase; letter-spacing: 1px; color: var(--primary-green); margin-bottom: 4px;">PLAYBOOK 04</div>
+			<h3>Building Products That Work For A Global Audience While Ensuring They Work Locally</h3>
+			
+			<h5>The Problem</h5>
+			<p>Expanding software globally creates a costly dilemma between central efficiency and local market survival. Pushing an identical product worldwide preserves lean engineering costs, but causes low adoption and high churn in regions where local expectations around payments, trust, and workflows differ. Conversely, customizing the product for every country delivers local market fit, but fractures the codebase, inflates development overhead, and erodes margins. Executive leadership lacks a systematic method to determine where the platform must remain globally uniform and where it must adapt to capture regional growth.</p>
+			
+			<h5>How I Would Approach This Problem and Why</h5>
+			<ul style="padding-left: 18px; color: rgba(255, 255, 255, 0.85);">
+			  <li style="margin-bottom: 8px;">
+				<strong>Delineate the Universal Core from Local Dealbreakers:</strong> I would separate the foundational user goal that applies anywhere in the world from the specific regional mechanics needed to complete it. Focusing on universal intent keeps the main engine consistent, while isolating regional friction points—like local payment methods, trust badges, or network constraints—ensures teams solve the exact roadblocks preventing local adoption without rebuilding the app.
+			  </li>
+			  <li style="margin-bottom: 8px;">
+				<strong>Establish Architecture Boundaries with Product and Engineering:</strong> I would define an explicit platform blueprint that locks down roughly eighty percent of core workflows globally while creating modular slots for the remaining twenty percent of regional customization. Setting structural boundaries upfront prevents regional teams from writing isolated code, while giving engineering clear parameters for building reusable, plug-and-play UI components.
+			  </li>
+			  <li style="margin-bottom: 8px;">
+				<strong>Run Localized Validation Within Central Guardrails:</strong> I would direct regional evaluation toward testing localized mechanics and competitive alternatives rather than re-testing global baseline usability. Empowering local teams to validate region-specific mechanics catches critical market-entry failures early, while keeping overall strategy aligned with company-wide metrics and resource allocation.
+			  </li>
+			</ul>
+
+			<h5>The Decision Output</h5>
+			<p style="margin-bottom: 0;">An Executive Localization &amp; Architectural Blueprint that maps universal product functionality against approved regional extensions, equipping Product and Engineering leads with clear operational criteria to decide when to enforce global standardization and when to build modular regional features.</p>
+		  </div>
+
+		</div>
+	  </section>
+	  <!-- End Capabilities Section -->
 
   <!-- ======= Resume Details Section ======= -->
   <section id="resume" class="Resume">
@@ -896,10 +951,17 @@
       if (indicator) indicator.remove();
     }
 
+    /* Updated Pill Handler: Autofills query into input without auto-submitting */
     function sendPillQuery(query) {
       const input = document.getElementById('aiChatInput');
-      if (input) input.value = query;
-      sendUserMessage();
+      if (input) {
+        input.value = query;
+        input.focus();
+        const charCountEl = document.getElementById('aiChatCharCount');
+        if (charCountEl) {
+          charCountEl.innerText = `${query.length}/300`;
+        }
+      }
     }
 
     async function sendUserMessage() {
