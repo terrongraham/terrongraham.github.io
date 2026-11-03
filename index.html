@@ -728,117 +728,157 @@
   </section>
   <!-- End Case Studies Section -->
 
-  <!-- ======= Forward-Looking Capabilities & Playbooks Section ======= -->
-	<!-- ======= Forward-Looking Capabilities & Playbooks Section ======= -->
-	  <section id="capabilities" class="Resume" style="background: rgba(255, 255, 255, 0.02); padding: 40px 0;">
-		<div class="container">
-		  <div class="section-title mb-4">
-			<h2>Capabilities &amp; Strategic Playbooks</h2>
-			<p style="color: rgba(255, 255, 255, 0.6); font-size: 13px;">Practical problem-solving blueprints: How I diagnose friction, navigate constraints, and drive executive decisions.</p>
-		  </div>
+<!-- ======= Forward-Looking Capabilities & Playbooks Section ======= -->
+<section id="capabilities" class="Resume" style="background: rgba(255, 255, 255, 0.02); padding: 40px 0;">
+  <div class="container">
+    <div class="section-title mb-4">
+      <h2>Capabilities &amp; Strategic Playbooks</h2>
+      <p style="color: rgba(255, 255, 255, 0.6); font-size: 13px;">Practical problem-solving blueprints: How I diagnose friction, navigate constraints, and drive executive decisions.</p>
+    </div>
 
-		  <!-- Playbook 1 -->
-		  <div class="playbook-card">
-			<div style="font-size: 11px; font-weight: 700; text-transform: uppercase; letter-spacing: 1px; color: var(--primary-green); margin-bottom: 4px;">PLAYBOOK 01</div>
-			<h3>Addressing Non-Deterministic AI Integration &amp; Evaluation</h3>
-			
-			<h5>The Problem</h5>
-			<p>Integrating non-deterministic AI—ranging from generative content models to autonomous agentic workflows—introduces unpredictable, non-repeatable system behavior into product experiences. Unlike deterministic software, user friction doesn't stem from traditional usability bugs, but from the ambiguity of delegation versus control: users struggle to understand system boundaries, monitor autonomous task execution, evaluate non-standard outputs, and know when or how to intervene when a model or agent strays.</p>
-			
-			<h5>How I Would Approach This Problem and Why</h5>
-			<ul style="padding-left: 18px; color: rgba(255, 255, 255, 0.85);">
-			  <li style="margin-bottom: 8px;">
-				<strong>Establish Intent Completion &amp; Autonomy Baselines:</strong> I would evaluate end-to-end goal resolution, error rates, and total task effort across varying degrees of system autonomy by comparing fully automated agent execution, human-in-the-loop checkpoint workflows, and existing manual baselines. In agentic and generative workflows, users trade fine-grained manual control for delegation speed; benchmarking where task failure occurs across levels of autonomy reveals whether a feature is ready for unassisted delegation or requires structured human verification gates.
-			  </li>
-			  <li style="margin-bottom: 8px;">
-				<strong>Instrument Passive Intervention &amp; Control Proxies:</strong> I would track real-time behavioral telemetry on user control signals—such as mid-execution task aborts, manual parameter overrides, intervention frequencies, repeated goal re-framing, and post-execution correction rates. Because self-reported surveys fail to capture real-time trust degradation, passive behavioral telemetry pinpoints the exact operational moments where users lose confidence in the system's execution or feel compelled to micromanage it.
-			  </li>
-			  <li style="margin-bottom: 8px;">
-				<strong>Isolate System Capability Gaps from UX Observability &amp; Steering:</strong> I would run controlled evaluations to decouple backend system failures (tool-execution errors, model drift, context gaps) from frontend visibility failures (opaque agent state, missing rollback mechanisms, ambiguous execution feedback). Product teams frequently waste engineering cycles retraining models or tweaking system prompts when the actual root cause is that users panic and abort tasks simply because they cannot observe what the system is executing behind the scenes.
-			  </li>
-			</ul>
+    <!-- Playbook 1 -->
+    <div class="playbook-item project mb-3" onclick="togglePlaybook(this)">
+      <div class="project-header">
+        <div>
+          <div style="font-size: 11px; font-weight: 700; text-transform: uppercase; letter-spacing: 1px; color: var(--primary-green); margin-bottom: 2px;">PLAYBOOK 01</div>
+          <h4 class="hover-underline" style="margin: 0;">Addressing Non-Deterministic AI Integration &amp; Evaluation</h4>
+        </div>
+        <i class="bi bi-chevron-down project-toggle-icon"></i>
+      </div>
+      
+      <div class="project-content">
+        <h5 style="font-size: 1.05rem !important; color: #fff !important; font-weight: 700 !important; margin-top: 16px !important; margin-bottom: 6px !important; text-transform: none !important;">The Problem</h5>
+        <p style="font-size: 0.9rem !important; line-height: 1.6 !important; color: rgba(255, 255, 255, 0.85) !important;">Integrating non-deterministic AI—ranging from generative content models to autonomous agentic workflows—introduces unpredictable, non-repeatable system behavior into product experiences. Unlike deterministic software, user friction doesn't stem from traditional usability bugs, but from the ambiguity of delegation versus control: users struggle to understand system boundaries, monitor autonomous task execution, evaluate non-standard outputs, and know when or how to intervene when a model or agent strays.</p>
+        
+        <h5 style="font-size: 1.05rem !important; color: #fff !important; font-weight: 700 !important; margin-top: 16px !important; margin-bottom: 6px !important; text-transform: none !important;">How I Would Approach This Problem and Why</h5>
+        <ul style="padding-left: 18px; color: rgba(255, 255, 255, 0.85);">
+          <li style="font-size: 0.9rem !important; line-height: 1.6 !important; margin-bottom: 8px;">
+            <strong>Establish Intent Completion &amp; Autonomy Baselines:</strong> I would evaluate end-to-end goal resolution, error rates, and total task effort across varying degrees of system autonomy by comparing fully automated agent execution, human-in-the-loop checkpoint workflows, and existing manual baselines. In agentic and generative workflows, users trade fine-grained manual control for delegation speed; benchmarking where task failure occurs across levels of autonomy reveals whether a feature is ready for unassisted delegation or requires structured human verification gates.
+          </li>
+          <li style="font-size: 0.9rem !important; line-height: 1.6 !important; margin-bottom: 8px;">
+            <strong>Instrument Passive Intervention &amp; Control Proxies:</strong> I would track real-time behavioral telemetry on user control signals—such as mid-execution task aborts, manual parameter overrides, intervention frequencies, repeated goal re-framing, and post-execution correction rates. Because self-reported surveys fail to capture real-time trust degradation, passive behavioral telemetry pinpoints the exact operational moments where users lose confidence in the system's execution or feel compelled to micromanage it.
+          </li>
+          <li style="font-size: 0.9rem !important; line-height: 1.6 !important; margin-bottom: 8px;">
+            <strong>Isolate System Capability Gaps from UX Observability &amp; Steering:</strong> I would run controlled evaluations to decouple backend system failures (tool-execution errors, model drift, context gaps) from frontend visibility failures (opaque agent state, missing rollback mechanisms, ambiguous execution feedback). Product teams frequently waste engineering cycles retraining models or tweaking system prompts when the actual root cause is that users panic and abort tasks simply because they cannot observe what the system is executing behind the scenes.
+          </li>
+        </ul>
 
-			<h5>The Decision Output</h5>
-			<p style="margin-bottom: 0;">An executive diagnostic framework that identifies whether user friction or drop-off is driven by core model capability, insufficient system state observability, or an improper balance between automated delegation and human control—delivering clear operational directives for engineering architecture versus interaction design.</p>
-		  </div>
+        <h5 style="font-size: 1.05rem !important; color: #fff !important; font-weight: 700 !important; margin-top: 16px !important; margin-bottom: 6px !important; text-transform: none !important;">The Decision Output</h5>
+        <p style="font-size: 0.9rem !important; line-height: 1.6 !important; color: rgba(255, 255, 255, 0.85) !important; margin-bottom: 0;">An executive diagnostic framework that identifies whether user friction or drop-off is driven by core model capability, insufficient system state observability, or an improper balance between automated delegation and human control—delivering clear operational directives for engineering architecture versus interaction design.</p>
+      </div>
+    </div>
 
-		  <!-- Playbook 2 -->
-		  <div class="playbook-card">
-			<div style="font-size: 11px; font-weight: 700; text-transform: uppercase; letter-spacing: 1px; color: var(--primary-green); margin-bottom: 4px;">PLAYBOOK 02</div>
-			<h3>Building Product Measurement Programs When They Don't Already Exist</h3>
-			
-			<h5>The Problem</h5>
-			<p>When faced with high ambiguity, the need to ship fast causes significant pressure to make any decision instead of spending time to make a good decision. Because waiting for data feels like an unnecessary tax on release momentum, leadership can decide to go without. Research in any practical setting isn't an academic exercise, it exists to drive decisions, reduce uncertainty, and influence outcomes, which means working within the time and resources available. Without a mechanism to deliver fast, high-conviction signal within those constraints, teams risk mistaking velocity for progress and shipping the wrong solution faster.</p>
-			
-			<h5>How I Would Approach This Problem and Why</h5>
-			<ul style="padding-left: 18px; color: rgba(255, 255, 255, 0.85);">
-			  <li style="margin-bottom: 8px;">
-				<strong>Define the Decision Context and Do Desk Research:</strong> Before committing resources to novel field studies, I map the specific executive decisions, risk thresholds, and default paths that hinge on the research outcome. I then conduct targeted desk research using existing literature, competitor benchmarks, and adjacent domain studies to eliminate redundant effort and focus data collection strictly on high-leverage knowledge gaps.
-			  </li>
-			  <li style="margin-bottom: 8px;">
-				<strong>Map Decision Timelines Against the Data-Generation Cost Curve:</strong> I evaluate upcoming product deadlines against the time, financial, and technical resources required to generate valid data across candidate methodologies. This trade-off analysis prevents launching complex quantitative instrumentation for time-sensitive choices while ensuring high-stakes bets receive appropriate empirical backing.
-			  </li>
-			  <li style="margin-bottom: 8px;">
-				<strong>Instrument MVP Research ASAP and Scale Iteratively:</strong> I deploy lightweight research mechanisms like micro-surveys, basic telemetry hooks, or targeted usability walkthroughs immediately to capture directional signal within days. Using these early qualitative and quantitative insights to refine assumptions in real time, I progressively scale successful probes into permanent tracking frameworks and deeper studies.
-			  </li>
-			</ul>
+    <!-- Playbook 2 -->
+    <div class="playbook-item project mb-3" onclick="togglePlaybook(this)">
+      <div class="project-header">
+        <div>
+          <div style="font-size: 11px; font-weight: 700; text-transform: uppercase; letter-spacing: 1px; color: var(--primary-green); margin-bottom: 2px;">PLAYBOOK 02</div>
+          <h4 class="hover-underline" style="margin: 0;">Building Product Measurement Programs When They Don't Already Exist</h4>
+        </div>
+        <i class="bi bi-chevron-down project-toggle-icon"></i>
+      </div>
+      
+      <div class="project-content">
+        <h5 style="font-size: 1.05rem !important; color: #fff !important; font-weight: 700 !important; margin-top: 16px !important; margin-bottom: 6px !important; text-transform: none !important;">The Problem</h5>
+        <p style="font-size: 0.9rem !important; line-height: 1.6 !important; color: rgba(255, 255, 255, 0.85) !important;">When faced with high ambiguity, the need to ship fast causes significant pressure to make any decision instead of spending time to make a good decision. Because waiting for data feels like an unnecessary tax on release momentum, leadership can decide to go without. Research in any practical setting isn't an academic exercise, it exists to drive decisions, reduce uncertainty, and influence outcomes, which means working within the time and resources available. Without a mechanism to deliver fast, high-conviction signal within those constraints, teams risk mistaking velocity for progress and shipping the wrong solution faster.</p>
+        
+        <h5 style="font-size: 1.05rem !important; color: #fff !important; font-weight: 700 !important; margin-top: 16px !important; margin-bottom: 6px !important; text-transform: none !important;">How I Would Approach This Problem and Why</h5>
+        <ul style="padding-left: 18px; color: rgba(255, 255, 255, 0.85);">
+          <li style="font-size: 0.9rem !important; line-height: 1.6 !important; margin-bottom: 8px;">
+            <strong>Define the Decision Context and Do Desk Research:</strong> Before committing resources to novel field studies, I map the specific executive decisions, risk thresholds, and default paths that hinge on the research outcome. I then conduct targeted desk research using existing literature, competitor benchmarks, and adjacent domain studies to eliminate redundant effort and focus data collection strictly on high-leverage knowledge gaps.
+          </li>
+          <li style="font-size: 0.9rem !important; line-height: 1.6 !important; margin-bottom: 8px;">
+            <strong>Map Decision Timelines Against the Data-Generation Cost Curve:</strong> I evaluate upcoming product deadlines against the time, financial, and technical resources required to generate valid data across candidate methodologies. This trade-off analysis prevents launching complex quantitative instrumentation for time-sensitive choices while ensuring high-stakes bets receive appropriate empirical backing.
+          </li>
+          <li style="font-size: 0.9rem !important; line-height: 1.6 !important; margin-bottom: 8px;">
+            <strong>Instrument MVP Research ASAP and Scale Iteratively:</strong> I deploy lightweight research mechanisms like micro-surveys, basic telemetry hooks, or targeted usability walkthroughs immediately to capture directional signal within days. Using these early qualitative and quantitative insights to refine assumptions in real time, I progressively scale successful probes into permanent tracking frameworks and deeper studies.
+          </li>
+        </ul>
 
-			<h5>The Decision Output</h5>
-			<p style="margin-bottom: 0;">A phased decision framework that pairs immediate, high-conviction directional guidance with a clear roadmap for scaling data fidelity over time. It provides leadership with synthesized desk research and early MVP findings to make near-term product choices safely, while establishing explicit metrics and timeline triggers for expanding lightweight probes into long-term tracking infrastructure.</p>
-		  </div>
+        <h5 style="font-size: 1.05rem !important; color: #fff !important; font-weight: 700 !important; margin-top: 16px !important; margin-bottom: 6px !important; text-transform: none !important;">The Decision Output</h5>
+        <p style="font-size: 0.9rem !important; line-height: 1.6 !important; color: rgba(255, 255, 255, 0.85) !important; margin-bottom: 0;">A phased decision framework that pairs immediate, high-conviction directional guidance with a clear roadmap for scaling data fidelity over time. It provides leadership with synthesized desk research and early MVP findings to make near-term product choices safely, while establishing explicit metrics and timeline triggers for expanding lightweight probes into long-term tracking infrastructure.</p>
+      </div>
+    </div>
 
-		  <!-- Playbook 3 -->
-		  <div class="playbook-card">
-			<div style="font-size: 11px; font-weight: 700; text-transform: uppercase; letter-spacing: 1px; color: var(--primary-green); margin-bottom: 4px;">PLAYBOOK 03</div>
-			<h3>Resolving the Say-Do Gap to Drive Actionable Product Directives</h3>
-			
-			<h5>The Problem</h5>
-			<p>Relying on self-reported user sentiment or behavioral telemetry in isolation creates major strategic risk because individuals are frequently unreliable narrators of their own habits. When survey responses directly contradict live interaction metrics, product teams struggle to diagnose whether low feature adoption stems from severe usability friction, an automated background habit, or purely aspirational intent. Without a structured framework to reconcile this disconnect within project constraints, leadership risks mistaking release velocity for true progress and wasting engineering capital on features users claim to want but never actually use.</p>
-			
-			<h5>How I Would Approach This Problem and Why</h5>
-			<ul style="padding-left: 18px; color: rgba(255, 255, 255, 0.85);">
-			  <li style="margin-bottom: 8px;">
-				<strong>Establish Telemetry as Behavioral Ground Truth:</strong> I would track interaction metrics such as hesitation delays, workflow abandonment points, and manual workarounds to map what users physically do under live conditions. Establishing an objective baseline of interaction eliminates reliance on memory recall and isolates real-world user behavior from aspirational self-reporting.
-			  </li>
-			  <li style="margin-bottom: 8px;">
-				<strong>Investigate Signal Divergence via Retrospective Playback Sessions:</strong> When self-reported feedback conflicts with observed telemetry, I would walk users back through recordings or event logs of their own recent sessions. Grounding discussions in specific drop-off moments allows me to probe what the user was trying to accomplish at that exact instant, uncovering hidden UX friction without triggering defensive rationalizations.
-			  </li>
-			  <li style="margin-bottom: 8px;">
-				<strong>Apply Conflict Diagnostic Logic to Categorize User Signal:</strong> Instead of averaging conflicting survey scores and usage metrics, I would process divergent data through explicit diagnostic rules. This logic would separate usability bottlenecks (high intent blocked by poor interface design) from aspirational noise (high survey interest with zero interaction friction), ensuring engineering sprints target genuine value drivers.
-			  </li>
-			</ul>
+    <!-- Playbook 3 -->
+    <div class="playbook-item project mb-3" onclick="togglePlaybook(this)">
+      <div class="project-header">
+        <div>
+          <div style="font-size: 11px; font-weight: 700; text-transform: uppercase; letter-spacing: 1px; color: var(--primary-green); margin-bottom: 2px;">PLAYBOOK 03</div>
+          <h4 class="hover-underline" style="margin: 0;">Resolving the Say-Do Gap to Drive Actionable Product Directives</h4>
+        </div>
+        <i class="bi bi-chevron-down project-toggle-icon"></i>
+      </div>
+      
+      <div class="project-content">
+        <h5 style="font-size: 1.05rem !important; color: #fff !important; font-weight: 700 !important; margin-top: 16px !important; margin-bottom: 6px !important; text-transform: none !important;">The Problem</h5>
+        <p style="font-size: 0.9rem !important; line-height: 1.6 !important; color: rgba(255, 255, 255, 0.85) !important;">Relying on self-reported user sentiment or behavioral telemetry in isolation creates major strategic risk because individuals are frequently unreliable narrators of their own habits. When survey responses directly contradict live interaction metrics, product teams struggle to diagnose whether low feature adoption stems from severe usability friction, an automated background habit, or purely aspirational intent. Without a structured framework to reconcile this disconnect within project constraints, leadership risks mistaking release velocity for true progress and wasting engineering capital on features users claim to want but never actually use.</p>
+        
+        <h5 style="font-size: 1.05rem !important; color: #fff !important; font-weight: 700 !important; margin-top: 16px !important; margin-bottom: 6px !important; text-transform: none !important;">How I Would Approach This Problem and Why</h5>
+        <ul style="padding-left: 18px; color: rgba(255, 255, 255, 0.85);">
+          <li style="font-size: 0.9rem !important; line-height: 1.6 !important; margin-bottom: 8px;">
+            <strong>Establish Telemetry as Behavioral Ground Truth:</strong> I would track interaction metrics such as hesitation delays, workflow abandonment points, and manual workarounds to map what users physically do under live conditions. Establishing an objective baseline of interaction eliminates reliance on memory recall and isolates real-world user behavior from aspirational self-reporting.
+          </li>
+          <li style="font-size: 0.9rem !important; line-height: 1.6 !important; margin-bottom: 8px;">
+            <strong>Investigate Signal Divergence via Retrospective Playback Sessions:</strong> When self-reported feedback conflicts with observed telemetry, I would walk users back through recordings or event logs of their own recent sessions. Grounding discussions in specific drop-off moments allows me to probe what the user was trying to accomplish at that exact instant, uncovering hidden UX friction without triggering defensive rationalizations.
+          </li>
+          <li style="font-size: 0.9rem !important; line-height: 1.6 !important; margin-bottom: 8px;">
+            <strong>Apply Conflict Diagnostic Logic to Categorize User Signal:</strong> Instead of averaging conflicting survey scores and usage metrics, I would process divergent data through explicit diagnostic rules. This logic would separate usability bottlenecks (high intent blocked by poor interface design) from aspirational noise (high survey interest with zero interaction friction), ensuring engineering sprints target genuine value drivers.
+          </li>
+        </ul>
 
-			<h5>The Decision Output</h5>
-			<p style="margin-bottom: 0;">A synthesized conflict resolution matrix that translates divergent attitudinal and behavioral data into explicit execution directives: Kill, Fix UX, or Automate Defaults. It provides product and engineering leadership with clear, risk-adjusted directives on whether to overhaul workflow UI, deprecate aspirational feature requests, or reallocate development cycles toward high-utility daily habits.</p>
-		  </div>
+        <h5 style="font-size: 1.05rem !important; color: #fff !important; font-weight: 700 !important; margin-top: 16px !important; margin-bottom: 6px !important; text-transform: none !important;">The Decision Output</h5>
+        <p style="font-size: 0.9rem !important; line-height: 1.6 !important; color: rgba(255, 255, 255, 0.85) !important; margin-bottom: 0;">A synthesized conflict resolution matrix that translates divergent attitudinal and behavioral data into explicit execution directives: Kill, Fix UX, or Automate Defaults. It provides product and engineering leadership with clear, risk-adjusted directives on whether to overhaul workflow UI, deprecate aspirational feature requests, or reallocate development cycles toward high-utility daily habits.</p>
+      </div>
+    </div>
 
-		  <!-- Playbook 4 -->
-		  <div class="playbook-card">
-			<div style="font-size: 11px; font-weight: 700; text-transform: uppercase; letter-spacing: 1px; color: var(--primary-green); margin-bottom: 4px;">PLAYBOOK 04</div>
-			<h3>Building Products That Work For A Global Audience While Ensuring They Work Locally</h3>
-			
-			<h5>The Problem</h5>
-			<p>Expanding software globally creates a costly dilemma between central efficiency and local market survival. Pushing an identical product worldwide preserves lean engineering costs, but causes low adoption and high churn in regions where local expectations around payments, trust, and workflows differ. Conversely, customizing the product for every country delivers local market fit, but fractures the codebase, inflates development overhead, and erodes margins. Executive leadership lacks a systematic method to determine where the platform must remain globally uniform and where it must adapt to capture regional growth.</p>
-			
-			<h5>How I Would Approach This Problem and Why</h5>
-			<ul style="padding-left: 18px; color: rgba(255, 255, 255, 0.85);">
-			  <li style="margin-bottom: 8px;">
-				<strong>Delineate the Universal Core from Local Dealbreakers:</strong> I would separate the foundational user goal that applies anywhere in the world from the specific regional mechanics needed to complete it. Focusing on universal intent keeps the main engine consistent, while isolating regional friction points—like local payment methods, trust badges, or network constraints—ensures teams solve the exact roadblocks preventing local adoption without rebuilding the app.
-			  </li>
-			  <li style="margin-bottom: 8px;">
-				<strong>Establish Architecture Boundaries with Product and Engineering:</strong> I would define an explicit platform blueprint that locks down roughly eighty percent of core workflows globally while creating modular slots for the remaining twenty percent of regional customization. Setting structural boundaries upfront prevents regional teams from writing isolated code, while giving engineering clear parameters for building reusable, plug-and-play UI components.
-			  </li>
-			  <li style="margin-bottom: 8px;">
-				<strong>Run Localized Validation Within Central Guardrails:</strong> I would direct regional evaluation toward testing localized mechanics and competitive alternatives rather than re-testing global baseline usability. Empowering local teams to validate region-specific mechanics catches critical market-entry failures early, while keeping overall strategy aligned with company-wide metrics and resource allocation.
-			  </li>
-			</ul>
+    <!-- Playbook 4 -->
+    <div class="playbook-item project mb-3" onclick="togglePlaybook(this)">
+      <div class="project-header">
+        <div>
+          <div style="font-size: 11px; font-weight: 700; text-transform: uppercase; letter-spacing: 1px; color: var(--primary-green); margin-bottom: 2px;">PLAYBOOK 04</div>
+          <h4 class="hover-underline" style="margin: 0;">Building Products That Work For A Global Audience While Ensuring They Work Locally</h4>
+        </div>
+        <i class="bi bi-chevron-down project-toggle-icon"></i>
+      </div>
+      
+      <div class="project-content">
+        <h5 style="font-size: 1.05rem !important; color: #fff !important; font-weight: 700 !important; margin-top: 16px !important; margin-bottom: 6px !important; text-transform: none !important;">The Problem</h5>
+        <p style="font-size: 0.9rem !important; line-height: 1.6 !important; color: rgba(255, 255, 255, 0.85) !important;">Expanding software globally creates a costly dilemma between central efficiency and local market survival. Pushing an identical product worldwide preserves lean engineering costs, but causes low adoption and high churn in regions where local expectations around payments, trust, and workflows differ. Conversely, customizing the product for every country delivers local market fit, but fractures the codebase, inflates development overhead, and erodes margins. Executive leadership lacks a systematic method to determine where the platform must remain globally uniform and where it must adapt to capture regional growth.</p>
+        
+        <h5 style="font-size: 1.05rem !important; color: #fff !important; font-weight: 700 !important; margin-top: 16px !important; margin-bottom: 6px !important; text-transform: none !important;">How I Would Approach This Problem and Why</h5>
+        <ul style="padding-left: 18px; color: rgba(255, 255, 255, 0.85);">
+          <li style="font-size: 0.9rem !important; line-height: 1.6 !important; margin-bottom: 8px;">
+            <strong>Delineate the Universal Core from Local Dealbreakers:</strong> I would separate the foundational user goal that applies anywhere in the world from the specific regional mechanics needed to complete it. Focusing on universal intent keeps the main engine consistent, while isolating regional friction points—like local payment methods, trust badges, or network constraints—ensures teams solve the exact roadblocks preventing local adoption without rebuilding the app.
+          </li>
+          <li style="font-size: 0.9rem !important; line-height: 1.6 !important; margin-bottom: 8px;">
+            <strong>Establish Architecture Boundaries with Product and Engineering:</strong> I would define an explicit platform blueprint that locks down roughly eighty percent of core workflows globally while creating modular slots for the remaining twenty percent of regional customization. Setting structural boundaries upfront prevents regional teams from writing isolated code, while giving engineering clear parameters for building reusable, plug-and-play UI components.
+          </li>
+          <li style="font-size: 0.9rem !important; line-height: 1.6 !important; margin-bottom: 8px;">
+            <strong>Run Localized Validation Within Central Guardrails:</strong> I would direct regional evaluation toward testing localized mechanics and competitive alternatives rather than re-testing global baseline usability. Empowering local teams to validate region-specific mechanics catches critical market-entry failures early, while keeping overall strategy aligned with company-wide metrics and resource allocation.
+          </li>
+        </ul>
 
-			<h5>The Decision Output</h5>
-			<p style="margin-bottom: 0;">An Executive Localization &amp; Architectural Blueprint that maps universal product functionality against approved regional extensions, equipping Product and Engineering leads with clear operational criteria to decide when to enforce global standardization and when to build modular regional features.</p>
-		  </div>
+        <h5 style="font-size: 1.05rem !important; color: #fff !important; font-weight: 700 !important; margin-top: 16px !important; margin-bottom: 6px !important; text-transform: none !important;">The Decision Output</h5>
+        <p style="font-size: 0.9rem !important; line-height: 1.6 !important; color: rgba(255, 255, 255, 0.85) !important; margin-bottom: 0;">An Executive Localization &amp; Architectural Blueprint that maps universal product functionality against approved regional extensions, equipping Product and Engineering leads with clear operational criteria to decide when to enforce global standardization and when to build modular regional features.</p>
+      </div>
+    </div>
 
-		</div>
-	  </section>
+  </div>
+</section>
+
+<!-- Utility Script for Playbook Accordion Toggle -->
+<script>
+  function togglePlaybook(element) {
+    element.classList.toggle('active');
+    var content = element.querySelector('.project-content');
+    if (element.classList.contains('active')) {
+      if (content) content.style.display = 'block';
+    } else {
+      if (content) content.style.display = 'none';
+    }
+  }
+</script>
 	  <!-- End Capabilities Section -->
 
   <!-- ======= Resume Details Section ======= -->
